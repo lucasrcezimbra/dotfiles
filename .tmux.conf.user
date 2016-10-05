@@ -1,4 +1,0 @@
-# Screen like binding
-unbind C-a
-set -g prefix C-w
-# bind a send-prefix
