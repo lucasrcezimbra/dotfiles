@@ -1,8 +1,4 @@
-cd ~
-git clone https://github.com/Lrcezimbra/dotfiles ~/dotfiles
-mv .zshrc .zshrc_backup
-
-cd ~/dotfiles
-ln -s zshrc ~/.zshrc
-ln -s gitconfig ~/.gitconfig
-
+mv ~/.zshrc ~/.zshrc_backup 2> /dev/null 
+mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
+cp zshrc ~/.zshrc
+cp gitconfig ~/.gitconfig
