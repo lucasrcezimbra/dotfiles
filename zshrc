@@ -28,3 +28,5 @@ function n(){
     nautilus $PWD 2> /dev/null
   fi
 }
+
+alias sa='source .venv/bin/activate'
