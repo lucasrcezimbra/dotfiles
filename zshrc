@@ -1,7 +1,7 @@
 export ZSH=/home/lucas/.oh-my-zsh
 export EDITOR='vim'
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="af-magic"
 plugins=(autojump heroku git gitignore gulp pip pyenv python virtualenv)
 
 source $ZSH/oh-my-zsh.sh
