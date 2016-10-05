@@ -1,1 +1,8 @@
-cp -R .gitconfig.user .tmux.conf.user .zsh.after/ $HOME
+cd ~
+git clone https://github.com/Lrcezimbra/dotfiles ~/dotfiles
+mv .zshrc .zshrc_backup
+
+cd ~/dotfiles
+ln -s zshrc ~/.zshrc
+ln -s gitconfig ~/.gitconfig
+
