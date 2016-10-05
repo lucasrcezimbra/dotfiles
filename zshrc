@@ -23,8 +23,8 @@ eval "$(hub alias -s)"
 
 function n(){
   if [ $1 ]; then
-    nautilus $1 >> /dev/null
+    nautilus $1 2> /dev/null
   else
-    nautilus $PWD >> /dev/null
+    nautilus $PWD 2> /dev/null
   fi
 }
