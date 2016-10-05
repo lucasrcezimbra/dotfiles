@@ -30,3 +30,4 @@ function n(){
 }
 
 alias sa='source .venv/bin/activate'
+alias manage='python $VIRTUAL_ENV/../manage.py'
