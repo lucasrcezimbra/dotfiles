@@ -11,16 +11,6 @@ export PATH="/home/lucas/.pyenv/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
-# navigation alias
-alias ~='cd ~'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-
-# alias git=hub
-eval "$(hub alias -s)"
-
 function n(){
   if [ $1 ]; then
     nautilus $1 2> /dev/null
@@ -29,5 +19,17 @@ function n(){
   fi
 }
 
+# alias
+# gulp
+alias gub='gulp build'
+alias guw='gulp watch'
+# alias git=hub
+eval "$(hub alias -s)"
+# navigation
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+# python
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
