@@ -22,4 +22,12 @@ filetype plugin indent on    " required
 
 " Indent
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType php setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+
+" Pydebug
+command Pydebug :call Pydebug()
+function! Pydebug()
+	let trace = expand("import pdb; pdb.set_trace()")
+	execute "normal o".trace
+endfunction
