@@ -17,6 +17,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
