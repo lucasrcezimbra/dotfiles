@@ -31,3 +31,6 @@ function! Pydebug()
 	let trace = expand("import pdb; pdb.set_trace()")
 	execute "normal o".trace
 endfunction
+
+let loaded_matchparen = 1 " Don't hightlight parentheses, brackets and braces
+
