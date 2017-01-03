@@ -33,3 +33,7 @@ alias .....='cd ../../../../'
 # python
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
+
+function gig() {
+	curl -L -s https://www.gitignore.io/api/$1 ;
+}
