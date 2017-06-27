@@ -39,5 +39,5 @@ function gig() {
 }
 
 function tg() {
-	curl -X POST -d '{"text":"'$1'"}' https://integram.org/cneD5wITETV
+	curl -X POST -d "{\"text\":\"$*\"}" https://integram.org/cneD5wITETV
 }
