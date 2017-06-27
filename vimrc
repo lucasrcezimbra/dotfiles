@@ -18,6 +18,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'chrisbra/Colorizer'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -35,3 +36,4 @@ endfunction
 
 let loaded_matchparen = 1 " Don't hightlight parentheses, brackets and braces
 
+let g:colorizer_auto_color = 1 " Color hex colors in css
