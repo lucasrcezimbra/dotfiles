@@ -11,14 +11,6 @@ export PATH="/home/lucas/.pyenv/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
-function n(){
-  if [ $1 ]; then
-    nautilus $1 2> /dev/null
-  else
-    nautilus $PWD 2> /dev/null
-  fi
-}
-
 # alias
 # gulp
 alias gub='gulp build'
@@ -34,6 +26,18 @@ alias .....='cd ../../../../'
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
 
+function n(){
+  if [ $1 ]; then
+    nautilus $1 2> /dev/null
+  else
+    nautilus $PWD 2> /dev/null
+  fi
+}
+
 function gig() {
 	curl -L -s https://www.gitignore.io/api/$1 ;
+}
+
+function tg() {
+	curl -X POST -d '{"text":"'$1'"}' https://integram.org/cneD5wITETV
 }
