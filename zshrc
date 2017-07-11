@@ -1,4 +1,4 @@
-export ZSH=/home/lucas/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export EDITOR='vim'
 
 ZSH_THEME="af-magic"
@@ -7,7 +7,7 @@ plugins=(autojump heroku git gitignore gulp pip pyenv python virtualenv)
 source $ZSH/oh-my-zsh.sh
 
 # pyenv
-export PATH="/home/lucas/.pyenv/bin:$PATH"
+export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
