@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-let g:ycm_python_binary_path = 'python'    " Form YouCompleteMe
 set noswapfile                             " Dont create .swp
 
 " Show lines
@@ -16,9 +15,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'chrisbra/Colorizer'
+Plugin 'tpope/vim-commentary'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Yggdroot/indentLine'
+Plugin 'sheerun/vim-polyglot'
+" Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
