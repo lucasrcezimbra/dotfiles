@@ -41,3 +41,8 @@ function gig() {
 function tg() {
 	curl -X POST -d "{\"text\":\"$*\"}" https://integram.org/cneD5wITETV
 }
+
+. ~/.dotfiles/zshrc.local
+
+alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\"" 
+alias c=calc
