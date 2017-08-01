@@ -24,6 +24,7 @@ Plugin 'sheerun/vim-polyglot'
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'raimon49/requirements.txt.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
