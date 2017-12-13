@@ -1,7 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set noswapfile                             " Dont create .swp
+set noswapfile " Dont create .swp
+set hlsearch   " Highlight search
 
 " Show lines
 set number
@@ -40,7 +41,7 @@ function! Pydebug()
 	execute "normal o".trace
 endfunction
 
-let loaded_matchparen = 1 " Don't hightlight parentheses, brackets and braces
+let loaded_matchparen = 1 " Don't highlight parentheses, brackets and braces
 
 let g:colorizer_auto_color = 1 " Color hex colors in css
 
