@@ -27,6 +27,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'raimon49/requirements.txt.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'fisadev/vim-isort'
+Plugin 'unblevable/quick-scope'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -50,3 +52,5 @@ let g:colorizer_auto_color = 1 " Color hex colors in css
 highlight ColorColumn ctermbg=DarkGrey
 set colorcolumn=80
 syntax on
+
+let g:vim_isort_python_version = 'python3'
