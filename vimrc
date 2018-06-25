@@ -33,6 +33,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Indentation
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType php setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
