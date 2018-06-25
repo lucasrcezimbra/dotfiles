@@ -28,9 +28,9 @@ alias manage='python $VIRTUAL_ENV/../manage.py'
 
 function n(){
   if [ $1 ]; then
-    nautilus $1 2> /dev/null
+    thunar $1 2> /dev/null
   else
-    nautilus $PWD 2> /dev/null
+    thunar $PWD 2> /dev/null
   fi
 }
 
