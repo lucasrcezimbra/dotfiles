@@ -49,3 +49,4 @@ let g:colorizer_auto_color = 1 " Color hex colors in css
 " ColorColumn 80
 highlight ColorColumn ctermbg=DarkGrey
 set colorcolumn=80
+syntax on
