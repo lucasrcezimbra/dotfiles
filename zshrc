@@ -17,11 +17,17 @@ alias gub='gulp build'
 alias guw='gulp watch'
 # alias git=hub
 eval "$(hub alias -s)"
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gs='git status'
+
 # navigation
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
+
 # python
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
