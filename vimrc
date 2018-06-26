@@ -22,7 +22,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Yggdroot/indentLine'
 Plugin 'sheerun/vim-polyglot'
-" Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'raimon49/requirements.txt.vim'
@@ -58,3 +58,7 @@ set colorcolumn=80
 syntax on
 
 let g:vim_isort_python_version = 'python3'
+
+" jedi-vim
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = "<C-p>"
