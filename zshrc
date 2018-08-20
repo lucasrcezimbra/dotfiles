@@ -52,3 +52,5 @@ function tg() {
 
 alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\"" 
 alias c=calc
+
+alias weather='curl wttr.in/Porto+Alegre'
