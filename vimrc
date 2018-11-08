@@ -66,3 +66,6 @@ let g:jedi#completions_command = "<C-p>"
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(pyc)$'
+
+" vimgrep
+set wildignore+=*.pyc
