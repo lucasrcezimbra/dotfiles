@@ -12,12 +12,8 @@ eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
 # alias
-# gulp
-alias gub='gulp build'
-alias guw='gulp watch'
 # alias git=hub
 eval "$(hub alias -s)"
-alias g='git'
 alias ga='git add'
 alias gc='git commit'
 alias gs='git status'
