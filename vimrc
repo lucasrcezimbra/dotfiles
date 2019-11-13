@@ -59,6 +59,7 @@ set colorcolumn=80
 syntax on
 
 let g:vim_isort_python_version = 'python3'
+map <F8> :Isort<CR>
 
 " jedi-vim
 let g:jedi#popup_on_dot = 0
