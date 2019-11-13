@@ -54,3 +54,6 @@ alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\""
 alias c=calc
 
 alias weather='curl wttr.in/Porto+Alegre'
+
+alias pysort="git status -s | cut -d ' ' -f 3 | xargs isort"
+alias pyflake="git status -s | cut -d ' ' -f 3 | xargs flake8"
