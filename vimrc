@@ -70,3 +70,4 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(pyc)$'
 
 " vimgrep
 set wildignore+=*.pyc
+set wildignore+=node_modules/**
