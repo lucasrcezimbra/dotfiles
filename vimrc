@@ -15,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'mattn/emmet-vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/syntastic'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'chrisbra/Colorizer'
 Plugin 'tpope/vim-commentary'
