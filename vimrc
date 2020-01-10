@@ -63,6 +63,7 @@ map <F8> :Isort<CR>
 " jedi-vim
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = "<C-p>"
+let g:jedi#use_tabs_not_buffers = 1
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(pyc)$'
