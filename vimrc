@@ -40,6 +40,8 @@ autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType php setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType sql setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd BufEnter *.ts setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd BufEnter *.tsx setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Pydebug
 command Pydebug :call Pydebug()
@@ -67,6 +69,7 @@ let g:jedi#use_tabs_not_buffers = 1
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(pyc)$'
+let g:ctrlp_custom_ignore = 'node_modules'
 
 " vimgrep
 set wildignore+=*.pyc
