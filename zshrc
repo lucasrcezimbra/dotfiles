@@ -55,3 +55,5 @@ alias pysort="git status -s | cut -d ' ' -f 3 | xargs isort"
 alias pyflake="git status -s | cut -d ' ' -f 3 | xargs flake8"
 
 export CHROME_BIN=chromium
+
+alias mongod="docker run -d -p 27017:27017 mongo:4.0"
