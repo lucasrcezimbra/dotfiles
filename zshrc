@@ -6,6 +6,9 @@ plugins=(autojump heroku git gitignore gulp pip pyenv python virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
+# terminal style
+export RPROMPT="\$(date +%H:%M:%S) $RPROMPT"
+
 # pyenv
 export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init - zsh)"
