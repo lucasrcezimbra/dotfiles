@@ -47,7 +47,6 @@ function tg() {
 	curl -X POST -d "{\"text\":\"$*\"}" https://integram.org/cneD5wITETV
 }
 
-. ~/.dotfiles/zshrc.local
 
 alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\"" 
 alias c=calc
@@ -59,4 +58,30 @@ alias pyflake="git status -s | cut -d ' ' -f 3 | xargs flake8"
 
 export CHROME_BIN=chromium
 
-alias mongod="docker run -d -p 27017:27017 mongo:4.0"
+function elasticsearch() {
+    NAME="elasticsearch"
+    docker start $NAME
+    if [ $? -ne 0 ]; then
+        docker run -d -p 9200:9200 -p 9300:9300 -e \"discovery.type=single-node\" --name=$NAME elasticsearch:7.5.1
+    fi
+}
+
+function mongod() {
+    NAME="mongo4"
+    docker start $NAME
+    if [ $? -ne 0 ]; then
+        docker run -d -p=27017:27017 --name=$NAME mongo:4.0
+    fi
+}
+
+function mongodreplica() {
+    NAME="mongo4replica"
+    docker start $NAME
+    if [ $? -ne 0 ]; then
+        docker run -d -p=27017:27017 --name=$NAME mongo:4.0 mongod --replSet replocal
+        docker container start $NAME
+        docker exec -it $NAME mongo --eval 'rs.initiate({_id: "replocal", members: [{_id: 0, host: "127.0.0.1:27017"}] })'
+    fi
+}
+
+. ~/.dotfiles/zshrc.local
