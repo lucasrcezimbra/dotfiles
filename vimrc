@@ -28,6 +28,7 @@ Plugin 'raimon49/requirements.txt.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fisadev/vim-isort'
 Plugin 'unblevable/quick-scope'
+Plugin 'preservim/nerdtree'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -74,3 +75,6 @@ let g:ctrlp_custom_ignore = 'node_modules'
 " vimgrep
 set wildignore+=*.pyc
 set wildignore+=node_modules/**
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
