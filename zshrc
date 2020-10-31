@@ -14,9 +14,7 @@ export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
-# alias
-# alias git=hub
-eval "$(hub alias -s)"
+# git
 alias ga='git add'
 alias gc='git commit'
 alias gs='git status'
