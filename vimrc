@@ -29,6 +29,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fisadev/vim-isort'
 Plugin 'unblevable/quick-scope'
 Plugin 'preservim/nerdtree'
+Plugin 'python-mode/python-mode'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -78,3 +79,7 @@ set wildignore+=node_modules/**
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" python-mode
+let g:pymode = 0
+let g:pymode_rope = 0
