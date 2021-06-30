@@ -1,3 +1,8 @@
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 export ZSH=~/.oh-my-zsh
 export EDITOR='vim'
 
@@ -8,11 +13,6 @@ source $ZSH/oh-my-zsh.sh
 
 # terminal style
 export RPROMPT="\$(date +%H:%M:%S) $RPROMPT"
-
-# pyenv
-export PATH="~/.pyenv/bin:$PATH"
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
 
 # git
 alias ga='git add'
