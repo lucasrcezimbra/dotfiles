@@ -77,7 +77,6 @@ function mongodreplica() {
     docker start $NAME
     if [ $? -ne 0 ]; then
         docker run -d -p=27017:27017 --name=$NAME mongo:4.0 mongod --replSet replocal
-        docker container start $NAME
         docker exec -it $NAME mongo --eval 'rs.initiate({_id: "replocal", members: [{_id: 0, host: "127.0.0.1:27017"}] })'
     fi
 }
