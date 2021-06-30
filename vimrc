@@ -76,6 +76,7 @@ let g:ctrlp_custom_ignore = 'node_modules'
 " vimgrep
 set wildignore+=*.pyc
 set wildignore+=node_modules/**
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
