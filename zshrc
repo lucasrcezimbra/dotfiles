@@ -60,7 +60,7 @@ function elasticsearch() {
     NAME="elasticsearch"
     docker start $NAME
     if [ $? -ne 0 ]; then
-        docker run -d -p 9200:9200 -p 9300:9300 -e \"discovery.type=single-node\" --name=$NAME elasticsearch:7.5.1
+        docker run -d -p 9200:9200 -p 9300:9300 -e \"discovery.type=single-node\" --name=$NAME elasticsearch:7.6.2
     fi
 }
 
