@@ -52,7 +52,8 @@ alias c=calc
 alias weather='curl wttr.in/Porto+Alegre'
 
 alias pysort="git status -s | cut -d ' ' -f 3 | xargs isort"
-alias pyflake="git status -s | cut -d ' ' -f 3 | xargs flake8"
+alias pyflake="git status -s | grep '.py' | cut -d ' ' -f 3 | xargs flake8"
+alias pyblack="git status -s | grep '.py' | cut -d ' ' -f 3 | xargs black"
 
 export CHROME_BIN=chromium
 
