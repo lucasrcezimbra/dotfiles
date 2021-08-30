@@ -51,6 +51,7 @@ function! Pydebug()
 	let trace = expand("import ipdb; ipdb.set_trace()")
 	execute "normal o".trace
 endfunction
+map <F12> :Pydebug<CR>
 
 let loaded_matchparen = 1 " Don't highlight parentheses, brackets and braces
 
