@@ -1,6 +1,7 @@
 # .zshrc
 mv ~/.zshrc ~/.zshrc_backup 2> /dev/null 
 echo ". $PWD/zshrc" >> ~/.zshrc
+touch zshrc.local
 
 # install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
