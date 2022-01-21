@@ -44,6 +44,10 @@ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev li
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 
 
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+
 # zsh
 chsh -s $(which zsh)
 # oh-my-zsh
