@@ -32,7 +32,7 @@ sudo apt-get install -y vim vim-python-jedi
 sudo apt-get install -y zeal
 sudo apt-get install -y zsh
 # bluetooth
-sudo apt install blueman bluez-* pulseaudio-module-bluetooth
+sudo apt install blueman bluez-* pulseaudio-module-bluetooth bluemon
 
 # clean
 sudo apt-get autoremove -y
@@ -65,6 +65,7 @@ sudo usermod -aG docker $USER
 # docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
 
 # # Install Hub
 # wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
