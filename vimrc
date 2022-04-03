@@ -1,3 +1,5 @@
+let g:polyglot_disabled = ['markdown']
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
