@@ -32,6 +32,7 @@ Plugin 'fisadev/vim-isort'
 Plugin 'unblevable/quick-scope'
 Plugin 'preservim/nerdtree'
 Plugin 'python-mode/python-mode'
+Plugin 'KabbAmine/zeavim.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
