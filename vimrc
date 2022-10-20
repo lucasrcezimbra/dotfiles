@@ -33,6 +33,7 @@ Plugin 'unblevable/quick-scope'
 Plugin 'preservim/nerdtree'
 Plugin 'python-mode/python-mode'
 Plugin 'KabbAmine/zeavim.vim'
+Plugin 'nathangrigg/vim-beancount'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
