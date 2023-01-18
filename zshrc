@@ -1,3 +1,7 @@
+# neovim
+alias vim=nvim
+alias v=nvim
+
 # snap
 export PATH="/snap/bin:$PATH"
 
