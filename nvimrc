@@ -2,9 +2,11 @@ source ~/.dotfiles/vimrc
 
 let g:python3_host_prog = "python"
 
+
 call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'lewis6991/gitsigns.nvim'
 call plug#end()            " required
 
 
