@@ -28,7 +28,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'raimon49/requirements.txt.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'fisadev/vim-isort'
 Plugin 'unblevable/quick-scope'
 Plugin 'preservim/nerdtree'
 Plugin 'python-mode/python-mode'
@@ -65,9 +64,6 @@ let g:colorizer_auto_color = 1 " Color hex colors in css
 highlight ColorColumn ctermbg=DarkGrey
 set colorcolumn=80
 syntax on
-
-let g:vim_isort_python_version = 'python3'
-map <F8> :Isort<CR>
 
 " jedi-vim
 let g:jedi#popup_on_dot = 0
