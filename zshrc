@@ -1,6 +1,7 @@
 # neovim
-alias vim=nvim
-alias v=nvim
+alias vim=lvim
+alias v=lvim
+export PATH="$HOME/.local/bin:$PATH"
 
 # snap
 export PATH="/snap/bin:$PATH"
