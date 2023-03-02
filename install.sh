@@ -15,11 +15,11 @@ xfconf-query --channel xfce4-panel --property '/plugins/plugin-1/button-title' -
 xfconf-query --channel xfce4-panel --property '/plugins/plugin-2/grouping' --set '0'
 
 
-
 # Update
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get autoremove -y
+
 
 # Install
 sudo apt-get install -y autojump
@@ -33,23 +33,32 @@ sudo apt-get install -y vim vim-python-jedi
 sudo apt-get install -y zeal
 sudo apt-get install -y zsh
 
+
 # bluetooth
-sudo apt install blueman bluez-* pulseaudio-module-bluetooth
+sudo apt install blueman bluez-* pulseaudio-module-bluetooth bluemon
+
 
 # clean
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 
+
 # Install pyenv
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 
-# Make zsh default
+
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+
+# zsh
 chsh -s $(which zsh)
 # oh-my-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-# Install Docker
+
+# Docker
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
@@ -57,13 +66,13 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER
 
-# # Install Hub
-# wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
-# tar -xvzf hub-linux-amd64-2.2.9.tgz
-# sudo ./hub-linux-amd64-2.2.9/install
-# rm -rf hub-linux-amd64-2.2.9 hub-linux-amd64-2.2.9.tgz
 
-#Create SSH
+# docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+# SSH
 ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
 
 
@@ -92,3 +101,5 @@ cp gitconfig ~/.gitconfig
 # LunarVim
 curl https://sh.rustup.rs -sSf | sh   # Rust
 LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
+mv ~/.config/lvim/config.lua ~/.config/lvim/config.lua.bkp
+ln -s ./lvim.lua ~/.config/lvim/config.lua
