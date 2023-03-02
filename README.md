@@ -3,6 +3,9 @@
 ## Install
 
 ```bash
-sudo apt update -y && sudo apt install curl -y
-curl https://raw.githubusercontent.com/lucasrcezimbra/dotfiles/master/setup.sh | bash
+cd ~
+sudo apt update -y && sudo apt install -y git
+git clone git@github.com:lucasrcezimbra/dotfiles.git .dotfiles
+cd .dotfiles
+sh ./install.sh
 ```
