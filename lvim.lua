@@ -31,7 +31,18 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
+
+-- change from pyright to jedi
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+require("lvim.lsp.manager").setup("jedi_language_server")
+
+
+-- set additional linters
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "flake8", filetypes = { "python" } },
+}
+
 
 -- Additional Plugins
 lvim.plugins = {
@@ -62,3 +73,8 @@ table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
 lvim.keys.normal_mode["<leader>T"] = ":TestFile<cr>"
 lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
+
+lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"
+
+
