@@ -1,3 +1,8 @@
+# aws
+alias av='aws-vault'
+alias ave='aws-vault exec'
+alias avl='aws-vault login'
+
 # neovim
 alias vim=lvim
 alias v=lvim
