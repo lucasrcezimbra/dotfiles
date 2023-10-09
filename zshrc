@@ -12,6 +12,12 @@ plugins=(autojump heroku git gitignore gulp pip pyenv python virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
+
+# experiments
+alias cat=batcat
+alias ls=exa
+alias grep=rg
+
 # aws
 alias av='aws-vault'
 alias ave='aws-vault exec'
