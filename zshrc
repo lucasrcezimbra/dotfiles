@@ -41,6 +41,7 @@ alias .....='cd ../../../../'
 # python
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
+alias pmanage='poetry run python $PWD/manage.py'
 
 function n(){
   if [ $1 ]; then
