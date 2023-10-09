@@ -1,3 +1,17 @@
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# Oh my zsh
+export ZSH=~/.oh-my-zsh
+export EDITOR='vim'
+
+ZSH_THEME="af-magic"
+plugins=(autojump heroku git gitignore gulp pip pyenv python virtualenv)
+
+source $ZSH/oh-my-zsh.sh
+
 # aws
 alias av='aws-vault'
 alias ave='aws-vault exec'
@@ -10,19 +24,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # snap
 export PATH="/snap/bin:$PATH"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-export ZSH=~/.oh-my-zsh
-export EDITOR='vim'
-
-ZSH_THEME="af-magic"
-plugins=(autojump heroku git gitignore gulp pip pyenv python virtualenv)
-
-source $ZSH/oh-my-zsh.sh
 
 # terminal style
 export RPROMPT="\$(date +%H:%M:%S) $RPROMPT"
