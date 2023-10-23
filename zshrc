@@ -157,4 +157,9 @@ chpwd_functions=(${chpwd_functions[@]} "_zoxide_hook")
 alias cd=z
 alias j=z
 
+# asdf
+. "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit
+
 . ~/.dotfiles/zshrc.local
