@@ -43,13 +43,22 @@ sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 
 
-# Install pyenv
+# pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 
 
-# nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# asdf 
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+
+
+# Ruby
+sudo apt-get install -y autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
+# asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+
+
+# Node.js
+# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
 
 # zsh
