@@ -79,7 +79,7 @@ alias pyblack="git status -s | grep '.py' | cut -d ' ' -f 3 | xargs black"
 export CHROME_BIN=chromium
 
 # Docker
-alias dockerkillall="docker ps -q | xargs docker kill"
+alias ,dockerkillall="docker ps -q | xargs docker kill"
 function elasticsearch() {
     NAME="elasticsearch"
     docker start $NAME
