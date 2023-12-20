@@ -159,6 +159,7 @@ alias j=z
 
 # asdf
 . "$HOME/.asdf/asdf.sh"
+export ASDF_DIR=$HOME/.asdf/
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
