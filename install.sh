@@ -50,19 +50,6 @@ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libread
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 
 
-# asdf 
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-
-
-# Ruby
-sudo apt-get install -y autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
-# asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-
-
-# Node.js
-# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-
-
 # zsh
 chsh -s $(which zsh)
 # oh-my-zsh
@@ -114,3 +101,7 @@ curl https://sh.rustup.rs -sSf | sh   # Rust
 LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
 mv ~/.config/lvim/config.lua ~/.config/lvim/config.lua.bkp
 ln -s ./lvim.lua ~/.config/lvim/config.lua
+
+
+# mise
+curl https://mise.jdx.dev/install.sh | sh
