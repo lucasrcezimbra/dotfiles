@@ -1,6 +1,7 @@
 # XFCE
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>d' --set 'thunar Downloads' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>f' --set 'thunar' --create --type 'string'
+xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>m' --set 'thunar Pictures/memes/' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>r' --set 'xfce4-appfinder' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>s' --set 'mousepad Desktop/strings' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>t' --set 'xfce4-terminal' --create --type 'string'
