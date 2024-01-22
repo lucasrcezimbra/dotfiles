@@ -8,7 +8,37 @@ export ZSH=~/.oh-my-zsh
 export EDITOR='vim'
 
 ZSH_THEME="af-magic"
-plugins=(autojump heroku git gitignore gulp pip pyenv python virtualenv)
+plugins=(
+  bgnotify
+  colored-man-pages
+  command-not-found
+  copybuffer
+  copyfile
+  copypath
+  extract
+  gitfast
+  gitignore
+  globalias
+  hasura
+  mise
+  per-directory-history
+  pip
+  poetry
+  pyenv
+  python
+  qrcode
+  ripgrep
+  safe-paste
+  terraform
+  timer
+  ufw
+  universalarchive
+  urltools
+  virtualenv
+  web-search
+  yarn
+  zoxide
+)
 
 source $ZSH/oh-my-zsh.sh
 
