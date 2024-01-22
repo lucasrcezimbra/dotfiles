@@ -46,6 +46,11 @@ source $ZSH/oh-my-zsh.sh
 alias ls=exa
 alias grep=rg
 
+# files
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+
 # aws
 alias av='aws-vault'
 alias ave='aws-vault exec'
@@ -59,19 +64,21 @@ export PATH="$HOME/.local/bin:$PATH"
 # snap
 export PATH="/snap/bin:$PATH"
 
-# terminal style
-export RPROMPT="\$(date +%H:%M:%S) $RPROMPT"
-
 # git
+alias g='git'
 alias ga='git add'
 alias gc='git commit'
+alias gd='git diff'
 alias gs='git status'
+alias gig='gi'
 
 # navigation
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
+alias cd=z
+alias j=z
 
 # python
 alias sa='source .venv/bin/activate'
