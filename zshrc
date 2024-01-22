@@ -42,9 +42,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-
 # experiments
-alias cat=batcat
 alias ls=exa
 alias grep=rg
 
