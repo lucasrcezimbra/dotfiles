@@ -96,8 +96,11 @@ mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
 cp gitconfig ~/.gitconfig
 
 
-# LunarVim
+# Rust
 curl https://sh.rustup.rs -sSf | sh   # Rust
+
+
+# LunarVim
 LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
 mv ~/.config/lvim/config.lua ~/.config/lvim/config.lua.bkp
 ln -s ./lvim.lua ~/.config/lvim/config.lua
@@ -105,3 +108,7 @@ ln -s ./lvim.lua ~/.config/lvim/config.lua
 
 # mise
 curl https://mise.jdx.dev/install.sh | sh
+
+
+# startship
+cargo install starship --locked

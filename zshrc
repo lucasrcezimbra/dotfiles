@@ -29,8 +29,8 @@ plugins=(
   qrcode
   ripgrep
   safe-paste
+  starship
   terraform
-  timer
   ufw
   universalarchive
   urltools
