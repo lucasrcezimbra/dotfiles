@@ -21,7 +21,6 @@ plugins=(
   gitfast
   gitignore
   globalias
-  hasura
   mise
   per-directory-history
   pip
