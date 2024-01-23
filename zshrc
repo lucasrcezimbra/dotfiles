@@ -16,6 +16,8 @@ plugins=(
   copyfile
   copypath
   extract
+  fd
+  gh
   gitfast
   gitignore
   globalias
@@ -45,6 +47,7 @@ source $ZSH/oh-my-zsh.sh
 # experiments
 alias ls=exa
 alias grep=rg
+alias find=fd
 
 # files
 alias cp='cp -i'
