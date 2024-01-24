@@ -75,6 +75,7 @@ alias gig='gi'
 # helpers
 alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\"" 
 alias c=calc
+eval $(thefuck --alias)
 
 # navigation
 alias ..='cd ..'
