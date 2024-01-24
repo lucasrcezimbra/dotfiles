@@ -72,8 +72,9 @@ alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff'
 alias gd-='git diff --cached'
-alias gp='git push'
+alias gll='git pull'
 alias gs='git status'
+alias gsh='git push'
 alias gig='gi'
 
 # helpers
