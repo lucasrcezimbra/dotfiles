@@ -69,8 +69,11 @@ export PATH="/snap/bin:$PATH"
 # git
 alias g='git'
 alias ga='git add'
+alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff'
+alias gd-='git diff --cached'
+alias gp='git push'
 alias gs='git status'
 alias gig='gi'
 
