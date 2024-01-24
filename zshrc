@@ -43,28 +43,23 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# experiments
+# _experiments
 alias ls=exa
 alias grep=rg
 alias find=fd
-
-# files
-alias cp='cp -i'
-alias mv='mv -i'
-alias mkdir='mkdir -p'
 
 # aws
 alias av='aws-vault'
 alias ave='aws-vault exec'
 alias avl='aws-vault login'
 
-# neovim
-alias vim=lvim
-alias v=lvim
-export PATH="$HOME/.local/bin:$PATH"
+# Docker
+alias ,dockerkillall="docker ps -q | xargs docker kill"
 
-# snap
-export PATH="/snap/bin:$PATH"
+# files
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
 
 # git
 alias g='git'
@@ -77,6 +72,10 @@ alias gp='git push'
 alias gs='git status'
 alias gig='gi'
 
+# helpers
+alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\"" 
+alias c=calc
+
 # navigation
 alias ..='cd ..'
 alias ...='cd ../../'
@@ -85,10 +84,24 @@ alias .....='cd ../../../../'
 alias cd=z
 alias j=z
 
+# neovim
+alias vim=lvim
+alias v=lvim
+export PATH="$HOME/.local/bin:$PATH"
+
 # python
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
 alias pmanage='poetry run python $PWD/manage.py'
+
+# selenium
+export CHROME_BIN=chromium
+
+# snap
+export PATH="/snap/bin:$PATH"
+
+# globalias
+GLOBALIAS_FILTER_VALUES=(calc ls pip)
 
 function n(){
   if [ $1 ]; then
@@ -97,16 +110,6 @@ function n(){
     thunar $PWD 2> /dev/null
   fi
 }
-
-alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\"" 
-alias c=calc
-
-GLOBALIAS_FILTER_VALUES=(calc ls pip)
-
-export CHROME_BIN=chromium
-
-# Docker
-alias ,dockerkillall="docker ps -q | xargs docker kill"
 
 function vpn() {
   nmcli connection delete pvpn-ipv6leak-protection
