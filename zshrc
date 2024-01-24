@@ -105,30 +105,6 @@ export CHROME_BIN=chromium
 
 # Docker
 alias ,dockerkillall="docker ps -q | xargs docker kill"
-function elasticsearch() {
-    NAME="elasticsearch"
-    docker start $NAME
-    if [ $? -ne 0 ]; then
-        docker run -d -p 9200:9200 -p 9300:9300 -e \"discovery.type=single-node\" --name=$NAME elasticsearch:7.6.2
-    fi
-}
-
-function mongod() {
-    NAME="mongo4"
-    docker start $NAME
-    if [ $? -ne 0 ]; then
-        docker run -d -p=27017:27017 --name=$NAME mongo:4.0
-    fi
-}
-
-function mongodreplica() {
-    NAME="mongo4replica"
-    docker start $NAME
-    if [ $? -ne 0 ]; then
-        docker run -d -p=27017:27017 --name=$NAME mongo:4.0 mongod --replSet replocal
-        docker exec -it $NAME mongo --eval 'rs.initiate({_id: "replocal", members: [{_id: 0, host: "127.0.0.1:27017"}] })'
-    fi
-}
 
 function vpn() {
   nmcli connection delete pvpn-ipv6leak-protection
