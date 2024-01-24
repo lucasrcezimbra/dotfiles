@@ -4,8 +4,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # pipx
-export PATH="/home/lucas/.local/bin:$PATH"
-
+export PATH="$HOME/.local/bin:$PATH"
 
 # Oh my zsh
 export ZSH=~/.oh-my-zsh
