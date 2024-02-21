@@ -98,3 +98,7 @@ cargo install starship --locked
 
 # thefuck
 pipx install thefuck
+
+# Firewall
+sudo apt-get install ufw
+sudo ufw default deny incoming
