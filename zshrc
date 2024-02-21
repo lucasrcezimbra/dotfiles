@@ -12,35 +12,47 @@ export EDITOR='vim'
 
 ZSH_THEME="af-magic"
 plugins=(
-  bgnotify
-  colored-man-pages
-  command-not-found
-  copybuffer
+  # commands
   copyfile
   copypath
+  gitignore
+  qrcode
+  universalarchive
+  urltools
+  web-search
+
+  # tools
+  bgnotify
+  command-not-found
   extract
+  globalias
+  per-directory-history
+  safe-paste
+
+  # shortcuts
+  copybuffer
+
+  # UI
+  colored-man-pages
+  virtualenv
+  
+  # aliases and completion
+  pip
+  terraform
+  yarn
+
+  # completion only
   fd
   gh
   gitfast
-  gitignore
-  globalias
-  mise
-  per-directory-history
-  pip
   poetry
-  pyenv
-  python
-  qrcode
   ripgrep
-  safe-paste
-  starship
-  terraform
   ufw
-  universalarchive
-  urltools
-  virtualenv
-  web-search
-  yarn
+
+  # init
+  mise
+  pyenv
+  starship
   zoxide
 )
 
