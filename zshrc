@@ -56,6 +56,10 @@ alias av='aws-vault'
 alias ave='aws-vault exec'
 alias avl='aws-vault login'
 
+# configs
+alias vimconfig="cd ~/.dotfiles && vim ."
+alias zshconfig="vim ~/.dotfiles/zshrc"
+
 # Docker
 alias ,dockerkillall="docker ps -q | xargs docker kill"
 
