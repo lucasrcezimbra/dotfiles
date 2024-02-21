@@ -108,7 +108,7 @@ export CHROME_BIN=chromium
 export PATH="/snap/bin:$PATH"
 
 # globalias
-GLOBALIAS_FILTER_VALUES=(calc ls pip)
+GLOBALIAS_FILTER_VALUES=(calc pip)
 
 function n(){
   if [ $1 ]; then
