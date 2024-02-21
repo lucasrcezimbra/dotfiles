@@ -98,6 +98,7 @@ alias gig='gi'
 # helpers
 alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\""
 alias c=calc
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 eval $(thefuck --alias)
 
 # navigation
@@ -125,7 +126,7 @@ export CHROME_BIN=chromium
 export PATH="/snap/bin:$PATH"
 
 # globalias
-GLOBALIAS_FILTER_VALUES=(calc pip)
+GLOBALIAS_FILTER_VALUES=(calc pip timer)
 
 function n(){
   if [ $1 ]; then
