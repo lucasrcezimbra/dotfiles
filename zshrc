@@ -99,7 +99,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # python
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
-alias pmanage='poetry run python $PWD/manage.py'
+alias pmanage='poetry run python manage.py'
 
 # selenium
 export CHROME_BIN=chromium
