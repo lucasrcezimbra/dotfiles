@@ -76,5 +76,3 @@ lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
 
 lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"
-
-

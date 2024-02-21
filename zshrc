@@ -35,7 +35,7 @@ plugins=(
   # UI
   colored-man-pages
   virtualenv
-  
+
   # aliases and completion
   pip
   terraform
@@ -95,7 +95,7 @@ alias gsh='git push'
 alias gig='gi'
 
 # helpers
-alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\"" 
+alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\""
 alias c=calc
 eval $(thefuck --alias)
 

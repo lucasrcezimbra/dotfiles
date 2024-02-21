@@ -65,7 +65,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
 
 # .zshrc
-mv ~/.zshrc ~/.zshrc_backup 2> /dev/null 
+mv ~/.zshrc ~/.zshrc_backup 2> /dev/null
 echo ". $PWD/zshrc" >> ~/.zshrc
 touch zshrc.local
 
