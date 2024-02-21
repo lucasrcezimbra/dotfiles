@@ -47,7 +47,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # _experiments
-alias ls=exa
+alias ls='exa --icons'
 alias grep=rg
 alias find=fd
 
