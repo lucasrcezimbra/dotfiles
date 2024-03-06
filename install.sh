@@ -4,7 +4,7 @@ xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Su
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>m' --set 'thunar Pictures/memes/' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>r' --set 'xfce4-appfinder' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>s' --set 'mousepad Desktop/strings' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>t' --set 'xfce4-terminal' --create --type 'string'
+xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>t' --set 'flatpak run org.wezfurlong.wezterm' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/Print' --set 'xfce4-screenshooter --fullscreen' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Shift>Print' --set 'xfce4-screenshooter --region' --create --type 'string'
 xfconf-query --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Primary><Shift><Alt>Left' --set 'move_window_left_workspace_key'
@@ -102,3 +102,8 @@ pipx install thefuck
 # Firewall
 sudo apt-get install ufw
 sudo ufw default deny incoming
+
+# WezTerm
+flatpak install flathub org.wezfurlong.wezterm
+mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
+ln -s $PWD/wezterm.lua ~/.wezterm.lua

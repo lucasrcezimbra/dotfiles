@@ -62,6 +62,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls='exa --icons'
 alias grep=rg
 alias find=fd
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 # aws
 alias av='aws-vault'
@@ -71,6 +72,7 @@ alias avl='aws-vault login'
 # configs
 alias vimconfig="cd ~/.dotfiles && vim ."
 alias zshconfig="vim ~/.dotfiles/zshrc"
+alias wezconfig="vim ~/.dotfiles/wezterm.lua"
 
 # Docker
 alias ,dockerkillall="docker ps -q | xargs docker kill"
@@ -126,7 +128,7 @@ export CHROME_BIN=chromium
 export PATH="/snap/bin:$PATH"
 
 # globalias
-GLOBALIAS_FILTER_VALUES=(calc pip timer)
+GLOBALIAS_FILTER_VALUES=(calc pip timer wezterm \*)
 
 function n(){
   if [ $1 ]; then
