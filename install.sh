@@ -103,6 +103,9 @@ pipx install thefuck
 sudo apt-get install ufw
 sudo ufw default deny incoming
 
+# eza
+cargo install eza
+
 # WezTerm
 flatpak install flathub org.wezfurlong.wezterm
 mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null

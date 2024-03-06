@@ -59,7 +59,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # _experiments
-alias ls='exa --icons'
+alias ls='eza --icons'
 alias grep=rg
 alias find=fd
 alias wezterm='flatpak run org.wezfurlong.wezterm'
