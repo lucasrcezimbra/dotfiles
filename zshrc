@@ -70,8 +70,11 @@ alias ave='aws-vault exec'
 alias avl='aws-vault login'
 
 # configs
-alias vimconfig="cd ~/.dotfiles && vim ."
+alias lvimconfig="cd ~/.dotfiles && vim lvim.lua"
+alias nvimconfig="cd ~/.dotfiles && vim nvimrc"
+alias vimconfig="cd ~/.dotfiles && vim vimrc"
 alias zshconfig="vim ~/.dotfiles/zshrc"
+alias zshlconfig="vim ~/.dotfiles/zshrc.local"
 alias wezconfig="vim ~/.dotfiles/wezterm.lua"
 
 # Docker
