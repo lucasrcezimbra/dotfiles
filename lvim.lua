@@ -67,8 +67,8 @@ lvim.plugins = {
 }
 lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
 
-lvim.keys.normal_mode["<leader>dm"] = ":lua require('dap-python').test_method()<CR>"
-lvim.keys.normal_mode["<leader>dl"] = ":lua require('dap-python').test_class()<CR>"
+lvim.keys.normal_mode["<leader>dm"] = ":lua require('dap-python').test_method({ config = { justMyCode = false } })<CR>"
+lvim.keys.normal_mode["<leader>dl"] = ":lua require('dap-python').test_class({ config = { justMyCode = false } })<CR>"
 
 lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"
