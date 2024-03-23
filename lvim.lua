@@ -41,7 +41,13 @@ require("lvim.lsp.manager").setup("pyright", {
 
 -- Additional Plugins
 lvim.plugins = {
-  {"vim-test/vim-test"},
+  {"mfussenegger/nvim-dap-python",
+    config = function()
+      dap_python = require("dap-python")
+      dap_python.setup("~/.pyenv/versions/debugpy/bin/python")
+      dap_python.test_runner = 'pytest'
+    end,
+  },
   {"zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -57,10 +63,12 @@ lvim.plugins = {
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   },
-}
 
-lvim.keys.normal_mode["<leader>T"] = ":TestFile<cr>"
+}
 lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
+
+lvim.keys.normal_mode["<leader>dm"] = ":lua require('dap-python').test_method()<CR>"
+lvim.keys.normal_mode["<leader>dl"] = ":lua require('dap-python').test_class()<CR>"
 
 lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"

@@ -89,6 +89,9 @@ curl https://sh.rustup.rs -sSf | sh
 LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
 mv ~/.config/lvim/config.lua ~/.config/lvim/config.lua.bkp
 ln -s ./lvim.lua ~/.config/lvim/config.lua
+pyenv virtualenv debugpy
+pyenv shell debugpy
+pip install debugpy
 
 # mise
 curl https://mise.jdx.dev/install.sh | sh
