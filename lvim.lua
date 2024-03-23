@@ -43,23 +43,14 @@ require("lvim.lsp.manager").setup("pyright", {
 lvim.plugins = {
   {"vim-test/vim-test"},
   {"zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      vim.defer_fn(function()
-        require("copilot").setup {
-          plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
-          filetypes = {
-            ["*"] = true,
-          }
-        }
-        end, 100)
+      require("copilot").setup({
+        panel = { keymap = { open = "<M-c>" } },
+        suggestion = { auto_trigger = true },
+      })
     end,
-  },
-  {"zbirenbaum/copilot-cmp",
-    after = { "copilot.lua", "nvim-cmp" },
-    config = function ()
-      require("copilot_cmp").setup()
-    end
   },
   {"iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
@@ -67,9 +58,6 @@ lvim.plugins = {
     ft = { "markdown" },
   },
 }
-
-lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
-table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
 lvim.keys.normal_mode["<leader>T"] = ":TestFile<cr>"
 lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
