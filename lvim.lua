@@ -31,18 +31,13 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
-
--- change from pyright to jedi
+-- https://www.lunarvim.org/docs/configuration/language-features/language-servers#by-overriding-the-setup
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
-require("lvim.lsp.manager").setup("jedi_language_server")
-
-
--- set additional linters
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { command = "flake8", filetypes = { "python" } },
-}
-
+require("lvim.lsp.manager").setup("pyright", {
+  settings = {
+    python = { analysis = { typeCheckingMode = "off" } },
+  },
+})
 
 -- Additional Plugins
 lvim.plugins = {
