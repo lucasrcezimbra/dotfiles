@@ -61,12 +61,34 @@ lvim.plugins = {
     init = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   },
-
+  {"nvim-neotest/neotest",
+    config = function ()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-python")({
+            dap = { justMyCode = false },
+          })
+        }
+      })
+    end,
+    dependencies = {
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  }
 }
 lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
 
-lvim.keys.normal_mode["<leader>dm"] = ":lua require('dap-python').test_method({ config = { justMyCode = false } })<CR>"
-lvim.keys.normal_mode["<leader>dl"] = ":lua require('dap-python').test_class({ config = { justMyCode = false } })<CR>"
+lvim.builtin.which_key.mappings["dm"] = {":lua require('neotest').run.run({strategy = 'dap'})<CR>", "Neotest Closest"}
+lvim.builtin.which_key.mappings["df"] = {":lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<CR>", "Neotest File"}
+
+lvim.builtin.which_key.mappings["tf"] = {":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run File"}
+lvim.builtin.which_key.mappings["tm"] = {":lua require('neotest').run.run()<CR>", "Run Closest"}
+lvim.builtin.which_key.mappings["to"] = {":Neotest output<CR>", "Output"}
+lvim.builtin.which_key.mappings["ts"] = {":lua require('neotest').summary.toggle()<cr>", "Summary"}
 
 lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"
