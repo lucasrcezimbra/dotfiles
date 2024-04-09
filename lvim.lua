@@ -55,6 +55,7 @@ lvim.plugins = {
       require("copilot").setup({
         panel = { keymap = { open = "<M-c>" } },
         suggestion = { auto_trigger = true },
+        filetypes = { markdown = true },
       })
     end,
   },
