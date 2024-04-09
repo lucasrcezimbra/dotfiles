@@ -86,7 +86,8 @@ cp gitconfig ~/.gitconfig
 curl https://sh.rustup.rs -sSf | sh
 
 # LunarVim
-LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
+sudo snap install --classic nvim
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 mv ~/.config/lvim/config.lua ~/.config/lvim/config.lua.bkp
 ln -s ./lvim.lua ~/.config/lvim/config.lua
 pyenv virtualenv debugpy
