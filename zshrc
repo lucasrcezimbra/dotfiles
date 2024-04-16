@@ -98,6 +98,7 @@ alias gll='git pull'
 alias gpp='git pull && git push'
 alias gs='git status'
 alias gsh='git push'
+alias gsh-='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 alias gig='gi'
 
 # helpers
