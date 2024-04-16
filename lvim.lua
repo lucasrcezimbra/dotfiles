@@ -85,6 +85,8 @@ lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
 lvim.builtin.which_key.mappings["dm"] = {":lua require('neotest').run.run({strategy = 'dap'})<CR>", "Neotest Closest"}
 lvim.builtin.which_key.mappings["df"] = {":lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<CR>", "Neotest File"}
 
+lvim.builtin.which_key.mappings["t"] = "+Test"
+lvim.builtin.which_key.mappings["ta"] = {":lua require('neotest').run.run(vim.fn.getcwd())<CR>", "Run All"}
 lvim.builtin.which_key.mappings["tf"] = {":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run File"}
 lvim.builtin.which_key.mappings["tm"] = {":lua require('neotest').run.run()<CR>", "Run Closest"}
 lvim.builtin.which_key.mappings["to"] = {":Neotest output<CR>", "Output"}
