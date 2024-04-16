@@ -63,6 +63,7 @@ alias ls='eza --icons'
 alias grep=rg
 alias find=fd
 alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias gcllm='cat <(echo "Last commits:") <(git lg -n 10) <(echo "\n\ngit diff:") <(git diff --cached) | llm -t commit'
 
 # aws
 alias av='aws-vault'
