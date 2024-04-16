@@ -114,3 +114,7 @@ cargo install eza
 flatpak install flathub org.wezfurlong.wezterm
 mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
 ln -s $PWD/wezterm.lua ~/.wezterm.lua
+
+# llm
+pipx install llm
+ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
