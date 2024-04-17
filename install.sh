@@ -114,4 +114,5 @@ ln -s $PWD/wezterm.lua ~/.wezterm.lua
 
 # llm
 pipx install llm
+mv ~/.config/io.datasette.llm/templates ~/.config/io.datasette.llm/templates-backup
 ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
