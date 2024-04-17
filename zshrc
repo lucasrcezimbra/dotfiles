@@ -23,7 +23,6 @@ plugins=(
 
   # tools
   bgnotify
-  command-not-found
   extract
   globalias
   per-directory-history
