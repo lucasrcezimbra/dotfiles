@@ -67,6 +67,7 @@ lvim.plugins = {
         adapters = {
           require("neotest-python")({
             dap = { justMyCode = false },
+            args = {"-vv"},
           })
         }
       })
