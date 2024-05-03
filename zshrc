@@ -61,7 +61,6 @@ source $ZSH/oh-my-zsh.sh
 alias ls='eza --icons'
 alias grep=rg
 alias find=fd
-alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias gcllm='cat <(echo "Last commits:") <(git lg -n 10) <(echo "\n\ngit diff:") <(git diff --cached) | llm -t commit'
 
 # aws
@@ -119,6 +118,9 @@ alias j=z
 alias vim=lvim
 alias v=lvim
 export PATH="$HOME/.local/bin:$PATH"
+
+# others
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 # python
 alias sa='source .venv/bin/activate'
