@@ -95,3 +95,5 @@ lvim.builtin.which_key.mappings["ts"] = {":lua require('neotest').summary.toggle
 
 lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"
+
+lvim.keys.insert_mode["<M-k>"] = "<cmd>lua require('copilot.suggestion').accept('alt')<CR>"  -- I keep hitting it by accident 🤷
