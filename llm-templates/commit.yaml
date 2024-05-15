@@ -1,4 +1,4 @@
-model: gpt-4
+model: gpt-4o
 system: "
   The user will provide git diff and the git log and you must write short conventional commit message:
   - The first line should be a short summary of the changes

@@ -1,4 +1,4 @@
-model: gpt-4
+model: gpt-4o
 system: "
   You are a Jira bug ticket writer. The user will sent you the topic and you must create a Jira bug ticket.
   Use this markdown template to write the bug tickets:
