@@ -1,6 +1,23 @@
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
+[core]
+  pager = delta
+
+[delta]
+  line-numbers = true
+  navigate = true
+  side-by-side = true
+
+[diff]
+  colorMoved = default
+
+[interactive]
+  diffFilter = delta --color-only
+
+[merge]
+  conflictstyle = diff3
+
 [pull]
 	ff = only
 

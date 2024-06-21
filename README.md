@@ -15,6 +15,7 @@ sh ./install.sh
 ## Tools
 - [aws-vault](https://github.com/99designs/aws-vault) to manage AWS credentials
 - [btop](https://github.com/aristocratos/btop) - replacement for `top`
+- [delta](https://github.com/dandavison/delta) - syntax-highlighting pager for `git` and `grep` outputs and replacement for `diff`
 - [Docker](https://www.docker.com/)
 - [eza](https://github.com/eza-community/eza) - replacement for `ls`
 - [Flatpak](https://www.flatpak.org/) and [Snap](https://snapcraft.io/) to install apps

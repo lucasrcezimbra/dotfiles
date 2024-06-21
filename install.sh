@@ -121,3 +121,7 @@ ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
 # plocate
 sudo apt install plocate
 sudo updatedb
+
+
+# git-delta
+cargo install git-delta
