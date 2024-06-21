@@ -90,7 +90,7 @@ curl https://sh.rustup.rs -sSf | sh
 sudo snap install --classic nvim
 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 mv ~/.config/lvim/config.lua ~/.config/lvim/config.lua.bkp
-ln -s ./lvim.lua ~/.config/lvim/config.lua
+ln -s $PWD/lvim.lua ~/.config/lvim/config.lua
 pyenv virtualenv debugpy
 pyenv shell debugpy
 pip install debugpy
