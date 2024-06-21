@@ -80,7 +80,7 @@ pip install pynvim
 
 # .gitconfig
 mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
-cp gitconfig ~/.gitconfig
+ln -s $PWD/gitconfig ~/.gitconfig
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh
