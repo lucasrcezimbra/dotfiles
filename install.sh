@@ -22,6 +22,7 @@ sudo apt-get autoremove -y
 
 # Install
 sudo apt-get install -y autojump
+sudo apt-get install -y btop
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
 sudo apt-get install -y command-not-found
