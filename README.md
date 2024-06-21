@@ -27,6 +27,7 @@ sh ./install.sh
     - [nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python) to debug inside the editor
 - [mise-en-place](https://github.com/jdx/mise) to manage dev tool versions (Node, Python, Terraform, etc)
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) + many plugins - shell
+- [plocate](https://plocate.sesse.net/) to search files
 - [Starship](https://starship.rs/) - shell prompt
 - [WezTerm](https://github.com/wez/wezterm) - terminal emulator
 - [Zeal](https://zealdocs.org/) - offline software documentation

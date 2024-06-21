@@ -117,3 +117,7 @@ ln -s $PWD/wezterm.lua ~/.wezterm.lua
 pipx install llm
 mv ~/.config/io.datasette.llm/templates ~/.config/io.datasette.llm/templates-backup
 ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
+
+# plocate
+sudo apt install plocate
+sudo updatedb
