@@ -45,14 +45,13 @@ lvim.plugins = {
       dap_python.test_runner = 'pytest'
     end,
   },
-  {"zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
+  {"supermaven-inc/supermaven-nvim",
     config = function()
-      require("copilot").setup({
-        panel = { keymap = { open = "<M-c>" } },
-        suggestion = { auto_trigger = true },
-        filetypes = { markdown = true },
+      require("supermaven-nvim").setup({
+        keymaps = {
+            accept_suggestion = "<M-l>",
+            accept_word = "<M-a>",
+          },
       })
     end,
   },
@@ -96,4 +95,3 @@ lvim.builtin.which_key.mappings["ts"] = {":lua require('neotest').summary.toggle
 lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"
 
-lvim.keys.insert_mode["<M-k>"] = "<cmd>lua require('copilot.suggestion').accept('alt')<CR>"  -- I keep hitting it by accident 🤷
