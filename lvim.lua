@@ -84,6 +84,11 @@ lvim.plugins = {
       require("scope").setup()
     end
   },
+  {'ggandor/leap.nvim',
+    config = function()
+      require('leap').create_default_mappings()
+    end
+  },
 }
 lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
 
