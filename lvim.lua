@@ -117,3 +117,9 @@ lvim.keys.normal_mode["gT"] = ":tabprev<CR>"
 lvim.keys.normal_mode["gW"] = ":tabclose<CR>"
 
 lvim.keys.normal_mode["<S-TAB>"] = ":bnext<CR>"
+
+require("bufferline").setup({
+    options = {
+        always_show_bufferline = true,
+    },
+})
