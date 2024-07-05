@@ -17,3 +17,8 @@ repos:
         args:
           - --autofix
       - id: trailing-whitespace
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.20.0
+    hooks:
+      - id: stylua-github
+        args: [--indent-type=Spaces]
