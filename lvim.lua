@@ -78,7 +78,12 @@ lvim.plugins = {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-  }
+  },
+  {"tiagovla/scope.nvim",
+    config = function()
+      require("scope").setup()
+    end
+  },
 }
 lvim.keys.normal_mode["<leader>g"] = ":Telescope live_grep<cr>"
 
@@ -92,6 +97,9 @@ lvim.builtin.which_key.mappings["tm"] = {":lua require('neotest').run.run()<CR>"
 lvim.builtin.which_key.mappings["to"] = {":Neotest output<CR>", "Output"}
 lvim.builtin.which_key.mappings["ts"] = {":lua require('neotest').summary.toggle()<cr>", "Summary"}
 
-lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<cr>"
-lvim.keys.normal_mode["gT"] = ":BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["<C-t>"] = ":tabnew<CR>"
+lvim.keys.normal_mode["gt"] = ":tabnext<CR>"
+lvim.keys.normal_mode["gT"] = ":tabprev<CR>"
+lvim.keys.normal_mode["gW"] = ":tabclose<CR>"
 
+lvim.keys.normal_mode["<S-TAB>"] = ":bnext<CR>"
