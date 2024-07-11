@@ -39,22 +39,9 @@ require("lvim.lsp.manager").setup("pyright", {
 -- Additional Plugins
 lvim.plugins = {
     {
-        "mfussenegger/nvim-dap-python",
+        "ggandor/leap.nvim",
         config = function()
-            dap_python = require("dap-python")
-            dap_python.setup("~/.pyenv/versions/debugpy/bin/python")
-            dap_python.test_runner = "pytest"
-        end,
-    },
-    {
-        "supermaven-inc/supermaven-nvim",
-        config = function()
-            require("supermaven-nvim").setup({
-                keymaps = {
-                    accept_suggestion = "<M-l>",
-                    accept_word = "<M-a>",
-                },
-            })
+            require("leap").create_default_mappings()
         end,
     },
     {
@@ -86,18 +73,6 @@ lvim.plugins = {
         },
     },
     {
-        "tiagovla/scope.nvim",
-        config = function()
-            require("scope").setup()
-        end,
-    },
-    {
-        "ggandor/leap.nvim",
-        config = function()
-            require("leap").create_default_mappings()
-        end,
-    },
-    {
         "kevinhwang91/nvim-bqf",
         event = { "BufRead", "BufNew" },
         config = function()
@@ -119,6 +94,31 @@ lvim.plugins = {
                         action_for = { ["ctrl-s"] = "split" },
                         extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
                     },
+                },
+            })
+        end,
+    },
+    {
+        "mfussenegger/nvim-dap-python",
+        config = function()
+            dap_python = require("dap-python")
+            dap_python.setup("~/.pyenv/versions/debugpy/bin/python")
+            dap_python.test_runner = "pytest"
+        end,
+    },
+    {
+        "tiagovla/scope.nvim",
+        config = function()
+            require("scope").setup()
+        end,
+    },
+    {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({
+                keymaps = {
+                    accept_suggestion = "<M-l>",
+                    accept_word = "<M-a>",
                 },
             })
         end,
