@@ -107,6 +107,23 @@ lvim.plugins = {
         end,
     },
     {
+        "romgrk/nvim-treesitter-context",
+        config = function()
+            require("treesitter-context").setup({
+                enable = true,
+                throttle = true,
+                max_lines = 1,
+                patterns = {
+                    default = {
+                        "class",
+                        "function",
+                        "method",
+                    },
+                },
+            })
+        end,
+    },
+    {
         "tiagovla/scope.nvim",
         config = function()
             require("scope").setup()
