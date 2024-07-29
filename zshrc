@@ -41,11 +41,9 @@ plugins=(
   yarn
 
   # completion only
-  fd
   gh
   gitfast
   poetry
-  ripgrep
   ufw
 
   # init
