@@ -61,6 +61,7 @@ alias grep=rg
 alias htop='btop'
 alias find=fd
 alias gcllm='cat <(echo "Last commits:") <(git lg -n 10) <(echo "\n\ngit diff:") <(git diff --cached) | llm -t commit'
+alias notes='cd ~/workspace/lucasrcezimbra.github.io/content/anotacoes/ && lvim +NvimTreeOpen +Telescope\ fd'
 
 # aws
 alias av='aws-vault'
