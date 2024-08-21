@@ -129,6 +129,8 @@ alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'
 alias pmanage='poetry run python manage.py'
+## django
+alias ,djcreatesuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
 
 # selenium
 export CHROME_BIN=chromium
