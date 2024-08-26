@@ -1,17 +1,6 @@
 # XFCE
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>d' --set 'thunar Downloads' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>f' --set 'thunar' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>m' --set 'thunar Pictures/memes/' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>r' --set 'xfce4-appfinder' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>s' --set 'mousepad Desktop/strings' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>t' --set 'flatpak run org.wezfurlong.wezterm' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/Print' --set 'xfce4-screenshooter --fullscreen' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Shift>Print' --set 'xfce4-screenshooter --region' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Primary><Shift><Alt>Left' --set 'move_window_left_workspace_key'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Primary><Shift><Alt>Right' --set 'move_window_right_workspace_key'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Primary><Super>Up' --set 'maximize_window_key' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Primary><Super>Left' --set 'tile_left_key' --create --type 'string'
-xfconf-query --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Primary><Super>Right' --set 'tile_right_key' --create --type 'string'
+mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml.backup
+ln -s ~/.dotfiles/xfce4/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 xfconf-query --channel xfce4-panel --property '/plugins/plugin-1/button-title' --set ''
 xfconf-query --channel xfce4-panel --property '/plugins/plugin-2/grouping' --set '0'
 
