@@ -122,9 +122,6 @@ alias vim=lvim
 alias v=lvim
 export PATH="$HOME/.local/bin:$PATH"
 
-# others
-alias wezterm='flatpak run org.wezfurlong.wezterm'
-
 # python
 alias sa='source .venv/bin/activate'
 alias manage='python $VIRTUAL_ENV/../manage.py'

@@ -109,7 +109,10 @@ sudo ufw default deny incoming
 cargo install eza
 
 # WezTerm
-flatpak install flathub org.wezfurlong.wezterm
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo apt update
+sudo apt install wezterm
 mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
 ln -s $PWD/wezterm.lua ~/.wezterm.lua
 
@@ -121,7 +124,6 @@ ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
 # plocate
 sudo apt install plocate
 sudo updatedb
-
 
 # git-delta
 cargo install git-delta
