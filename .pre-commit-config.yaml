@@ -22,3 +22,9 @@ repos:
     hooks:
       - id: stylua-github
         args: [--indent-type=Spaces]
+  - repo: local
+    hooks:
+      - id: xfce4
+        name: xfce4
+        entry: sh -c "cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml xfce4/xfce4-keyboard-shortcuts.xml"
+        language: system

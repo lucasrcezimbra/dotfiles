@@ -63,6 +63,8 @@
       <property name="&lt;Super&gt;s" type="string" value="mousepad Desktop/strings"/>
       <property name="&lt;Super&gt;t" type="string" value="wezterm"/>
       <property name="&lt;Super&gt;m" type="string" value="thunar Pictures/memes/"/>
+      <property name="&lt;Super&gt;l" type="string" value="wezterm start -- zsh -i -c &quot;tmux attach -t lucas || tmux new -s lucas su - lucas&quot;"/>
+      <property name="&lt;Super&gt;n" type="string" value="wezterm start -- zsh -i -c &quot;tmux attach -t notes || tmux new -s notes zsh -i -c rwnote&quot;"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
