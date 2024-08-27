@@ -61,7 +61,6 @@ alias grep=rg
 alias htop='btop'
 alias find=fd
 alias gcllm='cat <(echo "Last commits:") <(git lg -n 10) <(echo "\n\ngit diff:") <(git diff --cached) | llm -t commit'
-alias notes='cd ~/workspace/lucasrcezimbra.github.io/content/anotacoes/ && lvim +NvimTreeOpen +Telescope\ fd'
 
 # aws
 alias av='aws-vault'
@@ -121,6 +120,18 @@ alias j=z
 alias vim=lvim
 alias v=lvim
 export PATH="$HOME/.local/bin:$PATH"
+
+# notes
+NOTES_ROOT_PATH="$HOME/workspace/lucasrcezimbra.github.io/"
+NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes/"
+alias ,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
+alias ,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
+alias ,week='echo $(,first-weekday) - $(,last-weekday)'
+alias notes='cd $NOTES_PATH && lvim +NvimTreeOpen +Telescope\ fd'
+alias wnote='cd $NOTES_PATH && lvim "Weeknotes/$(,week).md"'
+alias rnotes='_,run-notes && notes'
+alias rwnote='_,run-notes && wnote'
+alias _,run-notes='wezterm cli split-pane --right --percent 20 --cwd $NOTES_ROOT_PATH -- zsh -i -c "hugo server --bind 0.0.0.0"'
 
 # python
 alias sa='source .venv/bin/activate'
