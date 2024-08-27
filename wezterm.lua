@@ -14,7 +14,7 @@ for i = 1, 9 do
 end
 
 -- Appearance
-config.color_scheme = "Dracula (Official)"
+config.color_scheme = "Dracula+"
 config.font_size = 9.0
 config.window_padding = {
     left = 0,
