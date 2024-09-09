@@ -44,6 +44,7 @@ plugins=(
   gh
   gitfast
   poetry
+  tailscale
   ufw
 
   # init
