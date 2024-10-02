@@ -15,13 +15,13 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 lvim.builtin.treesitter.ensure_installed = {
     "bash",
+    "css",
     "javascript",
     "json",
     "lua",
     "python",
-    "typescript",
     "tsx",
-    "css",
+    "typescript",
     "yaml",
 }
 
