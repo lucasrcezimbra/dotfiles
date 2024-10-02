@@ -126,8 +126,19 @@ NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes/"
 alias _,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
 alias _,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
 alias _,week='echo $(_,first-weekday) - $(_,last-weekday)'
-alias notes='cd $NOTES_PATH && lvim +NvimTreeOpen +Telescope\ fd'
-alias wnote='cd $NOTES_PATH && lvim "Weeknotes/$(_,week).md"'
+alias ,notes='cd $NOTES_PATH && lvim +NvimTreeOpen +Telescope\ fd'
+alias ,nweek='cd $NOTES_PATH && lvim "Weeknotes/$(_,week).md"'
+function ,nnew() {
+  TITLE="$@"
+  FILE="$NOTES_PATH/$TITLE.md"
+  echo "---
+title: $TITLE
+date: $(date +%Y-%m-%d)
+lastmod: $(date +%Y-%m-%d)
+---" > "$FILE"
+  cd "$NOTES_ROOT_PATH"
+  lvim "$FILE"
+}
 
 # python
 alias sa='source .venv/bin/activate'
