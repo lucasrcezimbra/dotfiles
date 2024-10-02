@@ -128,9 +128,6 @@ alias ,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
 alias ,week='echo $(,first-weekday) - $(,last-weekday)'
 alias notes='cd $NOTES_PATH && lvim +NvimTreeOpen +Telescope\ fd'
 alias wnote='cd $NOTES_PATH && lvim "Weeknotes/$(,week).md"'
-alias rnotes='_,run-notes && notes'
-alias rwnote='_,run-notes && wnote'
-alias _,run-notes='wezterm cli split-pane --right --percent 20 --cwd $NOTES_ROOT_PATH -- zsh -i -c "hugo server --bind 0.0.0.0"'
 
 # python
 alias sa='source .venv/bin/activate'
