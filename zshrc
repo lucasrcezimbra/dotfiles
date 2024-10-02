@@ -156,9 +156,4 @@ function n(){
   fi
 }
 
-function vpn() {
-  nmcli connection delete pvpn-ipv6leak-protection
-  protonvpn-cli c --cc BR
-}
-
 . ~/.dotfiles/zshrc.local
