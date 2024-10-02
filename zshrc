@@ -123,11 +123,11 @@ export PATH="$HOME/.local/bin:$PATH"
 # notes
 NOTES_ROOT_PATH="$HOME/workspace/lucasrcezimbra.github.io/"
 NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes/"
-alias ,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
-alias ,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
-alias ,week='echo $(,first-weekday) - $(,last-weekday)'
+alias _,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
+alias _,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
+alias _,week='echo $(_,first-weekday) - $(_,last-weekday)'
 alias notes='cd $NOTES_PATH && lvim +NvimTreeOpen +Telescope\ fd'
-alias wnote='cd $NOTES_PATH && lvim "Weeknotes/$(,week).md"'
+alias wnote='cd $NOTES_PATH && lvim "Weeknotes/$(_,week).md"'
 
 # python
 alias sa='source .venv/bin/activate'
