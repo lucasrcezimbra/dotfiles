@@ -147,11 +147,13 @@ lastmod: $(_,today)
 }
 
 # python
-alias sa='source .venv/bin/activate'
-alias manage='python $VIRTUAL_ENV/../manage.py'
-alias pmanage='poetry run python manage.py'
+alias ,py-venv='source .venv/bin/activate'
+## poetry
+alias ,pp-shell='poetry shell'
 ## django
-alias ,djcreatesuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
+alias ,dj-createsuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
+alias ,dj-manage='python $VIRTUAL_ENV/../manage.py'
+alias ,dj-pmanage='poetry run python manage.py'
 
 # selenium
 export CHROME_BIN=chromium
