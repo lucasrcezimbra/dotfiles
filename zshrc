@@ -107,6 +107,11 @@ alias c=calc
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 eval $(thefuck --alias)
 
+# paths
+NOTES_ROOT_PATH="$HOME/workspace/lucasrcezimbra.github.io/"
+DOTFILES_PATH="$HOME/.dotfiles/"
+NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes/"
+
 # navigation
 alias ..='cd ..'
 alias ...='cd ../../'
@@ -114,6 +119,8 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias cd=z
 alias j=z
+alias ,znotes="cd $NOTES_ROOT_PATH"
+alias ,zdotfiles="cd $DOTFILES_PATH"
 
 # neovim
 alias vim=lvim
@@ -121,8 +128,7 @@ alias v=lvim
 export PATH="$HOME/.local/bin:$PATH"
 
 # notes
-NOTES_ROOT_PATH="$HOME/workspace/lucasrcezimbra.github.io/"
-NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes/"
+alias _,today='date "+%Y-%m-%d"'
 alias _,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
 alias _,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
 alias _,week='echo $(_,first-weekday) - $(_,last-weekday)'
@@ -133,8 +139,8 @@ function ,nnew() {
   FILE="$NOTES_PATH/$TITLE.md"
   echo "---
 title: $TITLE
-date: $(date +%Y-%m-%d)
-lastmod: $(date +%Y-%m-%d)
+date: $(_,today)
+lastmod: $(_,today)
 ---" > "$FILE"
   cd "$NOTES_ROOT_PATH"
   lvim "$FILE"
