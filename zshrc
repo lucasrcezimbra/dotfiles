@@ -172,4 +172,12 @@ function n(){
   fi
 }
 
+# OCR
+alias ,ocr="llm 'OCR this image. Return ONLY the text.' -a"
+function ,ocr-clipboard() {
+  FILEPATH=${1:-"/tmp/$(date +%s).png"}
+  xclip -selection clipboard -t image/png -o > $FILEPATH
+  ,ocr $FILEPATH
+}
+
 . ~/.dotfiles/zshrc.local
