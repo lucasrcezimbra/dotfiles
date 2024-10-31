@@ -121,6 +121,7 @@ alias cd=z
 alias j=z
 alias ,znotes="cd $NOTES_ROOT_PATH"
 alias ,zdotfiles="cd $DOTFILES_PATH"
+alias ,z.="cd $DOTFILES_PATH"
 
 # neovim
 alias vim=lvim
