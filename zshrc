@@ -148,7 +148,7 @@ lastmod: $(_,today)
 }
 
 # python
-alias ,py-venv='source .venv/bin/activate'
+alias ,py-venv='source .venv/bin/activate || python -m venv .venv && source .venv/bin/activate'
 ## poetry
 alias ,pp-shell='poetry shell'
 ## django
