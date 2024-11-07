@@ -152,6 +152,7 @@ lvim.builtin.which_key.mappings["ta"] = { ":lua require('neotest').run.run(vim.f
 lvim.builtin.which_key.mappings["tf"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run File" }
 lvim.builtin.which_key.mappings["tm"] = { ":lua require('neotest').run.run()<CR>", "Run Closest" }
 lvim.builtin.which_key.mappings["to"] = { ":Neotest output<CR>", "Output" }
+lvim.builtin.which_key.mappings["td"] = { ":Neotest stop<CR>", "Stop" }
 lvim.builtin.which_key.mappings["ts"] = { ":lua require('neotest').summary.toggle()<cr>", "Summary" }
 
 lvim.keys.normal_mode["<C-t>"] = ":tabnew<CR>"
