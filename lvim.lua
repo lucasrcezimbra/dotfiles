@@ -155,6 +155,8 @@ lvim.builtin.which_key.mappings["to"] = { ":Neotest output<CR>", "Output" }
 lvim.builtin.which_key.mappings["td"] = { ":Neotest stop<CR>", "Stop" }
 lvim.builtin.which_key.mappings["ts"] = { ":lua require('neotest').summary.toggle()<cr>", "Summary" }
 
+lvim.keys.normal_mode["<leader>p"] = [["_dP]]
+
 lvim.keys.normal_mode["<C-t>"] = ":tabnew<CR>"
 lvim.keys.normal_mode["gt"] = ":tabnext<CR>"
 lvim.keys.normal_mode["gT"] = ":tabprev<CR>"
