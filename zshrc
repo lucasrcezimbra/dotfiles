@@ -26,6 +26,7 @@ plugins=(
   extract
   globalias
   per-directory-history
+  # poetry-env
   safe-paste
 
   # shortcuts
