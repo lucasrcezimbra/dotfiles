@@ -106,7 +106,12 @@ alias gig='gi'
 # helpers
 alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\""
 alias c=calc
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias _,time='date "+%H:%M:%S"'
+function ,timer() {
+  echo "Timer started at $(_,time). Stop with Ctrl-D."
+  /usr/bin/time -f '%E' cat
+  echo "Timer stopped at $(_,time)."
+}
 eval $(thefuck --alias)
 
 # paths
