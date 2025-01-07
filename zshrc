@@ -157,7 +157,7 @@ lastmod: $(_,today)
 # python
 alias ,py-venv='source .venv/bin/activate || python -m venv .venv && source .venv/bin/activate'
 ## poetry
-alias ,pp-shell='poetry shell'
+alias ,pp-shell='poetry env activate'
 ## django
 alias ,dj-createsuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
 alias ,dj-manage='python $VIRTUAL_ENV/../manage.py'
