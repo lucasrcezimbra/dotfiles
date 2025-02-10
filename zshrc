@@ -118,9 +118,9 @@ function ,timer() {
 eval $(thefuck --alias)
 
 # paths
-NOTES_ROOT_PATH="$HOME/workspace/lucasrcezimbra.github.io/"
-DOTFILES_PATH="$HOME/.dotfiles/"
-NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes/"
+NOTES_ROOT_PATH="$HOME/workspace/lucasrcezimbra.github.io"
+DOTFILES_PATH="$HOME/.dotfiles"
+NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes"
 
 # navigation
 alias ..='cd ..'
@@ -130,6 +130,7 @@ alias .....='cd ../../../../'
 alias cd=z
 alias j=z
 alias ,znotes="cd $NOTES_ROOT_PATH"
+alias ,zinotes="cd $NOTES_ROOT_PATH"
 alias ,zdotfiles="cd $DOTFILES_PATH"
 alias ,z.="cd $DOTFILES_PATH"
 
@@ -143,8 +144,50 @@ alias _,today='date "+%Y-%m-%d"'
 alias _,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
 alias _,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
 alias _,week='echo $(_,first-weekday) - $(_,last-weekday)'
+WEEKNOTE_PATH="$NOTES_PATH/Weeknotes/$(_,week).md"
 alias ,notes='cd $NOTES_PATH && lvim +NvimTreeOpen +Telescope\ fd'
-alias ,nweek='cd $NOTES_PATH && lvim "Weeknotes/$(_,week).md"'
+function ,nweek() {
+  if [[ ! -e "$WEEKNOTE_PATH" ]]; then
+    echo "---
+title: $(_,week)
+date: $(_,first-weekday)
+lastmod: $(_,today)
+---
+
+[<< Previous]({{< ref \"\" >}}) | Next >>
+
+## Books being read
+- (pt-BR) Conversas Cruciais - Joseph Grenny & Kerry Patterson & Ron McMillan &
+  Al Switzler & Emily Gregory
+- (pt-BR) História da Igreja: marcas da presença de Cristo no mundo - Angela
+  Pellicciari
+- (pt-BR) História bíblica: narrativas do Antigo e do Novo Testamento - Dom
+  Antônio de Macedo Costa
+
+## Discovered tools
+-
+
+## Learned
+-
+
+## Read articles
+-
+
+## Read news
+-
+
+## Watched
+-
+
+## Listened
+-
+
+[<< Previous]({{< ref \"\" >}}) | Next >>
+" > "$WEEKNOTE_PATH"
+  fi
+  cd "$NOTES_PATH"
+  lvim "$WEEKNOTE_PATH"
+}
 function ,nnew() {
   TITLE="$@"
   FILE="$NOTES_PATH/$TITLE.md"
