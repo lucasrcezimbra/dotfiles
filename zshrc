@@ -61,6 +61,9 @@ source $ZSH/oh-my-zsh.sh
 alias ls='eza --icons'
 alias find=fd
 alias gcllm='cat <(echo "Last commits:") <(git lg -n 10) <(echo "\n\ngit diff:") <(git diff --cached) | llm -t commit'
+alias ,ip="curl -s ifconfig.co"
+alias ,ipv4=",ip -4"
+alias ,ipv6=",ip -6"
 
 # aws
 alias av='aws-vault'
