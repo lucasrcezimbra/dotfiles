@@ -3,6 +3,7 @@
 
 [core]
   pager = delta
+  excludesfile = ~/.dotfiles/gitignore
 
 [delta]
   line-numbers = true
