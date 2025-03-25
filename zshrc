@@ -58,6 +58,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # _experiments
+alias df="duf"
 alias ls='eza --icons'
 alias find=fd
 alias gcllm='cat <(echo "Last commits:") <(git lg -n 10) <(echo "\n\ngit diff:") <(git diff --cached) | llm -t commit'

@@ -15,6 +15,7 @@ sudo apt-get install -y btop
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
 sudo apt-get install -y command-not-found
+sudo apt-get install -y duf
 sudo apt-get install -y git
 sudo apt-get install -y htop
 sudo apt-get install -y libtext-lorem-perl
