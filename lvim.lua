@@ -130,13 +130,14 @@ lvim.plugins = {
         end,
     },
     {
-        "supermaven-inc/supermaven-nvim",
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
         config = function()
-            require("supermaven-nvim").setup({
-                keymaps = {
-                    accept_suggestion = "<M-l>",
-                    accept_word = "<M-a>",
-                },
+            require("copilot").setup({
+                panel = { keymap = { open = "<M-c>" } },
+                suggestion = { auto_trigger = true },
+                filetypes = { markdown = true },
             })
         end,
     },
