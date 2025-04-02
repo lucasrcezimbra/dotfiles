@@ -118,5 +118,8 @@ sudo updatedb
 # git-delta
 cargo install git-delta
 
+# mergiraf
+cargo install --locked mergiraf
+
 # difftastic
 cargo install difftastic
