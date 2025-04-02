@@ -12,6 +12,7 @@
 
 [diff]
   colorMoved = default
+  external = difft --display side-by-side-show-both
 
 [interactive]
   diffFilter = delta --color-only

@@ -117,3 +117,6 @@ sudo updatedb
 
 # git-delta
 cargo install git-delta
+
+# difftastic
+cargo install difftastic
