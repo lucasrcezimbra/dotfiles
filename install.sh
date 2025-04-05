@@ -67,13 +67,16 @@ ln -s $PWD/gitconfig ~/.gitconfig
 # Rust
 curl https://sh.rustup.rs -sSf | sh
 
-# LazyVim
+# NeoVim
 sudo snap install --classic nvim
+pipx install pynvim
+pyenv virtualenv debugpy && pyenv shell debugpy && pip install debugpy && pyenv shell --unset
+## LazyVim
 mv ~/.config/nvim{,.bak}
 git clone https://github.com/LazyVim/starter ~/.config/nvim
-pyenv virtualenv debugpy
-pyenv shell debugpy
-pip install debugpy
+rm -rf ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins
+ln -sd "$PWD/nvim/config/" ~/.config/nvim/lua/
+ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
 
 # mise
 curl https://mise.jdx.dev/install.sh | sh
