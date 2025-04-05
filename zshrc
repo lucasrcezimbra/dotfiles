@@ -72,13 +72,13 @@ alias ave='aws-vault exec'
 alias avl='aws-vault login'
 
 # configs
-alias ,.="cd ~/.dotfiles && lvim +NvimTreeOpen"
-alias ,.lvim="lvim ~/.dotfiles/lvim.lua"
-alias ,.nvim="lvim  ~/.dotfiles/nvimrc"
-alias ,.vim="lvim ~/.dotfiles/vimrc"
-alias ,.zsh="lvim ~/.dotfiles/zshrc"
-alias ,.zshlocal="lvim ~/.dotfiles/zshrc.local"
-alias ,.wez="lvim ~/.dotfiles/wezterm.lua"
+alias ,.="cd ~/.dotfiles && vim +NvimTreeOpen"
+alias ,.lvim="vim ~/.dotfiles/lvim.lua"
+alias ,.nvim="vim  ~/.dotfiles/nvimrc"
+alias ,.vim="vim ~/.dotfiles/vimrc"
+alias ,.zsh="vim ~/.dotfiles/zshrc"
+alias ,.zshlocal="vim ~/.dotfiles/zshrc.local"
+alias ,.wez="vim ~/.dotfiles/wezterm.lua"
 
 # Docker
 alias ,dockerkillall="docker ps -q | xargs docker kill"
@@ -136,8 +136,8 @@ alias ,zdotfiles="cd $DOTFILES_PATH"
 alias ,z.="cd $DOTFILES_PATH"
 
 # neovim
-alias vim=lvim
-alias v=lvim
+alias vim=nvim
+alias v=nvim
 export PATH="$HOME/.local/bin:$PATH"
 
 # notes
@@ -146,7 +146,7 @@ alias _,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
 alias _,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
 alias _,week='echo $(_,first-weekday) - $(_,last-weekday)'
 WEEKNOTE_PATH="$NOTES_PATH/Weeknotes/$(_,week).md"
-alias ,notes='cd $NOTES_PATH && lvim +NvimTreeOpen +Telescope\ fd'
+alias ,notes='cd $NOTES_PATH && vim +NvimTreeOpen +Telescope\ fd'
 function ,nweek() {
   if [[ ! -e "$WEEKNOTE_PATH" ]]; then
     echo "---
@@ -187,7 +187,7 @@ lastmod: $(_,today)
 " > "$WEEKNOTE_PATH"
   fi
   cd "$NOTES_PATH"
-  lvim "$WEEKNOTE_PATH"
+  vim "$WEEKNOTE_PATH"
 }
 function ,nnew() {
   TITLE="$@"
@@ -198,7 +198,7 @@ date: $(_,today)
 lastmod: $(_,today)
 ---" > "$FILE"
   cd "$NOTES_ROOT_PATH"
-  lvim "$FILE"
+  vim "$FILE"
 }
 
 # python

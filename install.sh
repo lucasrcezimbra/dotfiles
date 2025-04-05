@@ -76,11 +76,10 @@ ln -s $PWD/gitconfig ~/.gitconfig
 # Rust
 curl https://sh.rustup.rs -sSf | sh
 
-# LunarVim
+# LazyVim
 sudo snap install --classic nvim
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-mv ~/.config/lvim/config.lua ~/.config/lvim/config.lua.bkp
-ln -s $PWD/lvim.lua ~/.config/lvim/config.lua
+mv ~/.config/nvim{,.bak}
+git clone https://github.com/LazyVim/starter ~/.config/nvim
 pyenv virtualenv debugpy
 pyenv shell debugpy
 pip install debugpy
