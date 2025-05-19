@@ -11,7 +11,7 @@ local function get_html_content(url)
 end
 
 local function extract_title(html)
-    local title = html:match("<title>(.-)</title>")
+    local title = html:match("<title.->(.-)</title>")
     return title and title:gsub("%s+", " ") or ""
 end
 
