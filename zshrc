@@ -157,31 +157,31 @@ lastmod: $(_,today)
 
 [<< Previous]({{< ref \"\" >}}) | Next >>
 
-## Books being read
-- (pt-BR) Conversas Cruciais - Joseph Grenny & Kerry Patterson & Ron McMillan &
-  Al Switzler & Emily Gregory
-- (pt-BR) História da Igreja: marcas da presença de Cristo no mundo - Angela
-  Pellicciari
-- (pt-BR) História bíblica: narrativas do Antigo e do Novo Testamento - Dom
-  Antônio de Macedo Costa
+- ## Books being read
+  - (pt-BR) Conversas Cruciais - Joseph Grenny & Kerry Patterson & Ron McMillan
+    & Al Switzler & Emily Gregory
+  - (pt-BR) História da Igreja: marcas da presença de Cristo no mundo - Angela
+    Pellicciari
+  - (pt-BR) História bíblica: narrativas do Antigo e do Novo Testamento - Dom
+    Antônio de Macedo Costa
 
-## Discovered tools
--
+- ## Discovered tools
+  -
 
-## Learned
--
+- ## Learned
+  -
 
-## Read articles
--
+- ## Read articles
+  -
 
-## Read news
--
+- ## Read news
+  -
 
-## Watched
--
+- ## Watched
+  -
 
-## Listened
--
+- ## Listened
+  -
 
 [<< Previous]({{< ref \"\" >}}) | Next >>
 " > "$WEEKNOTE_PATH"
