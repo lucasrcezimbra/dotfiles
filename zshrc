@@ -39,7 +39,6 @@ plugins=(
   # aliases and completion
   pip
   terraform
-  yarn
 
   # completion only
   gh
