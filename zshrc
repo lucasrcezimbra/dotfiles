@@ -71,7 +71,7 @@ alias ave='aws-vault exec'
 alias avl='aws-vault login'
 
 # configs
-alias ,.="cd ~/.dotfiles && vim +NvimTreeOpen"
+alias ,.="cd ~/.dotfiles && vim"
 alias ,.lvim="vim ~/.dotfiles/lvim.lua"
 alias ,.nvim="vim  ~/.dotfiles/nvimrc"
 alias ,.vim="vim ~/.dotfiles/vimrc"
@@ -145,7 +145,7 @@ alias _,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
 alias _,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
 alias _,week='echo $(_,first-weekday) - $(_,last-weekday)'
 WEEKNOTE_PATH="$NOTES_PATH/Weeknotes/$(_,week).md"
-alias ,notes='cd $NOTES_PATH && vim +NvimTreeOpen +Telescope\ fd'
+alias ,notes='cd $NOTES_PATH && vim'
 function ,nweek() {
   if [[ ! -e "$WEEKNOTE_PATH" ]]; then
     echo "---
