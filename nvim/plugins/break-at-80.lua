@@ -27,6 +27,6 @@ local function break_line_at_80()
     vim.api.nvim_win_set_cursor(0, { line_num + 1, 0 })
 end
 
-vim.keymap.set("n", "<leader>cb", break_line_at_80, { desc = "Break line at 80ish" })
+vim.keymap.set("n", "<leader>mb", break_line_at_80, { desc = "Break line at 80ish" })
 
 return {}

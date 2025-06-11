@@ -35,6 +35,6 @@ local function replace_url_with_markdown()
     end
 end
 
-vim.keymap.set("n", "<leader>cu", replace_url_with_markdown, { desc = "URL to Markdown" })
+vim.keymap.set("n", "<leader>mu", replace_url_with_markdown, { desc = "URL to Markdown" })
 
 return {}
