@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="size" type="uint" value="30"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="15"/>
+        <value type="int" value="32"/>
+        <value type="int" value="17"/>
+        <value type="int" value="33"/>
+        <value type="int" value="18"/>
+        <value type="int" value="34"/>
+        <value type="int" value="19"/>
+        <value type="int" value="35"/>
+        <value type="int" value="24"/>
+        <value type="int" value="31"/>
+        <value type="int" value="2"/>
+        <value type="int" value="3"/>
+        <value type="int" value="4"/>
+        <value type="int" value="38"/>
+        <value type="int" value="6"/>
+        <value type="int" value="8"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
+        <value type="int" value="37"/>
+        <value type="int" value="12"/>
+        <value type="int" value="36"/>
+        <value type="int" value="14"/>
+      </property>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="nrows" type="uint" value="1"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="0"/>
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="show-wireframes" type="bool" value="false"/>
+      <property name="window-scrolling" type="bool" value="true"/>
+      <property name="include-all-workspaces" type="bool" value="false"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
+      <property name="include-all-monitors" type="bool" value="true"/>
+    </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="clipman"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="ulauncher"/>
+        <value type="string" value="task manager"/>
+        <value type="string" value="bluetooth active &lt;b&gt;1 active connection&lt;/b&gt;"/>
+        <value type="string" value="system-config-printer"/>
+        <value type="string" value="solaar"/>
+        <value type="string" value="bluetooth active &lt;b&gt;1 active connection&lt;/b&gt;"/>
+        <value type="string" value="discord"/>
+        <value type="string" value="bluetooth enabled"/>
+        <value type="string" value="blueman-tray"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="ibus panel"/>
+        <value type="string" value="networkmanager applet"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="flameshot"/>
+        <value type="string" value="ulauncher"/>
+        <value type="string" value="obs"/>
+        <value type="string" value="toolbox"/>
+        <value type="string" value="indicator-solaar"/>
+        <value type="string" value="discord1"/>
+        <value type="string" value="Zeal"/>
+        <value type="string" value="zoom "/>
+        <value type="string" value="chrome_status_icon_18"/>
+        <value type="string" value="chrome_status_icon_17"/>
+        <value type="string" value="chrome_status_icon_16"/>
+        <value type="string" value="chrome_status_icon_15"/>
+        <value type="string" value="chrome_status_icon_14"/>
+        <value type="string" value="chrome_status_icon_13"/>
+        <value type="string" value="chrome_status_icon_12"/>
+        <value type="string" value="chrome_status_icon_11"/>
+        <value type="string" value="chrome_status_icon_10"/>
+        <value type="string" value="chrome_status_icon_9"/>
+        <value type="string" value="chrome_status_icon_8"/>
+        <value type="string" value="chrome_status_icon_7"/>
+        <value type="string" value="chrome_status_icon_6"/>
+        <value type="string" value="chrome_status_icon_5"/>
+        <value type="string" value="chrome_status_icon_4"/>
+        <value type="string" value="chrome_status_icon_3"/>
+        <value type="string" value="chrome_status_icon_2"/>
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="Bitwarden1"/>
+        <value type="string" value="TelegramDesktop"/>
+        <value type="string" value="blueman"/>
+        <value type="string" value="zoom"/>
+      </property>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+    </property>
+    <property name="plugin-9" type="string" value="power-manager-plugin"/>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
+      <property name="mode" type="uint" value="2"/>
+      <property name="digital-format" type="string" value="%a %Y-%m-%_d, %R"/>
+    </property>
+    <property name="plugin-14" type="string" value="actions">
+      <property name="items" type="array">
+        <value type="string" value="+lock-screen"/>
+        <value type="string" value="+switch-user"/>
+        <value type="string" value="+separator"/>
+        <value type="string" value="+suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+shutdown"/>
+        <value type="string" value="+restart"/>
+        <value type="string" value="+separator"/>
+        <value type="string" value="+logout"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+    </property>
+    <property name="plugin-15" type="string" value="cpugraph"/>
+    <property name="plugin-17" type="string" value="fsguard"/>
+    <property name="plugin-18" type="string" value="diskperf"/>
+    <property name="plugin-19" type="string" value="netload"/>
+    <property name="plugin-24" type="string" value="systemload"/>
+    <property name="plugin-31" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-32" type="string" value="separator">
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-33" type="string" value="separator">
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-34" type="string" value="separator">
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-35" type="string" value="separator">
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-36" type="string" value="separator">
+      <property name="expand" type="bool" value="false"/>
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-37" type="string" value="separator">
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-38" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+  </property>
+</channel>
