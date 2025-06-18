@@ -1,3 +1,9 @@
+sudo echo || {
+	echo "Your user is is not a superuser. Run the command below and restart your computer.
+su -c 'sudo usermod -aG sudo $USER'";
+	exit 1;
+}
+
 # XFCE
 mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml.backup
 ln -s ~/.dotfiles/xfce4/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
