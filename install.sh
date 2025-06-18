@@ -10,15 +10,11 @@ sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 
 # Install
-sudo apt-get install -y autojump
 sudo apt-get install -y btop
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
-sudo apt-get install -y command-not-found
 sudo apt-get install -y duf
 sudo apt-get install -y git
-sudo apt-get install -y htop
-sudo apt-get install -y libtext-lorem-perl
 sudo apt-get install -y pipx && pipx ensurepath
 sudo apt-get install -y snapd
 sudo apt-get install -y vim vim-python-jedi
