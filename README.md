@@ -21,11 +21,7 @@ sh ./install.sh
 - [Flatpak](https://www.flatpak.org/) and [Snap](https://snapcraft.io/) to install apps
 - [Git](https://git-scm.com/) + [GitHub CLI](https://cli.github.com/)
 - [llm](https://github.com/simonw/llm) to access LLMs from the command-line
-- [LunarVim](https://www.lunarvim.org/) - editor/IDE
-    - GitHub [copilot](https://github.com/zbirenbaum/copilot.lua)
-    - [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
-    - [neotest](https://github.com/nvim-neotest/neotest) to run tests inside the editor
-    - [nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python) to debug inside the editor
+- [LazyVim](http://www.lazyvim.org/) - editor/IDE
 - [mise-en-place](https://github.com/jdx/mise) to manage dev tool versions (Node, Python, Terraform, etc)
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) + many plugins - shell
 - [plocate](https://plocate.sesse.net/) to search files
