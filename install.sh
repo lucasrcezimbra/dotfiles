@@ -15,7 +15,8 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 
-# Install
+# Essentials
+sudo apt-get install -y blueman bluez-* pulseaudio-module-bluetooth bluemon  # bluetooth
 sudo apt-get install -y btop
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
@@ -27,8 +28,9 @@ sudo apt-get install -y vim vim-python-jedi
 sudo apt-get install -y zeal
 sudo apt-get install -y zsh
 
-# bluetooth
-sudo apt-get install blueman bluez-* pulseaudio-module-bluetooth bluemon
+# Firewall
+sudo apt-get install ufw
+sudo ufw default deny incoming
 
 # pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
@@ -83,10 +85,6 @@ curl https://mise.jdx.dev/install.sh | sh
 
 # startship
 cargo install starship --locked
-
-# Firewall
-sudo apt-get install ufw
-sudo ufw default deny incoming
 
 # eza
 cargo install eza
