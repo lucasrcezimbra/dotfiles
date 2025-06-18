@@ -62,10 +62,6 @@ mv ~/.zshrc ~/.zshrc_backup 2> /dev/null
 echo ". $PWD/zshrc" >> ~/.zshrc
 touch zshrc.local
 
-# .gitconfig
-mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
-ln -s $PWD/gitconfig ~/.gitconfig
-
 # Rust
 curl https://sh.rustup.rs -sSf | sh
 
@@ -106,14 +102,12 @@ ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
 sudo apt-get install plocate
 sudo updatedb
 
-# git-delta
+# git
 cargo install git-delta
-
-# mergiraf
-cargo install --locked mergiraf
-
-# difftastic
+cargo install mergiraf
 cargo install difftastic
+mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
+ln -s $PWD/gitconfig ~/.gitconfig
 
 # clean
 sudo apt-get autoremove -y
