@@ -39,7 +39,7 @@ sudo apt-get install -y zeal
 sudo apt-get install -y zsh
 
 # Firewall
-sudo apt-get install ufw
+sudo apt-get install -y ufw
 sudo ufw default deny incoming
 
 # pyenv
@@ -52,7 +52,7 @@ chsh -s "$(which zsh)"
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # Docker
-sudo apt-get install ca-certificates curl
+sudo apt-get install -y ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -62,7 +62,7 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker "$USER"
 
 # SSH
@@ -103,7 +103,7 @@ cargo install zoxide --locked
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
 echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
 sudo apt-get update
-sudo apt-get install wezterm
+sudo apt-get install -y wezterm
 mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
 ln -s "$PWD/wezterm.lua" ~/.wezterm.lua
 
