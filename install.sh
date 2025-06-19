@@ -29,6 +29,7 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
 sudo apt-get install -y duf
 sudo apt-get install -y flameshot
+sudo apt-get install -y flatpak
 sudo apt-get install -y git
 sudo apt-get install -y pipx && pipx ensurepath
 sudo apt-get install -y plocate && sudo updatedb
