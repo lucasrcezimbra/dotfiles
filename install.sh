@@ -133,10 +133,10 @@ ln -s "$PWD/gitconfig" ~/.gitconfig
 gh auth login
 
 # Spotify
-flatpak install flathub com.spotify.Client
+flatpak install -y flathub com.spotify.Client
 
 # Zoom
-flatpak install flathub us.zoom.Zoom
+flatpak install -y flathub us.zoom.Zoom
 
 # clean
 sudo apt-get autoremove -y
