@@ -45,7 +45,7 @@ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libread
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 
 # zsh
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 # oh-my-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
@@ -54,13 +54,14 @@ sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
+# shellcheck disable=all
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 
 # SSH
 ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
@@ -102,21 +103,22 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 sudo apt-get update
 sudo apt-get install wezterm
 mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
-ln -s $PWD/wezterm.lua ~/.wezterm.lua
+ln -s "$PWD/wezterm.lua" ~/.wezterm.lua
 
 # llm
 pipx install llm
 mv ~/.config/io.datasette.llm/templates ~/.config/io.datasette.llm/templates-backup || mkdir -p ~/.config/io.datasette.llm/templates
-ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
+ln -s "$PWD/llm-templates" ~/.config/io.datasette.llm/templates
 
 # git
 cargo install git-delta
 cargo install mergiraf
 cargo install difftastic
 mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
-ln -s $PWD/gitconfig ~/.gitconfig
+ln -s "$PWD/gitconfig" ~/.gitconfig
 
 # GitHub CLI
+# shellcheck disable=all
 (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
 	&& sudo mkdir -p -m 755 /etc/apt/keyrings \
         && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
