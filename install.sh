@@ -23,6 +23,7 @@ sudo apt-get install -y cmake
 sudo apt-get install -y duf
 sudo apt-get install -y git
 sudo apt-get install -y pipx && pipx ensurepath
+sudo apt-get install -y plocate && sudo updatedb
 sudo apt-get install -y snapd
 sudo apt-get install -y vim vim-python-jedi
 sudo apt-get install -y zeal
@@ -97,10 +98,6 @@ ln -s $PWD/wezterm.lua ~/.wezterm.lua
 pipx install llm
 mv ~/.config/io.datasette.llm/templates ~/.config/io.datasette.llm/templates-backup || mkdir -p ~/.config/io.datasette.llm/templates
 ln -s $PWD/llm-templates ~/.config/io.datasette.llm/templates
-
-# plocate
-sudo apt-get install plocate
-sudo updatedb
 
 # git
 cargo install git-delta
