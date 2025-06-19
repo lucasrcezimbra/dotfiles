@@ -80,6 +80,7 @@ curl https://sh.rustup.rs -sSf | sh
 cargo install starship --locked
 cargo install eza --locked
 cargo install zoxide --locked
+cargo install ripgrep
 
 # NeoVim
 flatpak install flathub io.neovim.nvim
