@@ -115,7 +115,6 @@ function ,timer() {
   /usr/bin/time -f '%E' cat
   echo "Timer stopped at $(_,time)."
 }
-eval $(thefuck --alias)
 
 # paths
 NOTES_ROOT_PATH="$HOME/workspace/lucasrcezimbra.github.io"
