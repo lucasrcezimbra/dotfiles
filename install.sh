@@ -36,6 +36,7 @@ sudo apt-get install -y pipx && pipx ensurepath
 sudo apt-get install -y plocate && sudo updatedb
 sudo apt-get install -y snapd
 sudo apt-get install -y vim vim-python-jedi
+sudo apt-get install -y xclip
 sudo apt-get install -y zeal
 sudo apt-get install -y zsh
 
