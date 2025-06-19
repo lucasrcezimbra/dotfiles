@@ -138,6 +138,12 @@ flatpak install -y flathub com.spotify.Client
 # Zoom
 flatpak install -y flathub us.zoom.Zoom
 
+# Chrome
+flatpak install -y flathub com.google.Chrome
+
+# Firefox
+flatpak install -y flathub org.mozilla.firefox
+
 # clean
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
