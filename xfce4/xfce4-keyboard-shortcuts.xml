@@ -34,7 +34,6 @@
       <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Alt&gt;Print" type="string" value="xfce4-screenshooter -w"/>
       <property name="&lt;Super&gt;r" type="string" value="xfce4-appfinder">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
@@ -43,9 +42,7 @@
       <property name="&lt;Alt&gt;F3" type="empty">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="Print" type="string" value="xfce4-screenshooter --fullscreen"/>
       <property name="&lt;Primary&gt;Escape" type="string" value="xfdesktop --menu"/>
-      <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter --region"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="exo-open --launch TerminalEmulator"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>
@@ -61,6 +58,7 @@
       <property name="&lt;Super&gt;s" type="string" value="mousepad Desktop/strings"/>
       <property name="&lt;Super&gt;t" type="string" value="wezterm"/>
       <property name="&lt;Super&gt;m" type="string" value="thunar Pictures/memes/"/>
+      <property name="Print" type="string" value="flameshot gui"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
