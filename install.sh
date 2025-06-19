@@ -75,6 +75,9 @@ touch zshrc.local
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh
+cargo install starship --locked
+cargo install eza --locked
+cargo install zoxide --locked
 
 # NeoVim
 flatpak install flathub io.neovim.nvim
@@ -89,15 +92,6 @@ ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
 
 # mise
 curl https://mise.jdx.dev/install.sh | sh
-
-# startship
-cargo install starship --locked
-
-# eza
-cargo install eza
-
-# zoxide
-cargo install zoxide --locked
 
 # WezTerm
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
@@ -132,17 +126,12 @@ ln -s "$PWD/gitconfig" ~/.gitconfig
 	&& sudo apt install gh -y
 gh auth login
 
-# Spotify
-flatpak install -y flathub com.spotify.Client
-
-# Zoom
-flatpak install -y flathub us.zoom.Zoom
-
-# Chrome
+# Flatpak
+flatpak install -y flathub com.bitwarden.desktop
 flatpak install -y flathub com.google.Chrome
-
-# Firefox
 flatpak install -y flathub org.mozilla.firefox
+flatpak install -y flathub com.spotify.Client
+flatpak install -y flathub us.zoom.Zoom
 
 # clean
 sudo apt-get autoremove -y
