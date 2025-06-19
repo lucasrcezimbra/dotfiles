@@ -30,6 +30,7 @@ sudo apt-get install -y cmake
 sudo apt-get install -y duf
 sudo apt-get install -y flameshot
 sudo apt-get install -y flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo apt-get install -y imagemagick
 sudo apt-get install -y git
 sudo apt-get install -y pipx && pipx ensurepath
 sudo apt-get install -y plocate && sudo updatedb
