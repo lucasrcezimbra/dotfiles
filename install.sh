@@ -143,4 +143,6 @@ flatpak install -y flathub us.zoom.Zoom
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 
+git remote set-url origin git@github.com:lucasrcezimbra/dotfiles.git
+
 echo "Done! It's recommended to restart the system to apply all changes."
