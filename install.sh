@@ -9,10 +9,11 @@ su -c 'sudo usermod -aG sudo $USER'";
 }
 
 # XFCE
-mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml.backup
-mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml.backup
-cp xfce4/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-cp xfce4/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml{,.backup}
+mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml{,.backup}
+mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml{,.backup}
+mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml{,.backup}
+cp xfce4/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 pkill xfconfd
 xfce4-panel -r
 
