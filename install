@@ -10,9 +10,11 @@ su -c 'sudo usermod -aG sudo $USER'";
 
 # XFCE
 mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml.backup
-ln -s ~/.dotfiles/xfce4/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-xfconf-query --channel xfce4-panel --property '/plugins/plugin-1/button-title' --set ''
-xfconf-query --channel xfce4-panel --property '/plugins/plugin-2/grouping' --set '0'
+mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml.backup
+cp xfce4/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+cp xfce4/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+pkill xfconfd
+xfce4-panel -r
 
 # Update
 sudo apt-get update
