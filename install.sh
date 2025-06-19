@@ -81,6 +81,7 @@ touch zshrc.local
 curl https://sh.rustup.rs -sSf | sh
 cargo install ast-grep --locked
 cargo install eza --locked
+cargo install fd-find
 cargo install ripgrep
 cargo install starship --locked
 cargo install zoxide --locked

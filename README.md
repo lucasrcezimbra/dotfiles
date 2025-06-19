@@ -20,6 +20,7 @@ cd .dotfiles
 - [delta](https://github.com/dandavison/delta) - syntax-highlighting pager for `git` and `grep` outputs and replacement for `diff`
 - [Docker](https://www.docker.com/)
 - [eza](https://github.com/eza-community/eza) - replacement for `ls`
+- [fd](https://github.com/sharkdp/fd) - replacement for `find`
 - [Flameshot](https://flameshot.org/) for screenshots
 - [Flatpak](https://www.flatpak.org/) and [Snap](https://snapcraft.io/) to install apps
 - [Git](https://git-scm.com/) + [GitHub CLI](https://cli.github.com/)
