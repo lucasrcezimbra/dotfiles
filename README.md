@@ -13,6 +13,7 @@ cd .dotfiles
 ```
 
 ## Tools
+- [ast-grep](https://github.com/ast-grep/ast-grep) - abstract syntax tree grep
 - [aws-vault](https://github.com/99designs/aws-vault) to manage AWS credentials
 - Browsers: Chrome and Firefox
 - [btop](https://github.com/aristocratos/btop) - replacement for `top`
