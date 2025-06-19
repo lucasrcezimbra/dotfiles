@@ -147,3 +147,6 @@ flatpak install -y flathub org.mozilla.firefox
 # clean
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
+
+
+echo "Done! It's recommended to restart the system to apply all changes."
