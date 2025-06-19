@@ -26,6 +26,7 @@ sh ./install.sh
 - [mise-en-place](https://github.com/jdx/mise) to manage dev tool versions (Node, Python, Terraform, etc)
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) + many plugins - shell
 - [plocate](https://plocate.sesse.net/) to search files
+- [Spotify for Linux](https://www.spotify.com/us/download/linux) for music
 - [Starship](https://starship.rs/) - shell prompt
 - [WezTerm](https://github.com/wez/wezterm) - terminal emulator
 - [Zeal](https://zealdocs.org/) - offline software documentation

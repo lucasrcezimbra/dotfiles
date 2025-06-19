@@ -23,7 +23,7 @@ sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 
 # Essentials
-sudo apt-get install -y blueman bluez-* pulseaudio-module-bluetooth bluemon  # bluetooth
+sudo apt-get install -y blueman bluez-* pulseaudio-module-bluetooth bluemon
 sudo apt-get install -y btop
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
@@ -130,6 +130,9 @@ ln -s "$PWD/gitconfig" ~/.gitconfig
 	&& sudo apt update \
 	&& sudo apt install gh -y
 gh auth login
+
+# Spotify
+snap install spotify
 
 # clean
 sudo apt-get autoremove -y
