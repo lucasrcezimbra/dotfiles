@@ -100,8 +100,8 @@ ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
 
 # mise and tools
 curl https://mise.jdx.dev/install.sh | sh
-mise use -g node@22
-mise use -g python@3
+mise use -g node@lts
+mise use -g python
 
 # WezTerm
 wezterm || {
