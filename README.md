@@ -30,4 +30,5 @@ sh ./install.sh
 - [Starship](https://starship.rs/) - shell prompt
 - [WezTerm](https://github.com/wez/wezterm) - terminal emulator
 - [Zeal](https://zealdocs.org/) - offline software documentation
+- [Zoom](http://zoom.com) for meetings
 - [zoxide](https://github.com/ajeetdsouza/zoxide) - replacement for `cd` and autojump

@@ -134,6 +134,9 @@ gh auth login
 # Spotify
 snap install spotify
 
+# Zoom
+snap install zoom-client
+
 # clean
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
