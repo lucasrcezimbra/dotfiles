@@ -77,7 +77,7 @@ mv ~/.zshrc ~/.zshrc_backup 2> /dev/null
 echo ". $PWD/zshrc" >> ~/.zshrc
 touch zshrc.local
 
-# Rust
+# Rust and tools
 curl https://sh.rustup.rs -sSf | sh
 cargo install ast-grep --locked
 cargo install eza --locked
@@ -98,8 +98,10 @@ rm -rf ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins
 ln -sd "$PWD/nvim/config/" ~/.config/nvim/lua/
 ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
 
-# mise
+# mise and tools
 curl https://mise.jdx.dev/install.sh | sh
+mise use -g node@22
+mise use -g python@3
 
 # WezTerm
 wezterm || {
