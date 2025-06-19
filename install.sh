@@ -31,6 +31,7 @@ sudo apt-get install -y duf
 sudo apt-get install -y flameshot
 sudo apt-get install -y flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt-get install -y imagemagick
+sudo apt-get install -y libpq-dev  # library to communicate with a PostgreSQL; psycopg2 depends on this
 sudo apt-get install -y git
 sudo apt-get install -y pipx && pipx ensurepath
 sudo apt-get install -y plocate && sudo updatedb
