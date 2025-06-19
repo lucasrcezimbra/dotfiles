@@ -84,6 +84,7 @@ cargo install starship --locked
 cargo install zoxide --locked
 
 # NeoVim
+sudo apt-get install -y luarocks
 flatpak install flathub io.neovim.nvim
 pipx install pynvim
 pyenv virtualenv debugpy && pyenv shell debugpy && pip install debugpy && pyenv shell --unset
