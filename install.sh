@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo echo || {
 	echo "Your user is is not a superuser. Run the command below and restart your computer.
 su -c 'sudo usermod -aG sudo $USER'";
