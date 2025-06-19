@@ -140,10 +140,15 @@ flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub com.spotify.Client
 flatpak install -y flathub us.zoom.Zoom
 
+# pre-commit
+pipx install pre-commit
+
 # clean
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 
+# self config
 git remote set-url origin git@github.com:lucasrcezimbra/dotfiles.git
+pre-commit install
 
 echo "Done! It's recommended to restart the system to apply all changes."
