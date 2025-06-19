@@ -96,10 +96,12 @@ ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
 curl https://mise.jdx.dev/install.sh | sh
 
 # WezTerm
-curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
-echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-sudo apt-get update
-sudo apt-get install -y wezterm
+wezterm || {
+  curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg;
+  echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list;
+  sudo apt-get update;
+  sudo apt-get install -y wezterm;
+}
 mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
 ln -s "$PWD/wezterm.lua" ~/.wezterm.lua
 
@@ -140,6 +142,5 @@ flatpak install -y flathub us.zoom.Zoom
 # clean
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
-
 
 echo "Done! It's recommended to restart the system to apply all changes."
