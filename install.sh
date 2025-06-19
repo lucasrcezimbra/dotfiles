@@ -77,7 +77,7 @@ touch zshrc.local
 curl https://sh.rustup.rs -sSf | sh
 
 # NeoVim
-sudo snap install --classic nvim
+flatpak install flathub io.neovim.nvim
 pipx install pynvim
 pyenv virtualenv debugpy && pyenv shell debugpy && pip install debugpy && pyenv shell --unset
 ## LazyVim
