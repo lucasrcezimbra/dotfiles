@@ -30,6 +30,7 @@ cd .dotfiles
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) + many plugins - shell
 - [plocate](https://plocate.sesse.net/) to search files
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - replacement for `grep`
+- [Solaar](https://github.com/pwr-Solaar/Solaar) to manage Logitech devices
 - [Spotify for Linux](https://www.spotify.com/us/download/linux) for music
 - [Starship](https://starship.rs/) - shell prompt
 - [WezTerm](https://github.com/wez/wezterm) - terminal emulator
