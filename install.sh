@@ -152,6 +152,9 @@ flatpak install -y flathub us.zoom.Zoom
 # pre-commit
 pipx install pre-commit
 
+# poetry
+pipx install poetry
+
 # clean
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
