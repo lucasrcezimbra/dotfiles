@@ -23,7 +23,7 @@ sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 
 # Essentials
-sudo apt-get install -y blueman bluez-* pulseaudio-module-bluetooth bluemon
+sudo apt-get install -y blueman bluemon pulseaudio-module-bluetooth && sudo apt-get remove bluez-alsa-utils
 sudo apt-get install -y btop
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
