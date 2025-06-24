@@ -31,6 +31,7 @@ sudo apt-get install -y duf
 sudo apt-get install -y ffmpeg
 sudo apt-get install -y flameshot
 sudo apt-get install -y flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo apt-get install -y gimp
 sudo apt-get install -y hugo
 sudo apt-get install -y imagemagick
 sudo apt-get install -y jq
