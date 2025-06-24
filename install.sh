@@ -54,30 +54,13 @@ sudo ufw default deny incoming
 chsh -s "$(which zsh)"
 # oh-my-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-
-# Docker
-docker || {
-  sudo apt-get install -y ca-certificates curl;
-  sudo install -m 0755 -d /etc/apt/keyrings;
-  sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc;
-  sudo chmod a+r /etc/apt/keyrings/docker.asc;
-  # shellcheck disable=all
-  echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
-  sudo apt-get update;
-  sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-}
-sudo usermod -aG docker "$USER"
-
-# SSH
-ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
-
 # .zshrc
 mv ~/.zshrc ~/.zshrc_backup 2> /dev/null
 echo ". $PWD/zshrc" >> ~/.zshrc
 touch zshrc.local
+
+# SSH
+ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
 
 # Rust and tools
 curl https://sh.rustup.rs -sSf | sh
@@ -157,6 +140,22 @@ pipx install pre-commit
 
 # poetry
 pipx install poetry
+
+# Docker
+docker || {
+  sudo apt-get install -y ca-certificates curl;
+  sudo install -m 0755 -d /etc/apt/keyrings;
+  sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc;
+  sudo chmod a+r /etc/apt/keyrings/docker.asc;
+  # shellcheck disable=all
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
+  sudo apt-get update;
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+}
+sudo usermod -aG docker "$USER"
 
 # clean
 sudo apt-get autoremove -y
