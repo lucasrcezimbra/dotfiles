@@ -50,6 +50,11 @@ sudo apt-get install -y zsh
 sudo apt-get install -y ufw
 sudo ufw default deny incoming
 
+# mise and tools
+curl https://mise.jdx.dev/install.sh | sh
+ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
+mise install
+
 # zsh
 chsh -s "$(which zsh)"
 # oh-my-zsh
@@ -61,15 +66,6 @@ touch zshrc.local
 
 # SSH
 ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
-
-# Rust and tools
-curl https://sh.rustup.rs -sSf | sh
-cargo install ast-grep --locked
-cargo install eza --locked
-cargo install fd-find
-cargo install ripgrep
-cargo install starship --locked
-cargo install zoxide --locked
 
 # NeoVim
 sudo apt-get install -y luarocks
@@ -83,11 +79,6 @@ rm -rf ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins
 ln -sd "$PWD/nvim/config/" ~/.config/nvim/lua/
 ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
 
-# mise and tools
-curl https://mise.jdx.dev/install.sh | sh
-mise use -g node@lts
-mise use -g python
-
 # WezTerm
 wezterm || {
   curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg;
@@ -99,31 +90,15 @@ mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
 ln -s "$PWD/wezterm.lua" ~/.wezterm.lua
 
 # llm
-pipx install llm
 llm install llm-cmd
 mv ~/.config/io.datasette.llm/templates ~/.config/io.datasette.llm/templates-backup || mkdir -p ~/.config/io.datasette.llm/templates
 ln -s "$PWD/llm-templates" ~/.config/io.datasette.llm/templates
 
 # git
-cargo install git-delta
-cargo install mergiraf
-cargo install difftastic
 mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
 ln -s "$PWD/gitconfig" ~/.gitconfig
 
 # GitHub CLI
-gh || {
-  # shellcheck disable=all
-  (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
-    && sudo mkdir -p -m 755 /etc/apt/keyrings \
-          && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-          && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-    && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-    && sudo mkdir -p -m 755 /etc/apt/sources.list.d \
-    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-    && sudo apt update \
-    && sudo apt install gh -y;
-}
 gh auth login
 
 # Flatpak
@@ -134,12 +109,6 @@ flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub com.obsproject.Studio
 flatpak install -y flathub com.spotify.Client
 flatpak install -y flathub us.zoom.Zoom
-
-# pre-commit
-pipx install pre-commit
-
-# poetry
-pipx install poetry
 
 # Docker
 docker || {

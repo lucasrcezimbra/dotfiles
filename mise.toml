@@ -1,0 +1,22 @@
+[tools]
+ast-grep = "latest"
+aws-vault = "latest"
+"cargo:mergiraf" = "latest"
+delta = "latest"
+difftastic = "latest"
+eza = "latest"
+fd = "latest"
+gh = "latest"
+node = "22"
+"pipx:llm" = "latest"
+"pipx:poetry" = "latest"
+"pipx:pre-commit" = "latest"
+python = "3"
+ripgrep = "latest"
+ripgrep-all = "latest"
+rust = "stable"
+starship = "latest"
+zoxide = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
