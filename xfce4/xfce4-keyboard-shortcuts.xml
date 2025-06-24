@@ -29,12 +29,10 @@
       <property name="&lt;Super&gt;r" type="empty">
         <property name="startup-notify" type="empty"/>
       </property>
+      <property name="&lt;Alt&gt;&lt;Super&gt;s" type="empty"/>
     </property>
     <property name="custom" type="empty">
       <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed">
-        <property name="startup-notify" type="bool" value="true"/>
-      </property>
-      <property name="&lt;Super&gt;r" type="string" value="xfce4-appfinder">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="XF86WWW" type="string" value="exo-open --launch WebBrowser"/>
@@ -59,6 +57,9 @@
       <property name="&lt;Super&gt;t" type="string" value="wezterm"/>
       <property name="&lt;Super&gt;m" type="string" value="thunar Pictures/memes/"/>
       <property name="Print" type="string" value="flameshot gui"/>
+      <property name="&lt;Super&gt;r" type="string" value="xfce4-popup-whiskermenu -p">
+        <property name="startup-notify" type="bool" value="true"/>
+      </property>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -117,8 +118,8 @@
       <property name="&lt;Primary&gt;F12" type="empty"/>
       <property name="&lt;Super&gt;KP_Left" type="empty"/>
       <property name="&lt;Super&gt;KP_Right" type="empty"/>
-      <property name="&lt;Super&gt;KP_Up" type="empty"/>
       <property name="&lt;Super&gt;KP_Down" type="empty"/>
+      <property name="&lt;Super&gt;KP_Up" type="empty"/>
       <property name="&lt;Super&gt;KP_Page_Up" type="empty"/>
       <property name="&lt;Super&gt;KP_Home" type="empty"/>
       <property name="&lt;Super&gt;KP_End" type="empty"/>
@@ -175,7 +176,6 @@
       <property name="&lt;Alt&gt;Insert" type="string" value="add_workspace_key"/>
       <property name="&lt;Primary&gt;F1" type="string" value="workspace_1_key"/>
       <property name="override" type="bool" value="true"/>
-      <property name="&lt;Super&gt;Up" type="string" value="tile_up_key"/>
       <property name="&lt;Super&gt;Down" type="string" value="tile_down_key"/>
       <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
@@ -183,9 +183,9 @@
       <property name="&lt;Primary&gt;&lt;Super&gt;Right" type="string" value="tile_down_right_key"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;Left" type="string" value="tile_up_left_key"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;Right" type="string" value="tile_up_right_key"/>
-      <property name="&lt;Primary&gt;&lt;Shift&gt;Up" type="string" value="maximize_window_key"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;Left" type="string" value="move_window_left_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;Right" type="string" value="move_window_right_workspace_key"/>
+      <property name="&lt;Super&gt;Up" type="string" value="maximize_window_key"/>
     </property>
   </property>
   <property name="providers" type="array">
