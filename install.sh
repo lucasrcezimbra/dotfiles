@@ -173,4 +173,8 @@ unzip /tmp/jetbrains_mono.zip
 mkdir -p ~/.local/share/fonts/
 cp /tmp/jetbrains_mono/*.ttf ~/.local/share/fonts/
 
+# tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+
 echo "Done! It's recommended to restart the system to apply all changes."
