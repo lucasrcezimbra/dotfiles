@@ -50,10 +50,6 @@ sudo apt-get install -y zsh
 sudo apt-get install -y ufw
 sudo ufw default deny incoming
 
-# pyenv
-sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-
 # zsh
 chsh -s "$(which zsh)"
 # oh-my-zsh
