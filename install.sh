@@ -164,4 +164,10 @@ sudo apt-get autoclean -y
 git remote set-url origin git@github.com:lucasrcezimbra/dotfiles.git
 pre-commit install
 
+# fonts
+wget -O "/tmp/jetbrains_mono.zip" https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip /tmp/jetbrains_mono.zip
+mkdir -p ~/.local/share/fonts/
+cp /tmp/jetbrains_mono/*.ttf ~/.local/share/fonts/
+
 echo "Done! It's recommended to restart the system to apply all changes."
