@@ -145,8 +145,10 @@ gh auth login
 
 # Flatpak
 flatpak install -y flathub com.bitwarden.desktop
+flatpak install -y flathub com.rafaelmardojai.Blanket
 flatpak install -y flathub com.google.Chrome
 flatpak install -y flathub org.mozilla.firefox
+flatpak install -y flathub com.obsproject.Studio
 flatpak install -y flathub com.spotify.Client
 flatpak install -y flathub us.zoom.Zoom
 
