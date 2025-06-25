@@ -52,6 +52,7 @@ sudo ufw default deny incoming
 
 # mise and tools
 curl https://mise.jdx.dev/install.sh | sh
+mv ~/.config/mise/config.toml{,.backup}
 ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
 mise install
 
