@@ -32,11 +32,12 @@ sudo apt-get install -y ffmpeg
 sudo apt-get install -y flameshot
 sudo apt-get install -y flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt-get install -y gimp
+sudo apt-get install -y git
 sudo apt-get install -y hugo
 sudo apt-get install -y imagemagick
 sudo apt-get install -y jq
 sudo apt-get install -y libpq-dev  # library to communicate with a PostgreSQL; psycopg2 depends on this
-sudo apt-get install -y git
+sudo apt-get install -y nmap
 sudo apt-get install -y pipx && pipx ensurepath
 sudo apt-get install -y plocate && sudo updatedb
 sudo apt-get install -y snapd
