@@ -1,10 +1,10 @@
 [tools]
 ast-grep = "0.38.6"
 aws-vault = "7.2.0"
-"cargo:mergiraf" = "0.10.0"
+"cargo:mergiraf" = "0.11.0"
 delta = "0.18.2"
 difftastic = "0.64.0"
-eza = "0.21.5"
+eza = "0.22.0"
 fd = "10.2.0"
 gh = "2.74.2"
 go = "1.24.4"
@@ -19,7 +19,7 @@ ripgrep = "14.1.1"
 ripgrep-all = "0.10.9"
 rust = "stable"
 starship = "1.23.0"
-uv = "0.7.13"
+uv = "0.7.19"
 zoxide = "0.9.8"
 
 [settings]
