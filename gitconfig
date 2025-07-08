@@ -4,6 +4,7 @@
 [core]
   pager = delta
   excludesfile = ~/.dotfiles/gitignore
+  attributesfile = ~/.dotfiles/gitattributes
 
 [delta]
   line-numbers = true
