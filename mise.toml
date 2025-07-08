@@ -1,6 +1,5 @@
 [tools]
 ast-grep = "0.38.6"
-aws-vault = "7.2.0"
 "cargo:mergiraf" = "0.11.0"
 delta = "0.18.2"
 difftastic = "0.64.0"
