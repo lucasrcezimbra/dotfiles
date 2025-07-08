@@ -2,9 +2,9 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [core]
-  pager = delta
-  excludesfile = ~/.dotfiles/gitignore
   attributesfile = ~/.dotfiles/gitattributes
+  excludesfile = ~/.dotfiles/gitignore
+  pager = delta
 
 [delta]
   line-numbers = true
