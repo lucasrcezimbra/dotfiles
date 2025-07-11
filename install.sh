@@ -57,7 +57,7 @@ curl https://mise.jdx.dev/install.sh | sh
 mv ~/.config/mise/config.toml{,.backup}
 ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
 touch mise.local.toml
-ln -s "$PWD/mise.toml" ~/.config/mise/config.local.toml
+ln -s "$PWD/mise.local.toml" ~/.config/mise/config.local.toml
 mise install
 
 # zsh
