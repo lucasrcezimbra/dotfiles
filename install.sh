@@ -40,6 +40,7 @@ sudo apt-get install -y nmap
 sudo apt-get install -y pipx && pipx ensurepath
 sudo apt-get install -y plocate && sudo updatedb
 sudo apt-get install -y postgresql-client-15  # psql
+sudo apt-get install -y pup  # jq for HTML
 sudo apt-get install -y snapd
 sudo apt-get install -y solaar  # Logitech manager
 sudo apt-get install -y vim vim-python-jedi
