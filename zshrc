@@ -26,7 +26,6 @@ plugins=(
   extract
   globalias
   per-directory-history
-  # poetry-env
   safe-paste
 
   # shortcuts
@@ -43,7 +42,6 @@ plugins=(
   # completion only
   gh
   gitfast
-  poetry
   tailscale
   ufw
 
@@ -205,6 +203,7 @@ lastmod: $(_,today)
 alias ,py-venv='source .venv/bin/activate || python -m venv .venv && source .venv/bin/activate'
 ## poetry
 alias ,pp-shell='poetry env activate'
+poetry completions zsh >| "$ZSH_CACHE_DIR/completions/_poetry" &|
 ## django
 alias ,dj-createsuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
 alias ,dj-manage='python $VIRTUAL_ENV/../manage.py'
