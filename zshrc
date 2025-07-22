@@ -105,6 +105,10 @@ alias gr~='git reset HEAD~1'
 alias gs='git status'
 alias gsh='git push origin $(git rev-parse --abbrev-ref HEAD)'
 alias gig='gi'
+# github
+alias ghk="gh pr checkout"
+alias ghw="gh run watch && notify-send 'Workflow is done!!!11!!'"
+
 
 # helpers
 alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\""
