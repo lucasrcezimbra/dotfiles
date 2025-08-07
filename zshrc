@@ -209,9 +209,9 @@ alias ,py-venv='source .venv/bin/activate || python -m venv .venv && source .ven
 alias ,pp-shell='poetry env activate'
 poetry completions zsh >| "$ZSH_CACHE_DIR/completions/_poetry" &|
 ## django
-alias ,dj-createsuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
-alias ,dj-manage='python $VIRTUAL_ENV/../manage.py'
-alias ,dj-pmanage='poetry run python manage.py'
+alias ,dj='poetry run python manage.py'
+alias ,djcreatesuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
+alias ,djshell='poetry run python manage.py shell_plus --ipython'
 
 # selenium
 export CHROME_BIN=chromium
