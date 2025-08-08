@@ -2,7 +2,7 @@ local curl = require("plenary.curl")
 
 local function get_cursor_url()
     local url = vim.fn.expand("<cWORD>")
-    local cleaned_url = url:match("^(.-)[%p%s]*$")
+    local cleaned_url = url:match("^(.-)[%s,;%.%!%?]*$")
     return cleaned_url
 end
 
