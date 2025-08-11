@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
@@ -18,12 +18,12 @@ repos:
           - --autofix
       - id: trailing-whitespace
   - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v0.20.0
+    rev: v2.1.0
     hooks:
       - id: stylua-github
         args: [--indent-type=Spaces]
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
+    rev: v0.11.0.1
     hooks:
       - id: shellcheck
   - repo: local
