@@ -147,6 +147,9 @@ alias _,today='date "+%Y-%m-%d"'
 alias _,first-weekday='date -d "last saturday day" "+%Y-%m-%d"'
 alias _,last-weekday='date -d "this friday day" "+%Y-%m-%d"'
 alias _,week='echo $(_,first-weekday) - $(_,last-weekday)'
+alias _,first-work-weekday='date -d "last sunday day" "+%Y-%m-%d"'
+alias _,last-work-weekday='date -d "next Friday" "+%Y-%m-%d"'
+alias _,work-week='echo $(_,first-weekday) - $(_,last-weekday)'
 WEEKNOTE_PATH="$NOTES_PATH/Weeknotes/$(_,week).md"
 alias ,notes='cd $NOTES_PATH && vim'
 function ,nweek() {
