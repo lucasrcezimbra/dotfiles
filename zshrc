@@ -233,7 +233,7 @@ function n(){
 }
 
 # OCR
-alias ,ocr="llm 'OCR this image. Return ONLY the text.' -a"
+alias ,ocr="llm -m gpt-4o 'OCR this image. Return ONLY the text.' -a"
 function ,ocr-clipboard() {
   FILEPATH=${1:-"/tmp/$(date +%s).png"}
   xclip -selection clipboard -t image/png -o > $FILEPATH
