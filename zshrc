@@ -181,6 +181,9 @@ lastmod: $(_,today)
 - ## Read news
   -
 
+- ## Skimmed
+  -
+
 - ## Watched
   -
 
