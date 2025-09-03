@@ -62,6 +62,31 @@ alias gcllm='cat <(echo "Last commits:") <(git lg -n 10) <(echo "\n\ngit diff:")
 alias ,ip="curl -s ifconfig.co"
 alias ,ipv4=",ip -4"
 alias ,ipv6=",ip -6"
+function git_main_branch() {
+  # extracted from https://github.com/ohmyzsh/ohmyzsh/blob/2525dae6613652ec9cb572bdc2fdf80ef837a967/plugins/git/git.plugin.zsh#L35-L58
+  command git rev-parse --git-dir &>/dev/null || return
+
+  local remote ref
+
+  for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default,stable,master}; do
+    if command git show-ref -q --verify $ref; then
+      echo ${ref:t}
+      return 0
+    fi
+  done
+
+  # Fallback: try to get the default branch from remote HEAD symbolic refs
+  for remote in origin upstream; do
+    ref=$(command git rev-parse --abbrev-ref $remote/HEAD 2>/dev/null)
+    if [[ $ref == $remote/* ]]; then
+      echo ${ref#"$remote/"}; return 0
+    fi
+  done
+
+  # If no main branch was found, fall back to master but return error
+  echo master
+  return 1
+}
 
 # aws
 alias av='aws-vault'
@@ -99,6 +124,7 @@ alias gk='git checkout'
 alias gk.='git checkout -- . && git clean -f'
 alias glg='git lg'
 alias gll='git pull --autostash origin $(git rev-parse --abbrev-ref HEAD)'
+alias gllm='git pull --autostash --no-ff origin $(git_main_branch)'
 alias gr='git reset HEAD'
 alias gr~='git reset HEAD~1'
 alias gs='git status'
