@@ -1,5 +1,6 @@
 [tools]
 ast-grep = "0.38.7"
+"cargo:caligula" = "0.4.8"
 "cargo:mergiraf" = "0.12.1"
 "cargo:diskonaut" = "0.11.0"
 delta = "0.18.2"
