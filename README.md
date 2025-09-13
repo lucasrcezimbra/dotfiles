@@ -1,12 +1,16 @@
 # dotfiles
 
-Installation and configuration files for my Debian + XFCE.
+My installation and configuration files.
+
+Sep-2025 I started migrating from Debian + XFCE to Omarchy (Arch + Hyprland)
 
 
 ## Install
+
+- Prerequisites: git
+
 ```bash
 cd ~
-sudo apt update -y && sudo apt install -y git
 git clone https://github.com/lucasrcezimbra/dotfiles.git .dotfiles
 cd .dotfiles
 ./install.sh
