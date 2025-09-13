@@ -1,3 +1,7 @@
+# TODO: Clean up this.
+# Most tools are here because Debian didn't have the latest version.
+# Now, with Arch they can be removed from here and installed using Arch packages.
+
 [tools]
 ast-grep = "0.38.7"
 "cargo:caligula" = "0.4.8"
