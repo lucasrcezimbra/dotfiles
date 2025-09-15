@@ -2,6 +2,9 @@
 
 set -e
 
+# remove unused stuff
+omarchy-webapp-remove Basecamp Figma 'Google Contacts' 'Google Messages' 'Google Photos' HEY Zoom
+
 # mise tools
 mv ~/.config/mise/config.toml{,.backup}
 ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
