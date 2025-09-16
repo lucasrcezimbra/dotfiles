@@ -4,6 +4,9 @@ set -e
 
 # remove unused stuff
 omarchy-webapp-remove Basecamp Figma 'Google Contacts' 'Google Messages' 'Google Photos' HEY Zoom
+sudo pacman -Rns --noconfirm 1password-cli 1password-beta signal-desktop typora
+# TODO decide
+# sudo pacman -Rns --noconfirm lazydocker lazygit localsend-bin obsidian
 
 # mise tools
 mv ~/.config/mise/config.toml{,.backup}
