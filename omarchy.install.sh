@@ -2,6 +2,10 @@
 
 set -e
 
+# shell configs
+echo "source $PWD/zshrc" >>~/.zshrc
+echo "source $PWD/bashrc" >>~/.bashrc
+
 # mise tools
 mv ~/.config/mise/config.toml{,.backup}
 ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
