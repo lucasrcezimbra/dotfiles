@@ -50,6 +50,7 @@ sudo apt-get install -y zsh
 
 # Firewall
 sudo apt-get install -y ufw
+sudo ufw enable
 sudo ufw default deny incoming
 
 # mise and tools
