@@ -151,4 +151,10 @@ cp /tmp/jetbrains_mono/*.ttf ~/.local/share/fonts/
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 
+# Claude
+mv ~/.claude/agents{,-bkp}
+mv ~/.claude/hooks{,-bkp}
+mv ~/.claude/settings.json{,.bkp}
+ln -s "$PWD/claude/agents" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
+
 echo "Done! It's recommended to restart the system to apply all changes."

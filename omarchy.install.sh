@@ -40,3 +40,9 @@ sudo pacman -Sy --noconfirm bitwarden bitwarden-cli
 
 # Tailscale
 omarchy-install-tailscale
+
+# Claude
+mv ~/.claude/agents{,-bkp}
+mv ~/.claude/hooks{,-bkp}
+mv ~/.claude/settings.json{,.bkp}
+ln -s "$PWD/claude/agents" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
