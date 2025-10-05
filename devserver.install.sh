@@ -58,6 +58,11 @@ echo "eval \"\$(~/.local/bin/mise activate bash)\"" >> ~/.bashrc
 # shellcheck source=/dev/null
 source ~/.bashrc
 mise use node python
+mise use -g gh node python
 
 # Claude Code
 npm install -g @anthropic-ai/claude-code
+echo "alias claude='claude --dangerously-skip-permissions'" >> ~/.bashrc
+
+# GitHub
+gh auth login
