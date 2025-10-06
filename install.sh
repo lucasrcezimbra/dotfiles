@@ -155,6 +155,6 @@ sudo tailscale up
 mv ~/.claude/agents{,-bkp}
 mv ~/.claude/hooks{,-bkp}
 mv ~/.claude/settings.json{,.bkp}
-ln -s "$PWD/claude/agents" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
+ln -s "$PWD/claude/agents" "$PWD/claude/easyhooks" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
 
 echo "Done! It's recommended to restart the system to apply all changes."

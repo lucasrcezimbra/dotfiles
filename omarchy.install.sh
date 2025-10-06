@@ -45,4 +45,4 @@ omarchy-install-tailscale
 mv ~/.claude/agents{,-bkp}
 mv ~/.claude/hooks{,-bkp}
 mv ~/.claude/settings.json{,.bkp}
-ln -s "$PWD/claude/agents" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
+ln -s "$PWD/claude/agents" "$PWD/claude/easyhooks" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
