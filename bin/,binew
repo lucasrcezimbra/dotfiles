@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+if [ ! $# -eq 1 ]; then
+  echo 'Usage: ,binew <bin-name>'
+  exit 1
+fi
+
+BIN_NAME=$1
+FILEPATH="$HOME/.dotfiles/bin/$BIN_NAME"
+
+if [ -e "$FILEPATH" ]; then
+  echo "$FILEPATH already exists"
+  exit 1
+fi
+
+echo '#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+' > "$FILEPATH"
+
+chmod u+x "$FILEPATH"
+
+"$EDITOR" "$FILEPATH"
