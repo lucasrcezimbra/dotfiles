@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+set -u
+
+display_time() {
+    local total_seconds=$1
+    local hours=$((total_seconds / 3600))
+    local minutes=$(((total_seconds % 3600) / 60))
+    local seconds=$((total_seconds % 60))
+    printf "Elapsed Time: %02d:%02d:%02d\n" $hours $minutes $seconds
+}
+
+start_time=$(date +%s)
+echo "Stopwatch started. Press Enter to stop."
+read -r
+end_time=$(date +%s)
+elapsed_time=$((end_time - start_time))
+display_time $elapsed_time

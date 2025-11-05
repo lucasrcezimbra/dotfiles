@@ -1,3 +1,5 @@
+export PATH="$HOME/.dotfiles/bin/:$PATH"
+
 # _experiments
 alias df="duf"
 alias ls='eza --icons'
@@ -84,11 +86,6 @@ function git_main_branch() {
 alias calc="python -c \"import sys; print(eval(''.join(sys.argv[1:])))\""
 alias c=calc
 alias _,time='date "+%H:%M:%S"'
-function ,timer() {
-  echo "Timer started at $(_,time). Stop with Ctrl-D."
-  /usr/bin/time -f '%E' cat
-  echo "Timer stopped at $(_,time)."
-}
 
 # navigation
 alias ..='cd ..'
