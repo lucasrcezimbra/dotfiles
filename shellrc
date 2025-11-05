@@ -1,4 +1,5 @@
 export PATH="$HOME/.dotfiles/bin/:$PATH"
+export EDITOR='nvim'
 
 # _experiments
 alias df="duf"
@@ -15,13 +16,13 @@ alias ave='aws-vault exec'
 alias avl='aws-vault login'
 
 # configs
-alias ,.="cd ~/.dotfiles && vim"
-alias ,.lvim="vim ~/.dotfiles/lvim.lua"
-alias ,.nvim="vim  ~/.dotfiles/nvimrc"
-alias ,.vim="vim ~/.dotfiles/vimrc"
-alias ,.zsh="vim ~/.dotfiles/zshrc"
-alias ,.zshlocal="vim ~/.dotfiles/zshrc.local"
-alias ,.wez="vim ~/.dotfiles/wezterm.lua"
+alias ,.="cd ~/.dotfiles && $EDITOR"
+alias ,.lvim="$EDITOR ~/.dotfiles/lvim.lua"
+alias ,.nvim="$EDITOR ~/.dotfiles/nvimrc"
+alias ,.vim="$EDITOR ~/.dotfiles/vimrc"
+alias ,.zsh="$EDITOR ~/.dotfiles/zshrc"
+alias ,.zshlocal="$EDITOR ~/.dotfiles/zshrc.local"
+alias ,.wez="$EDITOR ~/.dotfiles/wezterm.lua"
 
 # Docker
 alias ,dockerkillall="docker ps -q | xargs docker kill"

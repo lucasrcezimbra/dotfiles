@@ -11,7 +11,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Oh my zsh
 export ZSH=~/.oh-my-zsh
-export EDITOR='vim'
+export EDITOR='nvim'
 
 ZSH_THEME="af-magic"
 plugins=(
@@ -64,7 +64,6 @@ NOTES_PATH="$NOTES_ROOT_PATH/content/anotacoes"
 
 # neovim
 alias vim=nvim
-alias v=nvim
 export PATH="$HOME/.local/bin:$PATH"
 
 # notes
@@ -76,7 +75,7 @@ alias _,first-work-weekday='date -d "last sunday day" "+%Y-%m-%d"'
 alias _,last-work-weekday='date -d "next Friday" "+%Y-%m-%d"'
 alias _,work-week='echo $(_,first-weekday) - $(_,last-weekday)'
 WEEKNOTE_PATH="$NOTES_PATH/Weeknotes/$(_,week).md"
-alias ,notes='cd $NOTES_PATH && vim'
+alias ,notes='cd $NOTES_PATH && $EDITOR'
 function ,nweek() {
   if [[ ! -e "$WEEKNOTE_PATH" ]]; then
     echo "---
@@ -120,7 +119,7 @@ lastmod: $(_,today)
 " > "$WEEKNOTE_PATH"
   fi
   cd "$NOTES_PATH"
-  vim "$WEEKNOTE_PATH"
+  $EDITOR "$WEEKNOTE_PATH"
 }
 function ,nnew() {
   TITLE="$@"
@@ -131,7 +130,7 @@ date: $(_,today)
 lastmod: $(_,today)
 ---" > "$FILE"
   cd "$NOTES_ROOT_PATH"
-  vim "$FILE"
+  $EDITOR "$FILE"
 }
 
 # python
