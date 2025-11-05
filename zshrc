@@ -147,14 +147,6 @@ export PATH="/snap/bin:$PATH"
 # globalias
 GLOBALIAS_FILTER_VALUES=(calc pip timer wezterm \*)
 
-function n(){
-  if [ $1 ]; then
-    thunar $1 2> /dev/null
-  else
-    thunar $PWD 2> /dev/null
-  fi
-}
-
 # Wallpapers
 function ,wallpaper-download() {
   NUMBER=$(python -c 'import random; print(random.randint(1, 52410))')

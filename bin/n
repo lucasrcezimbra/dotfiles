@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+set -u
+
+if [ $# -eq 1 ]; then
+  thunar "$1" 2> /dev/null
+else
+  thunar "$PWD" 2> /dev/null
+fi
