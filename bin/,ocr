@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+set -u
+
+if [ $# -eq 0 ]; then
+  FILEPATH=${1:-"/tmp/$(date +%s).png"}
+  xclip -selection clipboard -t image/png -o > "$FILEPATH"
+elif [ $# -eq 1 ]; then
+  FILEPATH=$1
+else
+  echo "Usage: ,ocr [filepath]"
+fi
+
+llm -m gpt-4o 'OCR this image. Return ONLY the text.' -a "$FILEPATH"

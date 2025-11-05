@@ -82,11 +82,3 @@ alias ,pp-shell='poetry env activate'
 alias ,dj='poetry run python manage.py'
 alias ,djcreatesuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
 alias ,djshell='poetry run python manage.py shell_plus --ipython'
-
-# OCR
-alias ,ocr="llm -m gpt-4o 'OCR this image. Return ONLY the text.' -a"
-function ,ocr-clipboard() {
-  FILEPATH=${1:-"/tmp/$(date +%s).png"}
-  xclip -selection clipboard -t image/png -o > $FILEPATH
-  ,ocr $FILEPATH
-}
