@@ -81,4 +81,4 @@ alias ,pp-shell='poetry env activate'
 ## django
 alias ,dj='poetry run python manage.py'
 alias ,djcreatesuperuser="DJANGO_SUPERUSER_PASSWORD=12345678 poetry run python manage.py createsuperuser --username lucas --email lucas@cezimbra.tec.br --noinput"
-alias ,djshell='poetry run python manage.py shell_plus --ipython'
+alias ,djshell='poetry run python manage.py shell_plus --ipython || poetry run pip install ipython && poetry run python manage.py shell_plus --ipython'
