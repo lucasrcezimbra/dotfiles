@@ -15,7 +15,7 @@ end
 
 -- Appearance
 config.color_scheme = "Dracula+"
-config.font_size = 9.0
+config.font_size = 11.0
 config.window_padding = {
     left = 0,
     right = 0,
