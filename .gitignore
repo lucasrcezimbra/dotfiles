@@ -1,3 +1,4 @@
 .claude/settings.local.json
 *.local
 mise.local.toml
+__pycache__/
