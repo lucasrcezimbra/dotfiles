@@ -11,6 +11,14 @@ def git_block_commit_no_verify(input):
 
 
 @hook(Events.PreToolUse.Bash)
+def git_block_commit_ammend(input):
+    cmd = input["tool_input"]["command"]
+
+    if 'git' in cmd and 'commit' in cmd and '--ammend' in cmd:
+        raise DenyTool("'git commit --ammend' is not allowed; dot not amment; create a new commit.")
+
+
+@hook(Events.PreToolUse.Bash)
 def unalias_cd(input):
     cmd = input["tool_input"]["command"]
 
