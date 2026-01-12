@@ -3,8 +3,32 @@ set -e
 set -u
 set -o pipefail
 
+HELP_TEXT='Usage: ,binew [-n] [-h] <bin-name>
+  -n  Do not open the script in the editor
+  -h  Show this help message'
+
+NO_EDIT=false
+
+while getopts "nh" opt; do
+  case $opt in
+    n)
+      NO_EDIT=true
+      ;;
+    h)
+      echo "$HELP_TEXT"
+      exit 0
+      ;;
+    *)
+      echo "$HELP_TEXT"
+      exit 1
+      ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+
 if [ ! $# -eq 1 ]; then
-  echo 'Usage: ,binew <bin-name>'
+  echo "$HELP_TEXT"
   exit 1
 fi
 
@@ -25,4 +49,8 @@ set -o pipefail
 
 chmod u+x "$FILEPATH"
 
-"$EDITOR" "$FILEPATH"
+if [ "$NO_EDIT" = false ]; then
+  "$EDITOR" "$FILEPATH"
+else
+  echo "$FILEPATH"
+fi
