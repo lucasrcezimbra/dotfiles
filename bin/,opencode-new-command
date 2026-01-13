@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: ,opencode-new-command <command-name> [description...]"
+  exit 1
+fi
+
+opencode "$HOME/.opencode/" --prompt "/opencode-new-command $*"
