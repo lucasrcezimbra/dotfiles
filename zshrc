@@ -84,15 +84,10 @@ date: $(_,first-weekday)
 lastmod: $(_,today)
 ---
 
-[<< Previous]({{< ref \"\" >}}) | Next >>
+<< Previous | Next >>
 
 - ## Books being read
-  - (pt-BR) Conversas Cruciais - Joseph Grenny & Kerry Patterson & Ron McMillan
-    & Al Switzler & Emily Gregory
-  - (pt-BR) História da Igreja: marcas da presença de Cristo no mundo - Angela
-    Pellicciari
-  - (pt-BR) História bíblica: narrativas do Antigo e do Novo Testamento - Dom
-    Antônio de Macedo Costa
+  -
 
 - ## Discovered tools
   -
@@ -115,7 +110,7 @@ lastmod: $(_,today)
 - ## Listened
   -
 
-[<< Previous]({{< ref \"\" >}}) | Next >>
+<< Previous | Next >>
 " > "$WEEKNOTE_PATH"
   fi
   cd "$NOTES_PATH"
