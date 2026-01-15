@@ -1,0 +1,49 @@
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+if [ -z "${1:-}" ]; then
+  echo "Error: Missing PR ID argument."
+  echo "Usage: $(basename "$0") <pr-id>"
+  exit 1
+fi
+
+pr_number="$1"
+
+echo "Monitoring PR #${pr_number}"
+
+poll_interval=30
+
+while true; do
+    # Get all checks for the PR
+    # state values: PENDING, QUEUED, IN_PROGRESS, WAITING, SUCCESS, FAILURE, CANCELLED, TIMED_OUT, SKIPPED, etc.
+    checks_json=$(gh pr checks "$pr_number" --json name,state,bucket --jq '.')
+
+    # Count check states using bucket field (pass, fail, pending, skipping)
+    total=$(echo "$checks_json" | jq 'length')
+    pending=$(echo "$checks_json" | jq '[.[] | select(.bucket == "pending")] | length')
+    failed=$(echo "$checks_json" | jq '[.[] | select(.bucket == "fail")] | length')
+    succeeded=$(echo "$checks_json" | jq '[.[] | select(.bucket == "pass" or .bucket == "skipping")] | length')
+
+    echo "Checks: ${succeeded}/${total} succeeded, ${failed} failed, ${pending} pending"
+
+    if [[ "$failed" -gt 0 ]]; then
+        echo "CI check(s) failed. Running opencode to plan fix..."
+        failed_checks=$(echo "$checks_json" | jq -r '.[] | select(.bucket == "fail") | .name')
+        echo "Failed checks:"
+        echo "$failed_checks"
+        notify-send "CI Failed" "PR #${pr_number} has ${failed} failed check(s). Starting opencode..."
+        echo "Checking out PR branch..."
+        gh pr checkout "$pr_number"
+        opencode --prompt "/gh-ci-plan-fix"
+        exit 0
+    elif [[ "$pending" -gt 0 ]]; then
+        echo "Checks still pending, waiting ${poll_interval}s..."
+        sleep "$poll_interval"
+    else
+        notify-send "CI Passed" "PR #${pr_number} - All CI checks passed!"
+        echo "All CI checks passed!"
+        exit 0
+    fi
+done
