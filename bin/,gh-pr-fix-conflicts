@@ -1,0 +1,32 @@
+#!/bin/bash
+set -u
+set -o pipefail
+
+if [ -z "${1:-}" ]; then
+  echo "Error: Missing PR ID argument."
+  echo "Usage: $(basename "$0") <pr-id>"
+  exit 1
+fi
+
+PR_ID="$1"
+
+# 1. Checkout PR
+echo "Checking out PR #$PR_ID..."
+gh pr checkout "$PR_ID" || exit 1
+
+# 2. Get Base Branch
+echo "Fetching base branch info..."
+BASE_BRANCH=$(gh pr view "$PR_ID" --json baseRefName --jq .baseRefName)
+echo "Base branch detected: $BASE_BRANCH"
+
+# 3. Pull Base Branch
+echo "Pulling changes from origin/$BASE_BRANCH..."
+if git pull --no-ff origin "$BASE_BRANCH"; then
+  # Success - No conflicts
+  echo "Merge successful. Pushing changes..."
+  git push origin "$(git branch --show-current)"
+else
+  # Failure - Conflicts
+  echo "Conflicts detected."
+  opencode --prompt /git-fix-conflicts
+fi
