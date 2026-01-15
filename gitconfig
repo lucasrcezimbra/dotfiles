@@ -18,6 +18,12 @@
   colorMoved = default
   external = difft --display side-by-side-show-both
 
+[gtr "ai"]
+	default = opencode
+
+[gtr "editor"]
+	default = nvim
+
 [interactive]
   diffFilter = delta --color-only
 
