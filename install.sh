@@ -108,6 +108,10 @@ ln -s "$PWD/gitconfig" ~/.gitconfig
 # GitHub CLI
 gh auth login
 
+# git-worktree-runner (gtr)
+git clone https://github.com/coderabbitai/git-worktree-runner.git ~/.local/share/git-worktree-runner
+~/.local/share/git-worktree-runner/install.sh
+
 # Flatpak
 flatpak install -y flathub com.bitwarden.desktop
 flatpak install -y flathub com.rafaelmardojai.Blanket
