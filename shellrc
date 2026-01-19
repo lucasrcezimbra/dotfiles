@@ -54,7 +54,7 @@ alias gsh='git push origin $(git rev-parse --abbrev-ref HEAD)'
 alias gig='gi'
 # github
 alias ghk="gh pr checkout"
-alias ghw="gh run watch && notify-send 'Workflow is done!!!11!!'"
+alias ghw="gh run watch && notify-send --wait 'Workflow is done!!!11!!'"
 
 
 # helpers

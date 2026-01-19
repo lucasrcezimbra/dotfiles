@@ -33,7 +33,7 @@ while true; do
         failed_checks=$(echo "$checks_json" | jq -r '.[] | select(.bucket == "fail") | .name')
         echo "Failed checks:"
         echo "$failed_checks"
-        notify-send "CI Failed" "PR #${pr_number} has ${failed} failed check(s). Starting opencode..."
+        notify-send --wait "CI Failed" "PR #${pr_number} has ${failed} failed check(s). Starting opencode..."
         echo "Checking out PR branch..."
         gh pr checkout "$pr_number"
         opencode --prompt "/gh-ci-plan-fix"
@@ -42,7 +42,7 @@ while true; do
         echo "Checks still pending, waiting ${poll_interval}s..."
         sleep "$poll_interval"
     else
-        notify-send "CI Passed" "PR #${pr_number} - All CI checks passed!"
+        notify-send --wait "CI Passed" "PR #${pr_number} - All CI checks passed!"
         echo "All CI checks passed!"
         exit 0
     fi
