@@ -1,0 +1,86 @@
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+if [ -z "${1:-}" ]; then
+  echo "Error: Missing PR ID argument."
+  echo "Usage: $(basename "$0") <pr-id>"
+  exit 1
+fi
+
+pr_number="$1"
+
+echo "Monitoring PR #${pr_number} for reviews..."
+
+poll_interval=60
+
+# Track seen review IDs to detect new reviews
+seen_reviews=""
+
+while true; do
+    # Get PR state (open, closed, merged)
+    pr_state=$(gh pr view "$pr_number" --json state,mergedAt --jq '.state')
+    merged_at=$(gh pr view "$pr_number" --json mergedAt --jq '.mergedAt')
+
+    if [[ "$merged_at" != "null" && -n "$merged_at" ]]; then
+        notify-send --wait "PR Merged" "PR #${pr_number} has been merged!"
+        echo "PR #${pr_number} has been merged!"
+        exit 0
+    fi
+
+    if [[ "$pr_state" == "CLOSED" ]]; then
+        notify-send --wait "PR Closed" "PR #${pr_number} has been closed."
+        echo "PR #${pr_number} has been closed."
+        exit 0
+    fi
+
+    # Get reviews - includes APPROVED, CHANGES_REQUESTED, COMMENTED, DISMISSED, PENDING
+    reviews_json=$(gh pr view "$pr_number" --json reviews --jq '.reviews')
+
+    # Get current review IDs
+    current_reviews=$(echo "$reviews_json" | jq -r '.[].id' | sort)
+
+    # Check for new reviews
+    if [[ -n "$seen_reviews" ]]; then
+        new_reviews=$(comm -13 <(echo "$seen_reviews") <(echo "$current_reviews"))
+        if [[ -n "$new_reviews" ]]; then
+            # Process each new review
+            for review_id in $new_reviews; do
+                author=$(echo "$reviews_json" | jq -r ".[] | select(.id == \"$review_id\") | .author.login")
+                state=$(echo "$reviews_json" | jq -r ".[] | select(.id == \"$review_id\") | .state")
+
+                case "$state" in
+                    APPROVED)
+                        notify-send --wait "PR Approved" "PR #${pr_number} approved by ${author}!"
+                        echo "PR #${pr_number} approved by ${author}!"
+                        ;;
+                    CHANGES_REQUESTED)
+                        notify-send --wait "Changes Requested" "PR #${pr_number}: ${author} requested changes."
+                        echo "PR #${pr_number}: ${author} requested changes."
+                        ;;
+                    COMMENTED)
+                        notify-send --wait "New Review Comment" "PR #${pr_number}: ${author} left a review comment."
+                        echo "PR #${pr_number}: ${author} left a review comment."
+                        ;;
+                    DISMISSED)
+                        notify-send --wait "Review Dismissed" "PR #${pr_number}: Review by ${author} was dismissed."
+                        echo "PR #${pr_number}: Review by ${author} was dismissed."
+                        ;;
+                esac
+            done
+        fi
+    fi
+
+    # Update seen reviews
+    seen_reviews="$current_reviews"
+
+    # Show current review summary
+    approved_count=$(echo "$reviews_json" | jq '[.[] | select(.state == "APPROVED")] | length')
+    changes_requested=$(echo "$reviews_json" | jq '[.[] | select(.state == "CHANGES_REQUESTED")] | length')
+    comments_count=$(echo "$reviews_json" | jq '[.[] | select(.state == "COMMENTED")] | length')
+
+    echo "Reviews: ${approved_count} approved, ${changes_requested} changes requested, ${comments_count} comments"
+    echo "Waiting ${poll_interval}s..."
+    sleep "$poll_interval"
+done
