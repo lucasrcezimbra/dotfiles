@@ -71,10 +71,12 @@ while true; do
                     APPROVED)
                         notify-send --wait "PR Approved" "PR #${pr_number} approved by ${author}!"
                         echo "PR #${pr_number} approved by ${author}!"
+                        exit 0
                         ;;
                     CHANGES_REQUESTED)
                         notify-send --wait "Changes Requested" "PR #${pr_number}: ${author} requested changes."
                         echo "PR #${pr_number}: ${author} requested changes."
+                        exit 0
                         ;;
                     COMMENTED)
                         notify-send --wait "New Review Comment" "PR #${pr_number}: ${author} left a review comment."
