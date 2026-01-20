@@ -1,11 +1,6 @@
 HISTSIZE=10000000
 SAVEHIST=10000000
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 # pipx
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -50,7 +45,6 @@ plugins=(
 
   # init
   mise
-  pyenv
   starship
   zoxide
 )

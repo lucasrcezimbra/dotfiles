@@ -77,7 +77,6 @@ ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
 sudo apt-get install -y luarocks
 flatpak install flathub io.neovim.nvim
 pipx install pynvim
-pyenv virtualenv debugpy && pyenv shell debugpy && pip install debugpy && pyenv shell --unset
 ## LazyVim
 mv ~/.config/nvim{,.bak}
 git clone https://github.com/LazyVim/starter ~/.config/nvim
