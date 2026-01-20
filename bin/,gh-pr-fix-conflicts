@@ -2,21 +2,38 @@
 set -u
 set -o pipefail
 
-if [ -z "${1:-}" ]; then
+use_current_branch=false
+
+while getopts "c" opt; do
+  case $opt in
+    c) use_current_branch=true ;;
+    *) echo "Usage: $(basename "$0") [-c | <pr-id>]"; exit 1 ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+if $use_current_branch; then
+  pr_number=$(gh pr view --json number -q .number 2>/dev/null)
+  if [ -z "$pr_number" ]; then
+    echo "Error: No PR found for current branch. Are you on a branch with an open PR?"
+    exit 1
+  fi
+elif [ -z "${1:-}" ]; then
   echo "Error: Missing PR ID argument."
-  echo "Usage: $(basename "$0") <pr-id>"
+  echo "Usage: $(basename "$0") [-c | <pr-id>]"
+  echo "  -c    Use PR from current branch"
   exit 1
+else
+  pr_number="$1"
 fi
 
-PR_ID="$1"
-
 # 1. Checkout PR
-echo "Checking out PR #$PR_ID..."
-gh pr checkout "$PR_ID" || exit 1
+echo "Checking out PR #$pr_number..."
+gh pr checkout "$pr_number" || exit 1
 
 # 2. Get Base Branch
 echo "Fetching base branch info..."
-BASE_BRANCH=$(gh pr view "$PR_ID" --json baseRefName --jq .baseRefName)
+BASE_BRANCH=$(gh pr view "$pr_number" --json baseRefName --jq .baseRefName)
 echo "Base branch detected: $BASE_BRANCH"
 
 # 3. Pull Base Branch
