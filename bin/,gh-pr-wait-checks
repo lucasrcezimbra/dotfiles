@@ -4,14 +4,29 @@ set -u
 set -o pipefail
 
 use_current_branch=false
+auto_plan=false
 
-while getopts "c" opt; do
-  case $opt in
-    c) use_current_branch=true ;;
-    *) echo "Usage: $(basename "$0") [-c | <pr-id>]"; exit 1 ;;
+show_usage() {
+  echo "Usage: $(basename "$0") [-c | <pr-id>] [--auto-plan]"
+  echo "  -c          Use PR from current branch"
+  echo "  --auto-plan Automatically run opencode to plan fix on CI failure"
+}
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -c) use_current_branch=true; shift ;;
+    --auto-plan) auto_plan=true; shift ;;
+    -*)
+      echo "Error: Unknown option: $1"
+      show_usage
+      exit 1
+      ;;
+    *)
+      pr_number="$1"
+      shift
+      ;;
   esac
 done
-shift $((OPTIND - 1))
 
 if $use_current_branch; then
   pr_number=$(gh pr view --json number -q .number 2>/dev/null)
@@ -19,13 +34,10 @@ if $use_current_branch; then
     echo "Error: No PR found for current branch. Are you on a branch with an open PR?"
     exit 1
   fi
-elif [ -z "${1:-}" ]; then
+elif [ -z "${pr_number:-}" ]; then
   echo "Error: Missing PR ID argument."
-  echo "Usage: $(basename "$0") [-c | <pr-id>]"
-  echo "  -c    Use PR from current branch"
+  show_usage
   exit 1
-else
-  pr_number="$1"
 fi
 
 echo "Monitoring PR #${pr_number}"
@@ -46,15 +58,21 @@ while true; do
     echo "Checks: ${succeeded}/${total} succeeded, ${failed} failed, ${pending} pending"
 
     if [[ "$failed" -gt 0 ]]; then
-        echo "CI check(s) failed. Running opencode to plan fix..."
         failed_checks=$(echo "$checks_json" | jq -r '.[] | select(.bucket == "fail") | .name')
+        echo "CI check(s) failed!"
         echo "Failed checks:"
         echo "$failed_checks"
-        notify-send --wait "CI Failed" "PR #${pr_number} has ${failed} failed check(s). Starting opencode..."
-        echo "Checking out PR branch..."
-        gh pr checkout "$pr_number"
-        opencode --prompt "/gh-ci-plan-fix"
-        exit 0
+
+        if $auto_plan; then
+            notify-send --wait "CI Failed" "PR #${pr_number} has ${failed} failed check(s). Starting opencode..."
+            echo "Checking out PR branch..."
+            gh pr checkout "$pr_number"
+            opencode --prompt "/gh-ci-plan-fix"
+            exit 0
+        else
+            notify-send --wait "CI Failed" "PR #${pr_number} has ${failed} failed check(s)."
+            exit 1
+        fi
     elif [[ "$pending" -gt 0 ]]; then
         echo "Checks still pending, waiting ${poll_interval}s..."
         sleep "$poll_interval"
