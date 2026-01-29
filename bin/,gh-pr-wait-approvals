@@ -55,6 +55,15 @@ while true; do
     # Get reviews - includes APPROVED, CHANGES_REQUESTED, COMMENTED, DISMISSED, PENDING
     reviews_json=$(gh pr view "$pr_number" --json reviews --jq '.reviews')
 
+    # Check if PR already has an approval
+    approved_count=$(echo "$reviews_json" | jq '[.[] | select(.state == "APPROVED")] | length')
+    if [[ "$approved_count" -gt 0 ]]; then
+        approver=$(echo "$reviews_json" | jq -r '[.[] | select(.state == "APPROVED")][0].author.login')
+        notify-send --wait "PR Approved" "PR #${pr_number} has ${approved_count} approval(s)!"
+        echo "PR #${pr_number} already has ${approved_count} approval(s) (including ${approver})!"
+        exit 0
+    fi
+
     # Get current review IDs
     current_reviews=$(echo "$reviews_json" | jq -r '.[].id' | sort)
 
