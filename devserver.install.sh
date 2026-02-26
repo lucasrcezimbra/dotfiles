@@ -36,6 +36,10 @@ sudo ufw enable
 sudo ufw allow 22
 sudo ufw default deny incoming
 
+# Incus
+sudo apt-get install -y incus
+sudo usermod -aG incus-admin "$USER"
+
 # Docker
 docker || {
   sudo apt-get install ca-certificates curl;
