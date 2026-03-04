@@ -3,6 +3,8 @@
 # Now, with Arch they can be removed from here and installed using Arch packages.
 
 [tools]
+aws-cli = "2.27.50"
+aws-vault = "7.2.0"
 ast-grep = "0.38.7"
 "cargo:caligula" = "0.4.8"
 "cargo:mergiraf" = "0.12.1"
