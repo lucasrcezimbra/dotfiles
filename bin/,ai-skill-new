@@ -1,0 +1,87 @@
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+VALID_HARNESSES="pi, claude, agents, opencode"
+
+HELP_TEXT="Usage: ,ai-skill-new [-g] [-t <harness>] <skill-name>
+  -g, --global          Create skill globally (~/) instead of locally (./)
+  -t, --tool <harness>  Harness to use: ${VALID_HARNESSES} (default: claude)
+  -h, --help            Show this help message"
+
+GLOBAL=false
+HARNESS="claude"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -g|--global)
+      GLOBAL=true
+      shift
+      ;;
+    -t|--tool)
+      if [[ -z "${2:-}" ]]; then
+        echo "Error: -t/--tool requires a value"
+        echo "$HELP_TEXT"
+        exit 1
+      fi
+      HARNESS="$2"
+      shift 2
+      ;;
+    -h|--help)
+      echo "$HELP_TEXT"
+      exit 0
+      ;;
+    -*)
+      echo "Error: Unknown option: $1"
+      echo "$HELP_TEXT"
+      exit 1
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+if [[ $# -ne 1 ]]; then
+  echo "Error: Missing required <skill-name> argument"
+  echo "$HELP_TEXT"
+  exit 1
+fi
+
+if [[ ! "$HARNESS" =~ ^(pi|claude|agents|opencode)$ ]]; then
+  echo "Error: Invalid harness '${HARNESS}'. Must be one of: ${VALID_HARNESSES}"
+  exit 1
+fi
+
+SKILL_NAME="$1"
+
+if $GLOBAL; then
+  BASE_DIR="$HOME"
+else
+  BASE_DIR="."
+fi
+
+SKILL_DIR="${BASE_DIR}/.${HARNESS}/skills/${SKILL_NAME}"
+SKILL_FILE="${SKILL_DIR}/SKILL.md"
+
+if [[ -e "$SKILL_FILE" ]]; then
+  echo "Error: ${SKILL_FILE} already exists"
+  exit 1
+fi
+
+mkdir -p "$SKILL_DIR"
+
+cat > "$SKILL_FILE" << EOF
+---
+name: ${SKILL_NAME}
+description: TODO
+---
+
+# ${SKILL_NAME}
+
+TODO
+EOF
+
+echo "Created ${SKILL_FILE}"
+"${EDITOR:-vim}" "$SKILL_FILE"
