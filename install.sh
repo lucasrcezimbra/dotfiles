@@ -154,7 +154,12 @@ cp /tmp/jetbrains_mono/*.ttf ~/.local/share/fonts/
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 
-# Claude
+# Agents
+## Agents
+mv ~/.agents{,-bkp}
+ln -s "$PWD/agents/agents" ~/.agents
+
+## Claude
 mv ~/.claude/agents{,-bkp}
 mv ~/.claude/hooks{,-bkp}
 mv ~/.claude/settings.json{,.bkp}
