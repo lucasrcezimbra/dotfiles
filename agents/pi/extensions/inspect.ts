@@ -16,13 +16,12 @@ export default function (pi: ExtensionAPI) {
 		default: false,
 	});
 
-	let inspectEnabledOverride: boolean | undefined;
-	const isInspectEnabled = () => inspectEnabledOverride ?? (pi.getFlag("inspect") === true);
+	let inspectEnabled: boolean | undefined;
 
 	pi.registerCommand("inspect:on", {
 		description: "Enable prompt inspection for subsequent turns",
 		handler: async (_args, ctx) => {
-			inspectEnabledOverride = true;
+			inspectEnabled = true;
 			ctx.ui.notify("Prompt inspection enabled", "info");
 		},
 	});
@@ -30,7 +29,7 @@ export default function (pi: ExtensionAPI) {
 	pi.registerCommand("inspect:off", {
 		description: "Disable prompt inspection for subsequent turns",
 		handler: async (_args, ctx) => {
-			inspectEnabledOverride = false;
+			inspectEnabled = false;
 			ctx.ui.notify("Prompt inspection disabled", "info");
 		},
 	});
@@ -38,7 +37,7 @@ export default function (pi: ExtensionAPI) {
 	// TODO: register command /inspect:system to show the current system prompt in the TUI
 
 	pi.on("context", async (event, ctx) => {
-		if (!isInspectEnabled()) return;
+		if ((inspectEnabled ?? pi.getFlag("inspect")) !== true) return;
 
 		turnCount++;
 		const systemPrompt = ctx.getSystemPrompt();
