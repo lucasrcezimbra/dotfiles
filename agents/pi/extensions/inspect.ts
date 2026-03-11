@@ -10,10 +10,18 @@ import { join } from "node:path";
 // TODO: format
 export default function (pi: ExtensionAPI) {
         let turnCount = 0;
+        // TODO: register command /inspect:on to turn the inspection on even if the flags wasn't passed at startup, and /inspect:off to turn it off again
         // TODO: register command /inspect:system to show the current system prompt in the TUI
 
-        // TODO: register a flag using pi.registerFlag("inspect"... to only enable this when the flag is passed
+        pi.registerFlag("inspect", {
+                description: "Save the full prompt context for each turn to .pi/inspects/turn-N.json",
+                type: "boolean",
+                default: false,
+        });
+
         pi.on("context", async (event, ctx) => {
+                if (pi.getFlag("inspect") !== true) return;
+
                 turnCount++;
                 const systemPrompt = ctx.getSystemPrompt();
                 const inspectDir = join(ctx.cwd, ".pi", "inspects");
