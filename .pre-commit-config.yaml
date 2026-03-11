@@ -26,3 +26,12 @@ repos:
     rev: v0.11.0.1
     hooks:
       - id: shellcheck
+  - repo: local
+    hooks:
+      - id: biome-lint
+        name: biome check
+        entry: biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
+        language: node
+        additional_dependencies:
+          - '@biomejs/biome@2.4.6'
+        files: \.(?:[cm]?[jt]sx?)$
