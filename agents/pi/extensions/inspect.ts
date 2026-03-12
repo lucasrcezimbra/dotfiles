@@ -1,13 +1,14 @@
 /**
  * Inspect the full prompt being sent to the LLM.
  *
- * - Every turn: saves system prompt + messages to .pi/inspects/turn-N.json
+ * - Every turn: saves system prompt + messages to ~/.pi/agent/inspects/<encoded-cwd>/<sessionId>-turn-N.json
  */
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import {
   type ExtensionAPI,
+  getAgentDir,
   getMarkdownTheme,
 } from "@mariozechner/pi-coding-agent";
 import {
@@ -23,7 +24,7 @@ export default function (pi: ExtensionAPI) {
 
   pi.registerFlag("inspect", {
     description:
-      "Save the full prompt context for each turn to .pi/inspects/turn-N.json",
+      "Save the full prompt context for each turn to ~/.pi/agent/inspects/<encoded-cwd>/<sessionId>-turn-N.json",
     type: "boolean",
     default: false,
   });
@@ -103,7 +104,8 @@ export default function (pi: ExtensionAPI) {
 
     turnCount++;
     const systemPrompt = ctx.getSystemPrompt();
-    const inspectDir = join(ctx.cwd, ".pi", "inspects");
+    const encodedCwd = `--${ctx.cwd.replace(/^[/\\]/, "").replace(/[/\\:]/g, "-")}--`;
+    const inspectDir = join(getAgentDir(), "inspects", encodedCwd);
 
     const payload = {
       turn: turnCount,
@@ -114,8 +116,8 @@ export default function (pi: ExtensionAPI) {
     };
 
     mkdirSync(inspectDir, { recursive: true });
-    // TODO: improve the filename by adding the session as prefix (similar to ~/.pi/agent/sessions/*)
-    const file = join(inspectDir, `turn-${turnCount}.json`);
+    const sessionId = ctx.sessionManager.getSessionId();
+    const file = join(inspectDir, `${sessionId}-turn-${turnCount}.json`);
     writeFileSync(file, JSON.stringify(payload, null, 2));
 
     ctx.ui.notify(
