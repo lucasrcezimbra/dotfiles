@@ -6,7 +6,17 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import {
+  type ExtensionAPI,
+  getMarkdownTheme,
+} from "@mariozechner/pi-coding-agent";
+import {
+  Container,
+  Key,
+  Markdown,
+  matchesKey,
+  Text,
+} from "@mariozechner/pi-tui";
 
 export default function (pi: ExtensionAPI) {
   let turnCount = 0;
@@ -36,7 +46,57 @@ export default function (pi: ExtensionAPI) {
     },
   });
 
-  // TODO: register command /inspect:system to show the current system prompt in the TUI
+  pi.registerCommand("inspect:system", {
+    description: "Show the current system prompt in a read-only overlay",
+    handler: async (_args, ctx) => {
+      if (!ctx.hasUI) return;
+
+      const systemPrompt = ctx.getSystemPrompt();
+      await ctx.ui.custom<void>(
+        (tui, theme, _kb, done) => {
+          const container = new Container();
+          container.addChild(
+            new Text(
+              theme.fg("accent", theme.bold("Current system prompt")),
+              1,
+              0,
+            ),
+          );
+          container.addChild(
+            new Text(
+              theme.fg("dim", "Read-only • Esc or Enter to close"),
+              1,
+              0,
+            ),
+          );
+          container.addChild(
+            new Markdown(systemPrompt, 1, 1, getMarkdownTheme()),
+          );
+
+          return {
+            render: (width: number) => container.render(width),
+            invalidate: () => container.invalidate(),
+            handleInput: (data: string) => {
+              if (matchesKey(data, Key.escape) || matchesKey(data, Key.enter)) {
+                done();
+                return;
+              }
+              tui.requestRender();
+            },
+          };
+        },
+        {
+          overlay: true,
+          overlayOptions: {
+            width: "85%",
+            maxHeight: "85%",
+            anchor: "center",
+            margin: 1,
+          },
+        },
+      );
+    },
+  });
 
   pi.on("context", async (event, ctx) => {
     if ((inspectEnabled ?? pi.getFlag("inspect")) !== true) return;
