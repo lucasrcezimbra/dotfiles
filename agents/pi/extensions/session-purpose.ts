@@ -1,4 +1,3 @@
-import path from "node:path";
 import type {
   ExtensionAPI,
   ExtensionContext,
@@ -27,19 +26,12 @@ function getSessionPurpose(ctx: ExtensionContext): string | undefined {
   return purpose;
 }
 
-function getTitle(ctx: ExtensionContext, purpose?: string): string {
-  const cwdName = path.basename(ctx.cwd);
-  return purpose ? `π - ${cwdName} - ${purpose}` : `π - ${cwdName}`;
-}
-
 function applyPurposeUI(
   pi: ExtensionAPI,
   ctx: ExtensionContext,
   purpose?: string,
 ) {
   if (!ctx.hasUI) return;
-
-  ctx.ui.setTitle(getTitle(ctx, purpose));
 
   if (purpose) {
     const theme = ctx.ui.theme;
