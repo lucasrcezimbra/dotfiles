@@ -9,6 +9,7 @@ alias ,ip="curl -s ifconfig.co"
 alias ,ipv4=",ip -4"
 alias ,ipv6=",ip -6"
 alias ,pifree="pi --provider github-copilot --model gpt-5-mini"
+alias beans="uvx --from=magic-beans beans"
 
 # aws
 alias av='aws-vault'
