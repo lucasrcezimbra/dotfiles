@@ -133,7 +133,7 @@ export CHROME_BIN=chromium
 export PATH="/snap/bin:$PATH"
 
 # globalias
-GLOBALIAS_FILTER_VALUES=(beans calc pip timer wezterm \*)
+GLOBALIAS_FILTER_VALUES=(calc pip timer wezterm \*)
 
 # Wallpapers
 function ,wallpaper-download() {
