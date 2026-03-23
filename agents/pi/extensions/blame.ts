@@ -1,3 +1,17 @@
+// TODO: Caching/indexing — build an index (file → sessions) that updates
+//       incrementally instead of brute-force scanning all JSONL files on every
+//       /blame invocation.
+// TODO: Read tracking — optional track `read` operations, not just `edit`/`write`.
+// TODO: Richer output — show how many times a session touched the file, snippets
+//       of what changed (diffs from EditToolDetails), and support summary vs
+//       detailed view.
+// TODO: Smarter path matching — symlink resolution (realpath), glob/pattern
+//       matching (`/blame src/*.ts`), fuzzy/partial matching.
+// TODO: Scope filtering — add option to limit to current project only
+//       (e.g., `/blame --local <file>`) instead of always scanning all projects.
+// TODO: Support other harnesses — Claude Code, Codex, Amp, etc. Parse their
+//       session/history formats to find file mutations across tools.
+
 import { readFile } from "node:fs/promises";
 import { isAbsolute, resolve } from "node:path";
 import type { ExtensionAPI, SessionInfo } from "@mariozechner/pi-coding-agent";
