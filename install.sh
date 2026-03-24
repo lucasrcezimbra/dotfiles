@@ -46,7 +46,7 @@ sudo apt-get install -y cmake
 sudo apt-get install -y duf
 sudo apt-get install -y ffmpeg
 sudo apt-get install -y flameshot
-sudo apt-get install -y flatpak xdg-desktop-portal xdg-desktop-portal-gtk && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo apt-get install -y flatpak xdg-desktop-portal xdg-desktop-portal-gtk && flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt-get install -y gimp
 sudo apt-get install -y git
 sudo apt-get install -y imagemagick
@@ -91,7 +91,7 @@ ssh-keygen -t rsa -b 4096 -C "lucas.cezimbra@gmail.com"
 
 # NeoVim
 sudo apt-get install -y luarocks
-flatpak install flathub io.neovim.nvim
+flatpak --user install -y flathub io.neovim.nvim
 pipx install pynvim
 ## LazyVim
 mv ~/.config/nvim{,.bak}
@@ -128,13 +128,13 @@ git clone https://github.com/coderabbitai/git-worktree-runner.git ~/.local/share
 ~/.local/share/git-worktree-runner/install.sh
 
 # Flatpak
-flatpak install -y flathub com.bitwarden.desktop
-flatpak install -y flathub com.rafaelmardojai.Blanket
-flatpak install -y flathub com.google.Chrome
-flatpak install -y flathub org.mozilla.firefox
-flatpak install -y flathub com.obsproject.Studio
-flatpak install -y flathub com.spotify.Client
-flatpak install -y flathub us.zoom.Zoom
+flatpak --user install -y flathub com.bitwarden.desktop
+flatpak --user install -y flathub com.rafaelmardojai.Blanket
+flatpak --user install -y flathub com.google.Chrome
+flatpak --user install -y flathub org.mozilla.firefox
+flatpak --user install -y flathub com.obsproject.Studio
+flatpak --user install -y flathub com.spotify.Client
+flatpak --user install -y flathub us.zoom.Zoom
 
 # Docker
 docker || {
