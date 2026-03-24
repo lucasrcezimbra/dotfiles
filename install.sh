@@ -9,13 +9,29 @@ su -c 'sudo usermod -aG sudo $USER'";
 }
 
 # XFCE
-mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml{,.backup}
-mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml{,.backup}
-mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml{,.backup}
-mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml{,.backup}
-cp xfce4/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
-pkill xfconfd
-xfce4-panel -r
+xfce_config_dir="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml"
+
+backup_if_exists() {
+	local file="$1"
+	if [ -f "$file" ]; then
+		mv "$file" "$file.backup"
+		echo "[install] Backed up $file"
+	else
+		echo "[install] XFCE config not found, skipping backup: $file"
+	fi
+}
+
+if [ -d "$xfce_config_dir" ]; then
+	backup_if_exists "$xfce_config_dir/xfce4-keyboard-shortcuts.xml"
+	backup_if_exists "$xfce_config_dir/xfce4-panel.xml"
+	backup_if_exists "$xfce_config_dir/xfwm4.xml"
+	backup_if_exists "$xfce_config_dir/xsettings.xml"
+	cp xfce4/* "$xfce_config_dir/"
+	command -v pkill > /dev/null && pkill xfconfd || echo "[install] xfconfd not running, continuing"
+	command -v xfce4-panel > /dev/null && xfce4-panel -r || echo "[install] xfce4-panel not available, continuing"
+else
+	echo "[install] XFCE config directory not found ($xfce_config_dir). Skipping XFCE setup."
+fi
 
 # Update
 sudo apt-get update
