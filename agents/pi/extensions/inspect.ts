@@ -1,7 +1,8 @@
 /**
- * Inspect the full prompt being sent to the LLM.
+ * Inspect the full provider payload being sent to the LLM.
  *
- * - Every turn: saves system prompt + messages to ~/.pi/agent/inspects/<encoded-cwd>/<sessionId>-turn-N.json
+ * - Every request: saves the provider payload to
+ *   ~/.pi/agent/inspects/<encoded-cwd>/<sessionId>-request-N.json
  */
 
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -22,11 +23,11 @@ import {
 } from "@mariozechner/pi-tui";
 
 export default function (pi: ExtensionAPI) {
-  let turnCount = 0;
+  let requestCount = 0;
 
   pi.registerFlag("inspect", {
     description:
-      "Save the full prompt context for each turn to ~/.pi/agent/inspects/<encoded-cwd>/<sessionId>-turn-N.json",
+      "Save the full provider payload for each request to ~/.pi/agent/inspects/<encoded-cwd>/<sessionId>-request-N.json",
     type: "boolean",
     default: false,
   });
@@ -34,18 +35,18 @@ export default function (pi: ExtensionAPI) {
   let inspectEnabled: boolean | undefined;
 
   pi.registerCommand("inspect:on", {
-    description: "Enable prompt inspection for subsequent turns",
+    description: "Enable provider payload inspection for subsequent requests",
     handler: async (_args, ctx) => {
       inspectEnabled = true;
-      ctx.ui.notify("Prompt inspection enabled", "info");
+      ctx.ui.notify("Provider payload inspection enabled", "info");
     },
   });
 
   pi.registerCommand("inspect:off", {
-    description: "Disable prompt inspection for subsequent turns",
+    description: "Disable provider payload inspection for subsequent requests",
     handler: async (_args, ctx) => {
       inspectEnabled = false;
-      ctx.ui.notify("Prompt inspection disabled", "info");
+      ctx.ui.notify("Provider payload inspection disabled", "info");
     },
   });
 
@@ -255,29 +256,26 @@ export default function (pi: ExtensionAPI) {
     },
   });
 
-  pi.on("context", async (event, ctx) => {
+  pi.on("before_provider_request", async (event, ctx) => {
     if ((inspectEnabled ?? pi.getFlag("inspect")) !== true) return;
 
-    turnCount++;
-    const systemPrompt = ctx.getSystemPrompt();
+    requestCount++;
     const encodedCwd = `--${ctx.cwd.replace(/^[/\\]/, "").replace(/[/\\:]/g, "-")}--`;
     const inspectDir = join(getAgentDir(), "inspects", encodedCwd);
 
     const payload = {
-      turn: turnCount,
+      request: requestCount,
       timestamp: new Date().toISOString(),
-      systemPrompt,
-      messageCount: event.messages.length,
-      messages: event.messages,
+      providerPayload: event.payload,
     };
 
     mkdirSync(inspectDir, { recursive: true });
     const sessionId = ctx.sessionManager.getSessionId();
-    const file = join(inspectDir, `${sessionId}-turn-${turnCount}.json`);
+    const file = join(inspectDir, `${sessionId}-request-${requestCount}.json`);
     writeFileSync(file, JSON.stringify(payload, null, 2));
 
     ctx.ui.notify(
-      `Prompt inspect: turn ${turnCount}, ${event.messages.length} messages -> ${file}`,
+      `Provider payload inspect: request ${requestCount} -> ${file}`,
       "info",
     );
   });
