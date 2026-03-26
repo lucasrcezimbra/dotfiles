@@ -110,12 +110,6 @@ wezterm || {
 mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
 ln -s "$PWD/wezterm.lua" ~/.wezterm.lua
 
-# llm
-llm models default gpt-5
-llm install llm-cmd
-mv ~/.config/io.datasette.llm/templates ~/.config/io.datasette.llm/templates-backup || mkdir -p ~/.config/io.datasette.llm/templates
-ln -s "$PWD/llm-templates" ~/.config/io.datasette.llm/templates
-
 # git
 mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
 ln -s "$PWD/gitconfig" ~/.gitconfig
