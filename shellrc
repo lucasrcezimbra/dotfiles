@@ -56,6 +56,8 @@ alias gig='gi'
 # github
 alias ghk="gh pr checkout"
 alias ghw="gh run watch && notify-send --wait 'Workflow is done!!!11!!'"
+# gtr
+alias gtr="git gtr"
 
 
 # helpers
