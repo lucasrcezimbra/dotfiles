@@ -12,12 +12,12 @@ su -c 'sudo usermod -aG sudo $USER'";
 xfce_config_dir="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml"
 
 backup_if_exists() {
-	local file="$1"
-	if [ -f "$file" ]; then
-		mv "$file" "$file.backup"
-		echo "[install] Backed up $file"
+	local path="$1"
+	if [ -e "$path" ] || [ -L "$path" ]; then
+		mv "$path" "$path.backup"
+		echo "[install] Backed up $path"
 	else
-		echo "[install] XFCE config not found, skipping backup: $file"
+		echo "[install] Path not found, skipping backup: $path"
 	fi
 }
 
@@ -71,7 +71,7 @@ sudo ufw default deny incoming
 
 # mise and tools
 curl https://mise.jdx.dev/install.sh | sh
-mv ~/.config/mise/config.toml{,.backup}
+backup_if_exists ~/.config/mise/config.toml
 ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
 touch mise.local.toml
 ln -s "$PWD/mise.local.toml" ~/.config/mise/config.local.toml
@@ -82,7 +82,7 @@ chsh -s "$(which zsh)"
 # oh-my-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 # .zshrc
-mv ~/.zshrc ~/.zshrc_backup 2> /dev/null
+backup_if_exists ~/.zshrc
 echo ". $PWD/zshrc" >> ~/.zshrc
 touch zshrc.local
 
@@ -94,7 +94,7 @@ sudo apt-get install -y luarocks
 flatpak --user install -y flathub io.neovim.nvim
 pipx install pynvim
 ## LazyVim
-mv ~/.config/nvim{,.bak}
+backup_if_exists ~/.config/nvim
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins
 ln -sd "$PWD/nvim/config/" ~/.config/nvim/lua/
@@ -107,11 +107,11 @@ wezterm || {
   sudo apt-get update;
   sudo apt-get install -y wezterm;
 }
-mv ~/.wezterm.lua ~/.wezterm_backup.lua 2> /dev/null
+backup_if_exists ~/.wezterm.lua
 ln -s "$PWD/wezterm.lua" ~/.wezterm.lua
 
 # git
-mv ~/.gitconfig ~/.gitconfig_backup 2> /dev/null
+backup_if_exists ~/.gitconfig
 ln -s "$PWD/gitconfig" ~/.gitconfig
 
 # GitHub CLI
@@ -166,14 +166,14 @@ sudo tailscale up
 
 # Agents
 ## Agents
-mv ~/.agents{,-bkp}
+backup_if_exists ~/.agents
 ln -s "$PWD/agents/agents" ~/.agents
 
 ## Claude
-mv ~/.claude/agents{,-bkp}
-mv ~/.claude/easyhooks{,-bkp}
-mv ~/.claude/hooks{,-bkp}
-mv ~/.claude/settings.json{,.bkp}
+backup_if_exists ~/.claude/agents
+backup_if_exists ~/.claude/easyhooks
+backup_if_exists ~/.claude/hooks
+backup_if_exists ~/.claude/settings.json
 ln -s "$PWD/agents/claude/agents" "$PWD/agents/claude/easyhooks" "$PWD/agents/claude/hooks" "$PWD/agents/claude/settings.json" ~/.claude/
 
 echo "Done! It's recommended to restart the system to apply all changes."
