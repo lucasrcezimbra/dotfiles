@@ -8,9 +8,6 @@ su -c 'sudo usermod -aG sudo $USER'";
 	exit 1;
 }
 
-# XFCE
-xfce_config_dir="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml"
-
 backup_if_exists() {
 	local path="$1"
 	if [ -e "$path" ] || [ -L "$path" ]; then
@@ -21,6 +18,8 @@ backup_if_exists() {
 	fi
 }
 
+# XFCE
+xfce_config_dir="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml"
 if [ -d "$xfce_config_dir" ]; then
 	backup_if_exists "$xfce_config_dir/xfce4-keyboard-shortcuts.xml"
 	backup_if_exists "$xfce_config_dir/xfce4-panel.xml"
