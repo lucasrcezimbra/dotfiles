@@ -1,5 +1,17 @@
 {
   "alwaysThinkingEnabled": true,
+  "autoMemoryEnabled": false,
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "repo": "obra/superpowers-marketplace",
+        "source": "github"
+      }
+    }
+  },
   "hooks": {
     "Notification": [
       {
@@ -24,5 +36,6 @@
       }
     ]
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "voiceEnabled": true
 }
