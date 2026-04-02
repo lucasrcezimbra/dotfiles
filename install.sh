@@ -175,4 +175,8 @@ backup_if_exists ~/.claude/hooks
 backup_if_exists ~/.claude/settings.json
 ln -s "$PWD/agents/claude/agents" "$PWD/agents/claude/easyhooks" "$PWD/agents/claude/hooks" "$PWD/agents/claude/settings.json" ~/.claude/
 
+# Misc
+backup_if_exists ~/.npmrc
+ln -s "$PWD/npmrc" ~/.npmrc
+
 echo "Done! It's recommended to restart the system to apply all changes."
