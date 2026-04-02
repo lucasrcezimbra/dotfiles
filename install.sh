@@ -182,5 +182,8 @@ ln -s "$PWD/agents/pi/AGENTS.md" ~/.pi/agent/AGENTS.md
 # Misc
 backup_if_exists ~/.npmrc
 ln -s "$PWD/npmrc" ~/.npmrc
+backup_if_exists ~/.config/uv/uv.toml
+mkdir -p ~/.config/uv/
+ln -s "$PWD/uv.toml" ~/.config/uv/uv.toml
 
 echo "Done! It's recommended to restart the system to apply all changes."
