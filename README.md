@@ -2,9 +2,6 @@
 
 My installation and configuration files.
 
-Sep-2025 I started migrating from Debian + XFCE to Omarchy (Arch + Hyprland)
-
-
 ## Install
 
 - Prerequisites: git
