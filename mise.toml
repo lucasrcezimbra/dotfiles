@@ -35,6 +35,7 @@ zoxide = "0.9.9"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
+install_before = "7d"
 
 [tasks]
 bumpi = "mise up --bump -i"
