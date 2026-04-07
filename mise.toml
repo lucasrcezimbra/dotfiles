@@ -3,7 +3,7 @@
 # Now, with Arch they can be removed from here and installed using Arch packages.
 
 [tools]
-aws-cli = "2.34.21"
+aws-cli = { version = "2.34.25", symlink_bins = "true" }
 aws-vault = "7.2.0"
 ast-grep = "0.42.0"
 "cargo:caligula" = "0.4.8"
