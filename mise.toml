@@ -7,8 +7,9 @@ aws-cli = { version = "2.34.25", symlink_bins = "true" }
 aws-vault = "7.2.0"
 ast-grep = "0.42.0"
 "cargo:caligula" = "0.4.8"
-"cargo:mergiraf" = "0.16.3"
 "cargo:diskonaut" = "0.11.0"
+"cargo:mergiraf" = "0.16.3"
+"cargo:tree-sitter-cli" = "latest"
 delta = "0.19.1"
 difftastic = { version = "0.68.0", exe = "difft" }
 eza = "0.23.4"

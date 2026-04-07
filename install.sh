@@ -42,6 +42,7 @@ sudo apt-get install -y blueman bluemon pulseaudio-module-bluetooth && sudo apt-
 sudo apt-get install -y btop
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
+sudo apt-get install -y clang libclang-dev  # tree-sitter-cli depends on this
 sudo apt-get install -y duf
 sudo apt-get install -y ffmpeg
 sudo apt-get install -y flameshot
