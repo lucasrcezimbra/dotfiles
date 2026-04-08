@@ -5,13 +5,8 @@ import type {
   ExtensionAPI,
   ExtensionCommandContext,
 } from "@mariozechner/pi-coding-agent";
-import {
-  Key,
-  matchesKey,
-  Text,
-  truncateToWidth,
-  visibleWidth,
-} from "@mariozechner/pi-tui";
+import { Text } from "@mariozechner/pi-tui";
+import { showReadOnlyOverlay } from "./lib/read-only-overlay";
 
 type EvalResult = {
   script: string;
@@ -177,154 +172,12 @@ async function showOutputOverlay(
   content: string,
   kind: "info" | "error",
 ): Promise<void> {
-  if (!ctx.hasUI) {
-    process.stdout.write(`${title}\n${content}\n`);
-    return;
-  }
-
-  await ctx.ui.custom<void>(
-    (tui, theme, _kb, done) => {
-      let scrollOffset = 0;
-      let contentLines: string[] = [];
-      let lastWidth = 0;
-
-      const border = (text: string) =>
-        theme.fg(kind === "error" ? "error" : "accent", text);
-
-      const padLine = (line: string, width: number): string => {
-        const currentWidth = visibleWidth(line);
-        if (currentWidth >= width) return truncateToWidth(line, width);
-        return line + " ".repeat(width - currentWidth);
-      };
-
-      const buildLines = (innerWidth: number): string[] => {
-        const header = new Text(
-          theme.fg(kind === "error" ? "error" : "accent", theme.bold(title)),
-          1,
-          0,
-        );
-        const help = new Text(
-          theme.fg(
-            "dim",
-            "Read-only • ↑↓/j k/PgUp PgDn to scroll • Esc or Enter to close",
-          ),
-          1,
-          0,
-        );
-        const body = new Text(content, 1, 1);
-
-        return [
-          ...header.render(innerWidth),
-          ...help.render(innerWidth),
-          ...body.render(innerWidth),
-        ];
-      };
-
-      return {
-        render: (width: number) => {
-          const innerWidth = Math.max(1, width - 4);
-
-          if (lastWidth !== width) {
-            contentLines = buildLines(innerWidth);
-            lastWidth = width;
-          }
-
-          const termRows = process.stdout.rows || 24;
-          const visibleHeight = Math.max(1, Math.floor(termRows * 0.85) - 4);
-          const maxScroll = Math.max(0, contentLines.length - visibleHeight);
-          scrollOffset = Math.min(scrollOffset, maxScroll);
-
-          const result: string[] = [];
-          const titleText = ` ${title} `;
-          const titleWidth = visibleWidth(titleText);
-          const sideWidth = Math.max(0, width - 2 - titleWidth);
-          const left = Math.floor(sideWidth / 2);
-          const right = sideWidth - left;
-
-          result.push(
-            border(`┌${"─".repeat(left)}${titleText}${"─".repeat(right)}┐`),
-          );
-
-          const visible = contentLines.slice(
-            scrollOffset,
-            scrollOffset + visibleHeight,
-          );
-          for (const line of visible) {
-            result.push(
-              `${border("│")} ${padLine(line, innerWidth)} ${border("│")}`,
-            );
-          }
-
-          for (let i = visible.length; i < visibleHeight; i++) {
-            result.push(border("│") + " ".repeat(width - 2) + border("│"));
-          }
-
-          if (contentLines.length > visibleHeight) {
-            const info = ` ${scrollOffset + 1}-${Math.min(scrollOffset + visibleHeight, contentLines.length)}/${contentLines.length} `;
-            const infoWidth = visibleWidth(info);
-            const bottomSide = Math.max(0, width - 2 - infoWidth);
-            const bottomLeft = Math.floor(bottomSide / 2);
-            const bottomRight = bottomSide - bottomLeft;
-            result.push(
-              border(
-                "└" +
-                  "─".repeat(bottomLeft) +
-                  info +
-                  "─".repeat(bottomRight) +
-                  "┘",
-              ),
-            );
-          } else {
-            result.push(border(`└${"─".repeat(width - 2)}┘`));
-          }
-
-          return result;
-        },
-        invalidate: () => {
-          lastWidth = 0;
-          contentLines = [];
-        },
-        handleInput: (data: string) => {
-          if (matchesKey(data, Key.escape) || matchesKey(data, Key.enter)) {
-            done();
-            return;
-          }
-
-          const termRows = process.stdout.rows || 24;
-          const visibleHeight = Math.max(1, Math.floor(termRows * 0.85) - 4);
-          const maxScroll = Math.max(0, contentLines.length - visibleHeight);
-
-          if (matchesKey(data, Key.up) || matchesKey(data, "k")) {
-            scrollOffset = Math.max(0, scrollOffset - 1);
-          } else if (matchesKey(data, Key.down) || matchesKey(data, "j")) {
-            scrollOffset = Math.min(maxScroll, scrollOffset + 1);
-          } else if (matchesKey(data, Key.pageUp)) {
-            scrollOffset = Math.max(0, scrollOffset - visibleHeight);
-          } else if (matchesKey(data, Key.pageDown)) {
-            scrollOffset = Math.min(maxScroll, scrollOffset + visibleHeight);
-          } else if (matchesKey(data, Key.home) || matchesKey(data, "g")) {
-            scrollOffset = 0;
-          } else if (
-            matchesKey(data, Key.end) ||
-            matchesKey(data, Key.shift("g"))
-          ) {
-            scrollOffset = maxScroll;
-          }
-
-          tui.requestRender();
-        },
-      };
-    },
-    {
-      overlay: true,
-      overlayOptions: {
-        width: "85%",
-        maxHeight: "85%",
-        anchor: "center",
-        margin: 1,
-      },
-    },
-  );
+  await showReadOnlyOverlay(ctx, {
+    title,
+    tone: kind === "error" ? "error" : "accent",
+    fallbackContent: content,
+    createContent: () => new Text(content, 0, 0),
+  });
 }
 
 export default function evalExtension(pi: ExtensionAPI) {
