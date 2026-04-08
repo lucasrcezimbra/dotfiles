@@ -1,4 +1,5 @@
-Tool-specific rules. Follow these rules when using these tools.
+## General
+- Always use `mv` or `git mv` to move files around. Do NOT use the tools to read and write.
 
 ## Python
 ### Pytest
