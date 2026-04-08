@@ -91,15 +91,7 @@ export default function sessionPurposeExtension(pi: ExtensionAPI) {
     void ensurePurpose(ctx);
   });
 
-  pi.on("session_switch", async (_event, ctx) => {
-    void ensurePurpose(ctx);
-  });
-
   pi.on("session_tree", async (_event, ctx) => {
-    refreshPurpose(ctx);
-  });
-
-  pi.on("session_fork", async (_event, ctx) => {
     refreshPurpose(ctx);
   });
 }

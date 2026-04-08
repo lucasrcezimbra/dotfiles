@@ -23,10 +23,6 @@ export default function sessionStatusExtension(pi: ExtensionAPI) {
     setTitle(pi, ctx);
   });
 
-  pi.on("session_switch", async (_event, ctx) => {
-    setTitle(pi, ctx);
-  });
-
   pi.on("agent_start", async (_event, ctx) => {
     setTitle(pi, ctx, ICON_BUSY);
   });
