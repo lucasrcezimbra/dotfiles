@@ -7,3 +7,4 @@
 
 ### Django
 - Do not write Django migrations manually (e.g. using the Write tool). Always use Django's CLI to generate migrations instead.
+- Never make database operations (obj.save, Model.objects.whatever, etc.) inside loops
