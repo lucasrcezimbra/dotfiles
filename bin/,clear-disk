@@ -1,0 +1,29 @@
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+confirm_and_run() {
+  local description=$1
+  local command=$2
+  local reply
+
+  echo
+  echo "$description"
+  echo "Command: $command"
+  read -r -p "Run this command? [y/N] " reply
+
+  case "$reply" in
+    y|Y|yes|YES)
+      bash -lc "$command"
+      ;;
+    *)
+      echo "Skipped: $description"
+      ;;
+  esac
+}
+
+confirm_and_run "Prune Docker system and images" "docker system prune && docker image prune"
+confirm_and_run "Delete Poetry cache" "rm -rf /home/finetune/.cache/pypoetry"
+confirm_and_run "Prune mise" "mise prune --yes"
+confirm_and_run "Clean unused cached pre-commit repos." "pre-commit gc"
