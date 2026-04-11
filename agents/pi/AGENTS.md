@@ -1,5 +1,5 @@
 ## General
-- Always use `mv` or `git mv` to move files around. Do NOT use the tools to read and write.
+- Do NOT use the tools to edit or read+write to copy and/or move files around. Always use Bash `mv` or `git mv` to move and Bash `cp` to copy files.
 
 ## Python
 ### Pytest
