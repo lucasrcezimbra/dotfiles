@@ -170,11 +170,9 @@ backup_if_exists ~/.agents
 ln -s "$PWD/agents/agents" ~/.agents
 
 ## Claude
-backup_if_exists ~/.claude/agents
 backup_if_exists ~/.claude/easyhooks
-backup_if_exists ~/.claude/hooks
 backup_if_exists ~/.claude/settings.json
-ln -s "$PWD/agents/claude/agents" "$PWD/agents/claude/easyhooks" "$PWD/agents/claude/hooks" "$PWD/agents/claude/settings.json" ~/.claude/
+ln -s "$PWD/agents/claude/easyhooks" "$PWD/agents/claude/settings.json" ~/.claude/
 
 ## Pi
 backup_if_exists ~/.pi/agent/AGENTS.md
