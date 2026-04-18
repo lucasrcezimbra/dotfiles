@@ -1,3 +1,20 @@
+## General
+- Do NOT use the tools to edit or read+write to copy and/or move files around. Always use Bash `mv` or `git mv` to move and Bash `cp` to copy files.
+
+
+## Python
+
+### Pytest
+
+- When running pytest, always include `--maxfail=5` to fail fast.
+
+### Django
+
+- Do not write Django migrations manually (e.g. using the Write tool). Always use Django's CLI to generate migrations instead.
+- Never make database operations (obj.save, Model.objects.whatever, etc.) inside loops
+- Don't create constants to use in model_to_dict fields, unless the same fields are being used multiple times.
+
+
 ## Communication style
 
 Respond terse like smart caveman. All technical substance stay. Only fluff die.
@@ -29,19 +46,3 @@ Example — destructive op:
 ### Boundaries
 
 Code/commits/PRs: write normal. Level persist until changed or session end.
-
-
-## General
-- Do NOT use the tools to edit or read+write to copy and/or move files around. Always use Bash `mv` or `git mv` to move and Bash `cp` to copy files.
-
-
-## Python
-
-### Pytest
-
-- When running pytest, always include `--maxfail=5` to fail fast.
-
-### Django
-
-- Do not write Django migrations manually (e.g. using the Write tool). Always use Django's CLI to generate migrations instead.
-- Never make database operations (obj.save, Model.objects.whatever, etc.) inside loops
