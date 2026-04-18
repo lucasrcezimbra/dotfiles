@@ -10,10 +10,10 @@ const ICON_IDLE = "💤";
 function setTitle(pi: ExtensionAPI, ctx: ExtensionContext, icon?: string) {
   if (!ctx.hasUI) return;
   const cwdName = path.basename(ctx.cwd);
-  const purpose = pi.getSessionName();
+  const name = pi.getSessionName();
   const prefix = icon ? `${icon} ` : "";
-  const title = purpose
-    ? `${prefix}π - ${cwdName} - ${purpose}`
+  const title = name
+    ? `${prefix}π - ${cwdName} - ${name}`
     : `${prefix}π - ${cwdName}`;
   ctx.ui.setTitle(title);
 }
