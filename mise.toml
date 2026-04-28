@@ -3,7 +3,7 @@
 # Now, with Arch they can be removed from here and installed using Arch packages.
 
 [tools]
-aws-cli = { version = "2.34.31", symlink_bins = "true" }
+aws-cli = { version = "2.34.38", symlink_bins = "true" }
 aws-vault = "7.2.0"
 ast-grep = "0.42.0"
 "cargo:caligula" = "0.4.8"
@@ -14,16 +14,16 @@ delta = "0.19.1"
 difftastic = { version = "0.68.0", exe = "difft" }
 eza = "0.23.4"
 fd = "10.4.2"
-gh = "2.90.0"
+gh = "2.92.0"
 go = "1.24.4"
 just = "1.48.1"
 node = "lts"
-"npm:@mariozechner/pi-coding-agent" = "0.67.6"
-"npm:@openai/codex" = "0.121.0"
+"npm:@mariozechner/pi-coding-agent" = "0.70.5"
+"npm:@openai/codex" = "0.125.0"
 "pipx:harlequin" = "2.5.2"
 "pipx:ipython" = "9.12.0"
 "pipx:jira-genie" = "0.4.0"
-"pipx:magic-beans" = "0.5.1"
+"pipx:magic-beans" = "0.7.0"
 "pipx:posting" = "2.9.2"
 "pipx:ruff" = "0.15.8"
 python = "3.13"
@@ -31,8 +31,8 @@ ripgrep = "15.1.0"
 rust = "stable"
 sd = "1.1.0"
 shellcheck = "0.11.0"
-starship = "1.24.2"
-uv = "0.11.7"
+starship = "1.25.0"
+uv = "0.11.8"
 zoxide = "0.9.9"
 
 [settings]
