@@ -33,7 +33,7 @@ git remote set-url origin git@github.com:lucasrcezimbra/dotfiles.git
 omarchy-webapp-remove Basecamp Figma 'Google Contacts' 'Google Messages' 'Google Photos' HEY Zoom
 sudo pacman -Rns --noconfirm 1password-cli 1password-beta signal-desktop typora
 # TODO decide
-# sudo pacman -Rns --noconfirm lazydocker lazygit localsend-bin obsidian
+# sudo pacman -Rns --noconfirm lazydocker lazygit localsend-bin
 
 # Bitwarden
 sudo pacman -Sy --noconfirm bitwarden bitwarden-cli
@@ -41,8 +41,12 @@ sudo pacman -Sy --noconfirm bitwarden bitwarden-cli
 # Tailscale
 omarchy-install-tailscale
 
+# Chrome
+omarchy-install-chromium-google-account
+
 # Claude
 mv ~/.claude/agents{,-bkp}
 mv ~/.claude/hooks{,-bkp}
 mv ~/.claude/settings.json{,.bkp}
 ln -s "$PWD/claude/agents" "$PWD/claude/easyhooks" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
+
