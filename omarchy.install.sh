@@ -47,3 +47,13 @@ omarchy-install-chromium-google-account
 # Terminal
 omarchy-install-terminal ghostty
 
+# Agents
+## Agents
+mv ~/.agents{,-bkp}
+ln -s "$PWD/agents/agents" ~/.agents
+
+## Pi
+mv ~/.pi/agent/AGENTS.md{,-bkp}
+ln -s "$PWD/agents/pi/AGENTS.md" ~/.pi/agent/AGENTS.md
+tmp=$(mktemp) && jq '.prompts += ["~/.agents/commands/"]' ~/.pi/agent/settings.json > "$tmp" && mv "$tmp" ~/.pi/agent/settings.json
+tmp=$(mktemp) && jq '.extensions += ["'"$PWD"'/agents/pi/extensions"]' ~/.pi/agent/settings.json > "$tmp" && mv "$tmp" ~/.pi/agent/settings.json
