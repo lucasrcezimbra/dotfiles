@@ -44,9 +44,6 @@ omarchy-install-tailscale
 # Chrome
 omarchy-install-chromium-google-account
 
-# Claude
-mv ~/.claude/agents{,-bkp}
-mv ~/.claude/hooks{,-bkp}
-mv ~/.claude/settings.json{,.bkp}
-ln -s "$PWD/claude/agents" "$PWD/claude/easyhooks" "$PWD/claude/hooks" "$PWD/claude/settings.json" ~/.claude/
+# Terminal
+omarchy-install-terminal ghostty
 
