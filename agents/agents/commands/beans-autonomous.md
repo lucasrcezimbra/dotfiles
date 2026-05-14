@@ -11,5 +11,5 @@ When running autonomously, loop through ready beans:
 
 ```
 beans ready → pick highest priority → beans claim →
-read bean → implement → test → commit → beans close → next bean
+read bean → implement using TDD → test → commit → beans close → next bean
 ```
