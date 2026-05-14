@@ -17,6 +17,7 @@
 [diff]
   colorMoved = default
   external = difft --display side-by-side-show-both
+	noprefix = true
 
 [gtr "ai"]
 	default = opencode
