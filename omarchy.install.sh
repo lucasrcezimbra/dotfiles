@@ -32,8 +32,9 @@ git remote set-url origin git@github.com:lucasrcezimbra/dotfiles.git
 # remove unused stuff
 omarchy-webapp-remove Basecamp Figma 'Google Contacts' 'Google Messages' 'Google Photos' HEY Zoom
 sudo pacman -Rns --noconfirm 1password-cli 1password-beta signal-desktop typora
-# TODO decide
-# sudo pacman -Rns --noconfirm lazydocker lazygit localsend-bin
+
+# web apps
+omarchy-webapp-install Todoist https://app.todoist.com/app/ https://app.todoist.com/favicon.ico
 
 # Bitwarden
 sudo pacman -Sy --noconfirm bitwarden bitwarden-cli
