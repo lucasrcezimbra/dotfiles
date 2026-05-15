@@ -42,6 +42,9 @@ sudo pacman -Sy --noconfirm bitwarden bitwarden-cli
 # Tailscale
 omarchy-install-tailscale
 
+# Dictation (Voxtype)
+yes | omarchy-voxtype-install
+
 # Chrome
 omarchy-install-chromium-google-account
 
