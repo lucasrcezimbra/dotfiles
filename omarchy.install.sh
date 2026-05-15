@@ -48,6 +48,10 @@ omarchy-install-chromium-google-account
 # Terminal
 omarchy-install-terminal ghostty
 
+# Dbeaver
+sudo pacman -Sy
+sudo pacman -S --noconfirm --needed dbeaver
+
 # Agents
 ## Agents
 mv ~/.agents{,-bkp}
