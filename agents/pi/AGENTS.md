@@ -63,6 +63,29 @@ class SomeStore:
     def _row_to_dict(self, cols, values): ...
 ```
 
+#### Inline trivial calls
+
+Don't create helper functions that only call another function or method with the same
+arguments. Call the underlying function inline instead. Helpers should add behavior,
+not hide one obvious operation behind another name.
+
+```python
+# Yes
+with self.connection.cursor() as cursor:
+    cursor.execute(sql)
+    row = cursor.fetchone()
+self.connection.commit()
+
+# No
+def commit_read(connection) -> None:
+    connection.commit()
+
+with self.connection.cursor() as cursor:
+    cursor.execute(sql)
+    row = cursor.fetchone()
+commit_read(self.connection)
+```
+
 #### Default arguments for configurability
 
 Never reference module-level constants directly inside function bodies. Instead, pass
