@@ -15,6 +15,22 @@
 
 ## Python
 
+### Imports
+
+#### Never re-export for backwards compatibility
+
+When moving code to a new module, do not keep compatibility imports in the old module.
+Update every caller to import from the new location instead. Re-exporting hides stale
+boundaries, keeps dead paths alive, and makes future refactors harder.
+
+```python
+# Yes — callers import from the new home
+from app.domain.items import Item
+
+# No — old module re-exports the moved symbol
+from app.domain.items import Item
+```
+
 ### Code Style
 
 #### No underscore prefixes
