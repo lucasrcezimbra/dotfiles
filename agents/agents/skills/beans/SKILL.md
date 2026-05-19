@@ -56,6 +56,22 @@ beans --json --fields id,title,status list
 beans schema                             # JSON schemas for all models
 ```
 
+## JSON output
+
+`--json` is a global option. Put it immediately after `beans` and before the subcommand. Order matters.
+
+```bash
+beans --json ready
+beans --json search "output"
+beans --json list | jq -r '.[] | [.id,.title,.status] | @tsv'
+```
+
+Do not put `--json` after the subcommand:
+
+```bash
+beans ready --json             # wrong: No such option: --json
+beans search "output" --json    # wrong: No such option: --json
+```
 
 ## Workflow
 
