@@ -135,12 +135,5 @@ export PATH="/snap/bin:$PATH"
 # globalias
 GLOBALIAS_FILTER_VALUES=(calc pip timer wezterm \*)
 
-# Wallpapers
-function ,wallpaper-download() {
-  NUMBER=$(python -c 'import random; print(random.randint(1, 52410))')
-  IMG_URL=$(curl -s "https://peapix.com/bing/$NUMBER" | pup 'div.gallery-item attr{data-src}')
-  curl "$IMG_URL" -o ~/Pictures/wallpapers/$NUMBER.jpg
-}
-
 . ~/.dotfiles/shellrc
 . ~/.dotfiles/zshrc.local
