@@ -1,14 +1,5 @@
 ---
 name: omarchy
-description: >
-  REQUIRED for end-user customization of Linux desktop, window manager, or system config.
-  Use when editing ~/.config/hypr/, ~/.config/waybar/, ~/.config/walker/,
-  ~/.config/alacritty/, ~/.config/kitty/, ~/.config/ghostty/, ~/.config/mako/,
-  or ~/.config/omarchy/. Triggers: Hyprland, window rules, animations, keybindings,
-  monitors, gaps, borders, blur, opacity, waybar, walker, terminal config, themes,
-  wallpaper, night light, idle, lock screen, screenshots, layer rules, workspace
-  settings, display config, and user-facing omarchy commands. Excludes Omarchy
-  source development in ~/.local/share/omarchy/ and omarchy-dev-* workflows.
 ---
 
 # Omarchy Skill
@@ -32,11 +23,25 @@ It is not for contributing to Omarchy source code.
 - User-facing `omarchy-*` commands (`omarchy-theme-*`, `omarchy-refresh-*`, `omarchy-restart-*`, etc.)
 - Screenshots, screen recording, night light, idle behavior, lock screen
 
-**If you're about to edit a config file in ~/.config/ on this system, STOP and use this skill first.**
+**If you're about to edit a config file in `~/.config/` on this system, STOP and use this skill first. Then edit only the corresponding file in `~/.dotfiles/`.**
 
 **Do NOT use this skill for Omarchy development tasks** (editing files in `~/.local/share/omarchy/`, creating migrations, or running `omarchy-dev-*` workflows).
 
 ## Critical Safety Rules
+
+### Dotfiles Source of Truth
+
+**NEVER edit `~/.config/` directly.** Runtime config files are symlinks or generated targets. `~/.dotfiles/` is the source of truth.
+
+Before changing any config file:
+
+1. Resolve the intended runtime path to its dotfiles path (example: `~/.config/hypr/bindings.conf` -> `~/.dotfiles/hypr/bindings.conf`).
+2. Verify the file or parent directory lives under `~/.dotfiles/`.
+3. Edit or create only the path under `~/.dotfiles/`.
+
+**If the file is not in `~/.dotfiles/`, STOP and ask the user for next steps.** Do not create, edit, or delete it in `~/.config/`.
+
+### Omarchy Source Is Read-Only
 
 **For end-user customization tasks, NEVER modify anything in `~/.local/share/omarchy/`** - but READING is safe and encouraged.
 
@@ -61,19 +66,21 @@ This directory contains Omarchy's source files managed by git. Any changes will 
 - Check stock theme files to copy for customization
 - Reference default hyprland settings: `cat ~/.local/share/omarchy/default/hypr/*`
 
-**Always use these safe locations instead:**
-- `~/.config/` - User configuration (safe to edit)
-- `~/.config/omarchy/themes/<custom-name>/` - Custom themes (must be real directories)
-- `~/.config/omarchy/hooks/` - Custom automation hooks
+**Always use these safe source locations instead:**
+- `~/.dotfiles/` - User configuration source of truth (safe to edit)
+- `~/.dotfiles/omarchy/themes/<custom-name>/` - Custom themes, only when this path is managed into `~/.config/omarchy/themes/`
+- `~/.dotfiles/omarchy/hooks/` - Custom automation hooks, only when this path is managed into `~/.config/omarchy/hooks/`
+
+If the matching source path does not exist under `~/.dotfiles/`, STOP and ask the user for next steps.
 
 If the request is to develop Omarchy itself, this skill is out of scope. Follow repository development instructions instead of this skill.
 
 ## System Architecture
 
-Omarchy is built on:
+Omarchy is built on these runtime config paths. Treat them as targets only; edit corresponding sources under `~/.dotfiles/`.
 
-| Component | Purpose | Config Location |
-|-----------|---------|-----------------|
+| Component | Purpose | Runtime Config Location |
+|-----------|---------|-------------------------|
 | **Arch Linux** | Base OS | `/etc/`, `~/.config/` |
 | **Hyprland** | Wayland compositor/WM | `~/.config/hypr/` |
 | **Waybar** | Status bar | `~/.config/waybar/` |
@@ -115,10 +122,12 @@ cat $(which omarchy-theme-set)
 
 ## Configuration Locations
 
+Paths below show dotfiles source locations to edit. Runtime targets live under `~/.config/`; do not edit them directly.
+
 ### Hyprland (Window Manager)
 
 ```
-~/.config/hypr/
+~/.dotfiles/hypr/      # runtime target: ~/.config/hypr/
 ├── hyprland.conf      # Main config (sources others)
 ├── bindings.conf      # Keybindings
 ├── monitors.conf      # Display configuration
@@ -139,7 +148,7 @@ cat $(which omarchy-theme-set)
 ### Waybar (Status Bar)
 
 ```
-~/.config/waybar/
+~/.dotfiles/waybar/    # runtime target: ~/.config/waybar/
 ├── config.jsonc       # Bar layout and modules (JSONC format)
 └── style.css          # Styling
 ```
@@ -150,39 +159,43 @@ cat $(which omarchy-theme-set)
 
 ### Terminals
 
+Expected dotfiles source paths, if present:
+
 ```
-~/.config/alacritty/alacritty.toml
-~/.config/kitty/kitty.conf
-~/.config/ghostty/config
+~/.dotfiles/alacritty/alacritty.toml   # runtime target: ~/.config/alacritty/alacritty.toml
+~/.dotfiles/kitty/kitty.conf           # runtime target: ~/.config/kitty/kitty.conf
+~/.dotfiles/ghostty/config             # runtime target: ~/.config/ghostty/config
 ```
+
+If the matching source path is not in `~/.dotfiles/`, STOP and ask the user for next steps.
 
 **Command:** `omarchy-restart-terminal`
 
 ### Other Configs
 
-| App | Location |
-|-----|----------|
-| btop | `~/.config/btop/btop.conf` |
-| fastfetch | `~/.config/fastfetch/config.jsonc` |
-| lazygit | `~/.config/lazygit/config.yml` |
-| starship | `~/.config/starship.toml` |
-| git | `~/.config/git/config` |
-| walker | `~/.config/walker/config.toml` |
+| App | Runtime Location | Dotfiles Source Rule |
+|-----|------------------|----------------------|
+| btop | `~/.config/btop/btop.conf` | Edit only matching `~/.dotfiles/` path; otherwise STOP |
+| fastfetch | `~/.config/fastfetch/config.jsonc` | Edit only matching `~/.dotfiles/` path; otherwise STOP |
+| lazygit | `~/.config/lazygit/config.yml` | Edit only matching `~/.dotfiles/` path; otherwise STOP |
+| starship | `~/.config/starship.toml` | Edit only matching `~/.dotfiles/` path; otherwise STOP |
+| git | `~/.config/git/config` | Edit only matching `~/.dotfiles/` path; otherwise STOP |
+| walker | `~/.config/walker/config.toml` | Edit only matching `~/.dotfiles/` path; otherwise STOP |
 
 ## Safe Customization Patterns
 
-### Pattern 1: Edit User Config Directly
+### Pattern 1: Edit Dotfiles Source Only
 
-For simple changes, edit files in `~/.config/`:
+For simple changes, edit files in `~/.dotfiles/`, never `~/.config/`:
 
 ```bash
-# 1. Read current config
-cat ~/.config/hypr/bindings.conf
+# 1. Map runtime config to dotfiles source
+# ~/.config/hypr/bindings.conf -> ~/.dotfiles/hypr/bindings.conf
 
-# 2. Backup before changes
-cp ~/.config/hypr/bindings.conf ~/.config/hypr/bindings.conf.bak.$(date +%s)
+# 2. Verify source file or parent directory is under ~/.dotfiles/
+realpath -e ~/.dotfiles/hypr/bindings.conf
 
-# 3. Make changes with Edit tool
+# 3. Make changes with Edit tool to ~/.dotfiles/hypr/bindings.conf only
 
 # 4. Apply changes
 # - Hyprland: auto-reloads on save (no restart needed)
@@ -191,26 +204,29 @@ cp ~/.config/hypr/bindings.conf ~/.config/hypr/bindings.conf.bak.$(date +%s)
 # - Terminals: MUST restart with omarchy-restart-terminal
 ```
 
+If there is no source path under `~/.dotfiles/`, STOP and ask the user for next steps.
+
 ### Pattern 2: Make a new theme
 
-1. Create a directory under ~/.config/omarchy/themes.
-2. See how an existing theme is done via ~/.local/share/omarchy/themes/catppuccin.
-3. Download a matching background (or several) from the internet and put them in ~/.config/omarchy/themes/[name-of-new-theme]
-4. When done with the theme, run omarchy-theme-set "Name of new theme"
+1. Create a directory under `~/.dotfiles/omarchy/themes/` only if it is managed into `~/.config/omarchy/themes/`.
+2. If that dotfiles-managed path does not exist, STOP and ask the user for next steps.
+3. See how an existing theme is done via `~/.local/share/omarchy/themes/catppuccin`.
+4. Download a matching background (or several) from the internet and put them in `~/.dotfiles/omarchy/themes/[name-of-new-theme]`.
+5. When done with the theme, run `omarchy-theme-set "Name of new theme"`.
 
 ### Pattern 3: Use Hooks for Automation
 
-Create scripts in `~/.config/omarchy/hooks/` to run automatically on events:
+Create scripts in `~/.dotfiles/omarchy/hooks/` only if it is managed into `~/.config/omarchy/hooks/`. If not, STOP and ask the user for next steps.
 
 ```bash
-# Available hooks (see samples in ~/.config/omarchy/hooks/):
-~/.config/omarchy/hooks/
+# Available runtime hooks (source must live in ~/.dotfiles/omarchy/hooks/):
+~/.dotfiles/omarchy/hooks/
 ├── theme-set        # Runs after theme change (receives theme name as $1)
 ├── font-set         # Runs after font change
 └── post-update      # Runs after omarchy-update
 ```
 
-Example hook (`~/.config/omarchy/hooks/theme-set`):
+Example hook (`~/.dotfiles/omarchy/hooks/theme-set`):
 ```bash
 #!/bin/bash
 THEME_NAME=$1
@@ -220,7 +236,7 @@ echo "Theme changed to: $THEME_NAME"
 
 ### Pattern 4: Reset to Defaults -- ALWAYS SEEK USER CONFIRMATION BEFORE RUNNING
 
-When customizations go wrong:
+When customizations go wrong, first confirm the affected runtime path resolves into `~/.dotfiles/`. If not, STOP and ask the user for next steps.
 
 ```bash
 # Reset specific config (creates backup automatically)
@@ -232,6 +248,8 @@ omarchy-refresh-hyprland
 # 2. Copies default from ~/.local/share/omarchy/config/
 # 3. Restarts the component
 ```
+
+These commands may write runtime config targets. Never manually edit `~/.config/`; keep source changes in `~/.dotfiles/`.
 
 ## Common Tasks
 
@@ -248,7 +266,7 @@ omarchy-theme-install <url>     # Install from git repo
 
 ### Keybindings
 
-Edit `~/.config/hypr/bindings.conf`. Format:
+Edit `~/.dotfiles/hypr/bindings.conf` (runtime target: `~/.config/hypr/bindings.conf`). Format:
 ```
 bind = SUPER, Return, exec, xdg-terminal-exec
 bind = SUPER, Q, killactive
@@ -275,7 +293,7 @@ Always tell the user: "Note: SUPER+F was previously bound to fullscreen. I've ad
 
 ### Display/Monitors
 
-Edit `~/.config/hypr/monitors.conf`. Format:
+Edit `~/.dotfiles/hypr/monitors.conf` (runtime target: `~/.config/hypr/monitors.conf`). Format:
 ```
 monitor = eDP-1, 1920x1080@60, 0x0, 1
 monitor = HDMI-A-1, 2560x1440@144, 1920x0, 1
@@ -292,7 +310,7 @@ Before writing ANY window rules, you MUST fetch the current documentation from t
 
 DO NOT rely on cached or memorized window rule syntax. The format has changed multiple times and using outdated syntax will cause errors or unexpected behavior.
 
-Window rules go in `~/.config/hypr/hyprland.conf` or a sourced file. Always verify the current syntax from the wiki first.
+Window rules go in `~/.dotfiles/hypr/hyprland.conf` or a sourced file under `~/.dotfiles/hypr/` (runtime target: `~/.config/hypr/`). Always verify the current syntax from the wiki first.
 
 ### Fonts
 
@@ -330,6 +348,7 @@ omarchy-refresh-<app>
 # Refresh specific config file
 # config-file path is relative to ~/.config/
 # eg. omarchy-refresh-config hypr/hyprlock.conf will refresh ~/.config/hypr/hyprlock.conf
+# Before running, confirm the target resolves into ~/.dotfiles/; otherwise STOP and ask.
 omarchy-refresh-config <config-file>
 
 # Full reinstall of configs (nuclear option)
@@ -341,9 +360,9 @@ omarchy-reinstall
 When user requests system changes:
 
 1. **Is it a stock omarchy command?** Use it directly
-2. **Is it a config edit?** Edit in `~/.config/`, never `~/.local/share/omarchy/`
-3. **Is it a theme customization?** Create a NEW custom theme directory
-4. **Is it automation?** Use hooks in `~/.config/omarchy/hooks/`
+2. **Is it a config edit?** Edit the corresponding file in `~/.dotfiles/`, never `~/.config/` or `~/.local/share/omarchy/`. If it is not in `~/.dotfiles/`, STOP and ask the user for next steps.
+3. **Is it a theme customization?** Create a NEW custom theme directory under `~/.dotfiles/` only when managed into the runtime theme path; otherwise STOP and ask.
+4. **Is it automation?** Use hooks under `~/.dotfiles/` only when managed into the runtime hooks path; otherwise STOP and ask.
 5. **Is it a package install?** Use `omarchy-pkg-add` (or `omarchy-pkg-aur-add` for AUR-only packages)
 6. **Unsure if command exists?** Search with `compgen -c | grep omarchy`
 
@@ -357,10 +376,10 @@ This skill intentionally does not cover Omarchy source development. Do not use t
 ## Example Requests
 
 - "Change my theme to catppuccin" -> `omarchy-theme-set catppuccin`
-- "Add a keybinding for Super+E to open file manager" -> Check existing bindings first, add `unbind` if needed, then add `bind` in `~/.config/hypr/bindings.conf`
-- "Configure my external monitor" -> Edit `~/.config/hypr/monitors.conf`
-- "Make the window gaps smaller" -> Edit `~/.config/hypr/looknfeel.conf`
-- "Set up night light to turn on at sunset" -> `omarchy-toggle-nightlight` or edit `~/.config/hypr/hyprsunset.conf`
-- "Customize the catppuccin theme colors" -> Create `~/.config/omarchy/themes/catppuccin-custom/` by copying from stock, then edit
-- "Run a script every time I change themes" -> Create `~/.config/omarchy/hooks/theme-set`
+- "Add a keybinding for Super+E to open file manager" -> Check existing bindings first, add `unbind` if needed, then add `bind` in `~/.dotfiles/hypr/bindings.conf`
+- "Configure my external monitor" -> Edit `~/.dotfiles/hypr/monitors.conf`
+- "Make the window gaps smaller" -> Edit `~/.dotfiles/hypr/looknfeel.conf`
+- "Set up night light to turn on at sunset" -> `omarchy-toggle-nightlight` or edit `~/.dotfiles/hypr/hyprsunset.conf`
+- "Customize the catppuccin theme colors" -> Create `~/.dotfiles/omarchy/themes/catppuccin-custom/` only if managed into runtime themes; otherwise STOP and ask
+- "Run a script every time I change themes" -> Create `~/.dotfiles/omarchy/hooks/theme-set` only if managed into runtime hooks; otherwise STOP and ask
 - "Reset waybar to defaults" -> `omarchy-refresh-waybar`
