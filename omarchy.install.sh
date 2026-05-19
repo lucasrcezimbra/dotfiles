@@ -21,6 +21,13 @@ ln -s "$PWD/gitconfig" ~/.gitconfig
 mv ~/.config/hypr/ ~/.config/hypr_backup/ 2>/dev/null
 ln -s "$PWD/hypr/" ~/.config/
 
+# atuin
+sudo pacman -S --noconfirm --needed atuin bash-preexec
+mkdir -p ~/.config/atuin
+mv ~/.config/atuin/config.toml ~/.config/atuin/config.toml.backup 2>/dev/null
+ln -s "$PWD/atuin.toml" ~/.config/atuin/config.toml
+atuin import auto
+
 # GitHub CLI
 gh auth login
 
