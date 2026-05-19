@@ -9,7 +9,7 @@ Read skill `beans` to understand how to use it.
 
 ## Rules
 
-- NEVER duplicate the same ticket under two epics or tickets (unless the user explicitly ask to). Call it out and ask the user for clarification.
+- When creating multiple epics, don't duplicate the same bean under two epics or beans (unless the user explicitly ask to). Call it out and ask the user for clarification.
 
 
 ## Splitting
