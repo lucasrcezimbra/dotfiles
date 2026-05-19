@@ -35,6 +35,7 @@ sudo pacman -Rns --noconfirm 1password-cli 1password-beta signal-desktop typora
 
 # web apps
 omarchy-webapp-install Todoist https://app.todoist.com/app/ https://app.todoist.com/favicon.ico
+omarchy-webapp-install Telegram https://web.telegram.org/ https://web.telegram.org/a/icon-192x192.png
 
 # Bitwarden
 sudo pacman -Sy --noconfirm bitwarden bitwarden-cli
