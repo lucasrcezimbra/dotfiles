@@ -17,6 +17,12 @@ mise install
 mv ~/.gitconfig ~/.gitconfig_backup 2>/dev/null
 ln -s "$PWD/gitconfig" ~/.gitconfig
 
+# nvim
+mv ~/.config/nvim/lua/config ~/.config/nvim/lua/config_backup 2>/dev/null
+mv ~/.config/nvim/lua/plugins ~/.config/nvim/lua/plugins_backup 2>/dev/null
+ln -sd "$PWD/nvim/config/" ~/.config/nvim/lua/
+ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
+
 # hyprland
 mv ~/.config/hypr/ ~/.config/hypr_backup/ 2>/dev/null
 ln -s "$PWD/hypr/" ~/.config/
