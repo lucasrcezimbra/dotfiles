@@ -10,3 +10,7 @@ Goal: resolve merge/rebase conflicts safely and correctly.
 2. Understand the conflicting files and the changes made in both branches.
 3. Fix the conflicts
 4. git commit and push
+
+---
+
+User input: $@

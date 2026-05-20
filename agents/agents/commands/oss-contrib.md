@@ -15,3 +15,7 @@ My GitHub user: `lucasrcezimbra`
   * NEVER use `git commit --amend`.
 6. Open a draft PR `gh pr create --draft --title "<title>"`
   * If the repo has a `.github/pull_request_template.md`, use it as the body.
+
+---
+
+User input: $@

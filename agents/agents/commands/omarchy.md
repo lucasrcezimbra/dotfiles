@@ -383,3 +383,7 @@ This skill intentionally does not cover Omarchy source development. Do not use t
 - "Customize the catppuccin theme colors" -> Create `~/.dotfiles/omarchy/themes/catppuccin-custom/` only if managed into runtime themes; otherwise STOP and ask
 - "Run a script every time I change themes" -> Create `~/.dotfiles/omarchy/hooks/theme-set` only if managed into runtime hooks; otherwise STOP and ask
 - "Reset waybar to defaults" -> `omarchy-refresh-waybar`
+
+---
+
+User input: $@

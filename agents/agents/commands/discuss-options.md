@@ -12,3 +12,7 @@ Let's discuss.
 
 ## Interview
 Ask questions to better understand the problem and the user's needs and preferences.
+
+---
+
+User input: $@
