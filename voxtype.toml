@@ -42,14 +42,15 @@ pause_media = true
 # Model to use for transcription
 # Options: tiny, tiny.en, base, base.en, small, small.en, medium, medium.en, large-v3, large-v3-turbo
 # .en models are English-only but faster and more accurate for English
+# Use a multilingual model for Portuguese transcription.
 # large-v3-turbo is faster than large-v3 with minimal accuracy loss (recommended for GPU)
 # Or provide absolute path to a custom .bin model file
-model = "base.en"
+model = "base"
 
 # Language for transcription
-# Use "en" for English, "auto" for auto-detection
+# Use "pt" for Portuguese. Whisper does not accept regional codes like "pt-BR".
 # See: https://github.com/openai/whisper#available-models-and-languages
-language = "en"
+language = "pt"
 
 # Translate non-English speech to English
 translate = false
