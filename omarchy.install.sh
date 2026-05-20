@@ -65,6 +65,9 @@ omarchy-install-tailscale
 
 # Dictation (Voxtype)
 yes | omarchy-voxtype-install
+mkdir -p ~/.config/voxtype
+mv ~/.config/voxtype/config.toml ~/.config/voxtype/config.toml.backup 2>/dev/null
+ln -s "$PWD/voxtype.toml" ~/.config/voxtype/config.toml
 
 # Chrome
 omarchy-install-chromium-google-account
