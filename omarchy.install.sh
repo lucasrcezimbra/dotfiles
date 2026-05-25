@@ -80,6 +80,12 @@ sudo pacman -Sy
 sudo pacman -S --noconfirm --needed dbeaver
 
 # Agents
+## ai-usagebar
+yay -S --noconfirm --needed ai-usagebar-bin
+mkdir -p ~/.config/ai-usagebar
+mv ~/.config/ai-usagebar/config.toml ~/.config/ai-usagebar/config.toml.backup 2>/dev/null
+ln -s "$PWD/ai-usagebar.toml" ~/.config/ai-usagebar/config.toml
+
 ## Agents
 mv ~/.agents{,-bkp}
 ln -s "$PWD/agents/agents" ~/.agents

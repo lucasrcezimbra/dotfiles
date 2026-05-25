@@ -1,0 +1,14 @@
+[ui]
+primary = "openai"
+
+[anthropic]
+enabled = true
+
+[openai]
+enabled = true
+
+[zai]
+enabled = false
+
+[openrouter]
+enabled = false
