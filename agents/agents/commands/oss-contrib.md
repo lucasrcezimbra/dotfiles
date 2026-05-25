@@ -18,4 +18,4 @@ My GitHub user: `lucasrcezimbra`
 
 ---
 
-User input: $@
+$@

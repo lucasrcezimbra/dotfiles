@@ -13,4 +13,4 @@ Goal: resolve merge/rebase conflicts safely and correctly.
 
 ---
 
-User input: $@
+$@

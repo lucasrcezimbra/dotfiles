@@ -20,4 +20,4 @@ I added some comments in the PR. Use gh (GitHub CLI) to read the unresolved ones
 
 ---
 
-User input: $@
+$@

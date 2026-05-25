@@ -11,4 +11,4 @@ If a question can be answered by exploring the codebase, explore the codebase in
 
 ---
 
-User input: $@
+$@

@@ -17,4 +17,4 @@ When autonomous loop ends, leave instructions of what was implemented and for ho
 
 ---
 
-User input: $@
+$@

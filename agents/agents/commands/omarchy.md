@@ -386,4 +386,4 @@ This skill intentionally does not cover Omarchy source development. Do not use t
 
 ---
 
-User input: $@
+$@

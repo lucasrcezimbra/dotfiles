@@ -26,4 +26,4 @@ Every bean must include in the description instructions telling the agent to use
 
 ---
 
-User input: $@
+$@
