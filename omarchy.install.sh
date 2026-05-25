@@ -89,3 +89,6 @@ mv ~/.pi/agent/AGENTS.md{,-bkp}
 ln -s "$PWD/agents/pi/AGENTS.md" ~/.pi/agent/AGENTS.md
 tmp=$(mktemp) && jq '.prompts += ["~/.agents/commands/"]' ~/.pi/agent/settings.json > "$tmp" && mv "$tmp" ~/.pi/agent/settings.json
 tmp=$(mktemp) && jq '.extensions += ["'"$PWD"'/agents/pi/extensions"]' ~/.pi/agent/settings.json > "$tmp" && mv "$tmp" ~/.pi/agent/settings.json
+pi install npm:pi-mcp-adapter
+pi install git:github.com/lucasrcezimbra/pi-prompt-template-model
+pi install git:github.com/badlogic/pi-telegram

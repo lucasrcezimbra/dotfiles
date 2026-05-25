@@ -1,10 +1,9 @@
 ---
 name: "beans-plan"
+skill: beans
 ---
 
 Your job is to plan the work and create the beans.
-
-Read skill `beans` to understand how to use it.
 
 
 ## Rules
