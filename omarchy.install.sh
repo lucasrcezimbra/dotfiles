@@ -97,4 +97,5 @@ tmp=$(mktemp) && jq '.prompts += ["~/.agents/commands/"]' ~/.pi/agent/settings.j
 tmp=$(mktemp) && jq '.extensions += ["'"$PWD"'/agents/pi/extensions"]' ~/.pi/agent/settings.json > "$tmp" && mv "$tmp" ~/.pi/agent/settings.json
 pi install npm:pi-mcp-adapter
 pi install git:github.com/lucasrcezimbra/pi-prompt-template-model
+pi install git:github.com/earendil-works/pi-review
 pi install git:github.com/badlogic/pi-telegram
