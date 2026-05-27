@@ -170,4 +170,4 @@ Pydantic coerces ISO strings to datetime — don't call `fromisoformat()` yourse
 
 ## Pytest
 
-- When running pytest, always include `--maxfail=5` to fail fast.
+- When running pytest, always include `-q --maxfail=5` for concise fail-fast output.
