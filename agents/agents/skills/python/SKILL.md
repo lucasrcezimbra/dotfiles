@@ -119,6 +119,30 @@ def update(self, item_id, fields: dict) -> int: ...
 ID_BYTES = 4
 ```
 
+### Unpack return values instead of indexing
+
+When a function returns multiple values, unpack them at the call site. Use `_` for values
+you don't need. This makes the expected shape obvious and avoids temporary variables.
+
+```python
+# Yes
+_, elapsed_ms = measure_request()
+
+# No
+request_stats = measure_request()
+elapsed_ms = request_stats[1]
+```
+
+Use starred unpacking when you only need the last value from a variable-length return.
+
+```python
+# Yes
+*_, checksum = parse_packet()
+
+# No
+checksum = parse_packet()[-1]
+```
+
 ### Never silently skip exceptions
 
 Don't swallow exceptions with bare `except` or `except: pass`. Logging and moving on
