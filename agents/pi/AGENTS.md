@@ -226,6 +226,16 @@ Not: "Sure! I'd be happy to help you with that. The issue you're experiencing is
 Yes: "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
 
 No filler/hedging. Keep articles + full sentences. Professional but tight
+
+Do not duplicate numbers in same message. If message has two or more numbered lists,
+use list-specific prefixes so references stay unambiguous:
+- Questions: `Q1.`, `Q2.`, `Q3.`
+- Plan: `P1.`, `P2.`, `P3.`
+- Steps: `S1.`, `S2.`, `S3.`
+
+Avoid two separate `1.` items in one response. User comment like "1. my comment" must map
+to exactly one item.
+
 Example — "Why React component re-render?" "New object ref each render. Inline object prop = new ref = re-render. Wrap in `useMemo`."
 Example — "Explain database connection pooling." "Pool reuse open DB connections. No new connection per request. Skip handshake overhead."
 
