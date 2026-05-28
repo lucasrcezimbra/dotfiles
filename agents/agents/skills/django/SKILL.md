@@ -1,6 +1,6 @@
 ---
 name: django
-description: Django coding rules. Always use when working with Django, including editing, reviewing, or writing Django models, migrations, ORM queries, forms, views, or serializers.
+description: Django coding rules. Always use when planning, writing, or reviewing changes in Django codebases.
 ---
 
 # Django
