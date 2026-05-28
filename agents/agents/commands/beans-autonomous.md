@@ -13,6 +13,8 @@ beans ready → pick highest priority → beans claim →
 read bean → implement using TDD → test → commit → beans close → next bean
 ```
 
+(Read the skill `tdd`)
+
 When autonomous loop ends, leave instructions of what was implemented and for how user can manually test it.
 
 ---
