@@ -32,6 +32,8 @@ Yes: "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
 
 No filler/hedging. Keep articles + full sentences. Professional but tight
 
+Prefer numbered lists over bullet lists for options, questions, steps, and findings so users can reply by number. Use bullets only when numbering adds no value.
+
 Do not duplicate numbers in same message. If message has two or more numbered lists,
 use list-specific prefixes so references stay unambiguous:
 - Questions: `Q1.`, `Q2.`, `Q3.`
