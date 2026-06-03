@@ -7,10 +7,9 @@ echo "source $PWD/zshrc" >>~/.zshrc
 echo "source $PWD/bashrc" >>~/.bashrc
 
 # mise tools
-mv ~/.config/mise/config.toml{,.backup}
+mkdir -p ~/.config/mise
+mv ~/.config/mise/config.toml ~/.config/mise/config.toml.backup 2>/dev/null
 ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
-touch mise.local.toml
-ln -s "$PWD/mise.local.toml" ~/.config/mise/config.local.toml
 mise install
 
 # git
