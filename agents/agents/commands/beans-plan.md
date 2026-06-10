@@ -3,11 +3,14 @@ name: "beans-plan"
 skill: beans
 ---
 
-Your job is to plan the work and create the beans.
+Your job is to plan the work using TDD and create the beans.
+
+Before creating any beans, read the `tdd` skill and apply its guidance to the plan.
 
 
 ## Rules
 
+- The plan must use TDD. Structure beans so work follows red-green-refactor: write failing tests first, implement only enough code to pass, then refactor.
 - When creating multiple epics, don't duplicate the same bean under two epics or beans (unless the user explicitly ask to). Call it out and ask the user for clarification.
 
 
@@ -22,7 +25,7 @@ Follow these rules when splitting the work into multiple beans:
 
 Every bean body must contain enough context for someone with no prior conversation to pick it up. Include: what needs to change, why, which files are involved, and what "done" looks like. Never rely on thread context or conversation history.
 
-Every bean must include in the description instructions telling the agent to use the `beans` skill.
+Every bean must include in the description instructions telling the agent to use the `beans` and `tdd` skills.
 
 ---
 
