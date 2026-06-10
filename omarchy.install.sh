@@ -29,6 +29,9 @@ ln -s "$PWD/hypr/" ~/.config/
 # Enable GTK primary selection paste with middle click, matching X11/XFCE behavior.
 gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
 
+omarchy setup security fingerprint
+fprintd-list "$USER"
+
 # waybar
 mv ~/.config/waybar/ ~/.config/waybar_backup/ 2>/dev/null
 ln -s "$PWD/waybar/" ~/.config/
