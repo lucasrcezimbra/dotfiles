@@ -76,6 +76,33 @@ with self.connection.cursor() as cursor:
 commit_read(self.connection)
 ```
 
+### Inline single-use comprehensions
+
+Don't extract a list, dict, or set comprehension into a helper only to give it a name.
+Keep simple data shaping inline at the call site so readers can see the transformation
+without jumping to another function.
+
+Extract only when the logic is reused, has meaningful branching, performs I/O, or names
+a real domain operation that hides more than one obvious comprehension.
+
+```python
+# Yes — transformation visible where result is used
+user_ids_by_account_id = {
+    account.id: [user.id for user in account.users]
+    for account in accounts
+}
+
+# No — shallow single-use helper hides simple data shaping
+
+def account_user_ids(accounts) -> dict[int, list[int]]:
+    return {
+        account.id: [user.id for user in account.users]
+        for account in accounts
+    }
+
+user_ids_by_account_id = account_user_ids(accounts)
+```
+
 ### Default arguments for configurability
 
 Never reference module-level constants directly inside function bodies. Instead, pass
