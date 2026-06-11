@@ -43,6 +43,7 @@ Red flags:
 - Test breaks when refactoring without behavior change
 - Test name describes HOW not WHAT
 - Verifying through external means instead of interface
+- Testing docs or ADR text instead of runtime behavior
 
 ```typescript
 // BAD: Bypasses interface to verify
