@@ -76,6 +76,36 @@ with self.connection.cursor() as cursor:
 commit_read(self.connection)
 ```
 
+### Inline pure object construction
+
+Don't create functions whose only purpose is to instantiate one object from another
+object. Inline the constructor at the call site so field mapping stays visible. If the
+conversion is reused, owns domain meaning, or belongs with the target model, use a
+`<Class>.from_<obj>` classmethod instead.
+
+```python
+# Yes — inline when used once
+invoice = Invoice(
+    customer_id=normalize_customer_id(order.customer_id),
+    order_id=order.id,
+    total_cents=order.total_cents,
+    issued_at=clock.now(),
+)
+
+# Yes — classmethod when conversion is reusable or domain-owned
+invoice = Invoice.from_order(order, issued_at=clock.now())
+
+# No — free function only wraps constructor
+
+def invoice_from_order(order, issued_at) -> Invoice:
+    return Invoice(
+        customer_id=normalize_customer_id(order.customer_id),
+        order_id=order.id,
+        total_cents=order.total_cents,
+        issued_at=issued_at,
+    )
+```
+
 ### Inline single-use comprehensions
 
 Don't extract a list, dict, or set comprehension into a helper only to give it a name.
