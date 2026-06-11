@@ -21,6 +21,26 @@ from app.domain.items import Item
 from app.domain.items import Item
 ```
 
+### Don't patch import paths
+
+Don't fix broken imports by changing `PYTHONPATH` or mutating `sys.path`. That hides a
+bad package boundary and makes runtime behavior depend on execution location. Fix the
+imports, package layout, or test invocation instead.
+
+```python
+# Yes — import from the real package path
+from data_pipeline.processing.jobs import run_job
+from data_pipeline.config import Settings
+
+# No — mutating sys.path to make local imports work
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+for path in [PROJECT_ROOT / "processing", PROJECT_ROOT]:
+    sys.path.insert(0, str(path))
+```
+
 ## Code Style
 
 ### No underscore prefixes
