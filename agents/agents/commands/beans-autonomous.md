@@ -14,7 +14,7 @@ implement using TDD red/green loop → test → commit behavior →
 refactor while green → test → commit refactor → beans close → next bean
 ```
 
-(Read the skill `tdd`, including `refactoring.md`.)
+(Read the skill `tdd`.)
 
 For each bean:
 
