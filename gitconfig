@@ -1,23 +1,23 @@
 [alias]
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [branch]
 	sort = -committerdate
 
 [core]
-  attributesfile = ~/.dotfiles/gitattributes
-  excludesfile = ~/.dotfiles/gitignore
-  pager = delta
+	attributesfile = ~/.dotfiles/gitattributes
+	excludesfile = ~/.dotfiles/gitignore
+	pager = delta
 
 [delta]
-  line-numbers = true
-  navigate = true
-  side-by-side = true
+	line-numbers = true
+	navigate = true
+	side-by-side = true
 
 [diff]
-  algorithm = histogram
-  colorMoved = default
-  external = difft --display side-by-side-show-both
+	algorithm = histogram
+	colorMoved = default
+	external = difft --display side-by-side-show-both
 	mnemonicPrefix = true
 	noprefix = true
 
@@ -31,14 +31,14 @@
 	defaultBranch = master
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [merge]
-  conflictstyle = diff3
+	conflictstyle = diff3
 
 [merge "mergiraf"]
-  name = mergiraf
-  driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
+	name = mergiraf
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 
 [pull]
 	ff = only
@@ -52,5 +52,5 @@
 	autoupdate = true
 
 [user]
-  name = Lucas Rangel Cezimbra
-  email = lucas.cezimbra@gmail.com
+	name = Lucas Rangel Cezimbra
+	email = lucas.cezimbra@gmail.com
