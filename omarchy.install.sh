@@ -13,8 +13,9 @@ ln -s "$PWD/mise.toml" ~/.config/mise/config.toml
 mise install
 
 # git
-mv ~/.gitconfig ~/.gitconfig_backup 2>/dev/null
-ln -s "$PWD/gitconfig" ~/.gitconfig
+mkdir -p ~/.config/git
+mv ~/.config/git/config ~/.config/git/config.backup 2>/dev/null
+ln -s "$PWD/gitconfig" ~/.config/git/config
 
 # nvim
 mv ~/.config/nvim/lua/config ~/.config/nvim/lua/config_backup 2>/dev/null

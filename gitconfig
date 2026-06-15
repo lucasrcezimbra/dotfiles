@@ -37,6 +37,7 @@
 
 [pull]
 	ff = only
+	rebase = false
 
 [user]
   name = Lucas Rangel Cezimbra
