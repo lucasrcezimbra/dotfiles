@@ -15,8 +15,10 @@
   side-by-side = true
 
 [diff]
+  algorithm = histogram
   colorMoved = default
   external = difft --display side-by-side-show-both
+	mnemonicPrefix = true
 	noprefix = true
 
 [gtr "ai"]
@@ -24,6 +26,9 @@
 
 [gtr "editor"]
 	default = nvim
+
+[init]
+	defaultBranch = master
 
 [interactive]
   diffFilter = delta --color-only
@@ -38,6 +43,13 @@
 [pull]
 	ff = only
 	rebase = false
+
+[tag]
+	sort = -version:refname
+
+[rerere]
+	enabled = true
+	autoupdate = true
 
 [user]
   name = Lucas Rangel Cezimbra
