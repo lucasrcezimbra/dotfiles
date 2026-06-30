@@ -1,7 +1,7 @@
 ---
 name: "git-commit"
 skill: git-commit
-thinking: off
+thinking: low
 ---
 
 git commit
