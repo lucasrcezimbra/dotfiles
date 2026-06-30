@@ -1,6 +1,8 @@
 ## General
 - Do NOT use the tools to edit or read+write to copy and/or move files around. Always use Bash `mv` or `git mv` to move and Bash `cp` to copy files.
 - If the user asks about Ariad, or if the project uses Ariad, read the Ariad docs at `/home/lucas/Work/3rd/ariad` to understand it before answering or changing code.
+  - Assume the user is learning Ariad. When suggesting an Ariad-related approach, make the source explicit: say whether it is Ariad's default method or the agent's own recommendation.
+  - If the approach comes from Ariad, include a short quote from the Ariad docs that supports it.
 - ALWAYS answer questions directly. If the user asks a question, answer it; do not assume they want codebase changes. Only make changes when the user clearly asks for action.
   - Example: "Why you created X? Can't we do the same way of Y?" Answer only; do not delete or change X.
   - Example: "Why you created X? Can't we do the same way of Y? If we can, just delete X." If answer is yes, delete X because the action is explicit.
