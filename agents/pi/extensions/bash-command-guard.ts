@@ -39,6 +39,18 @@ function formatCommand(command: string): string {
   return `${command.slice(0, maxLength)}\n… [truncated ${command.length - maxLength} chars]`;
 }
 
+function permissionLabel(matches: string[]): string {
+  return `bash permission: ${matches.join(", ")}`;
+}
+
+function reportHerdrBlocked(
+  pi: ExtensionAPI,
+  active: boolean,
+  label: string,
+): void {
+  pi.events.emit("herdr:blocked", { active, label });
+}
+
 export default function bashCommandGuard(pi: ExtensionAPI) {
   const allowedSubstrings = new Set<string>();
   let allowAllBlockedCommands = false;
@@ -66,45 +78,56 @@ export default function bashCommandGuard(pi: ExtensionAPI) {
       };
     }
 
-    while (matches.length > 0) {
-      const substring = matches[0];
-      const choice = await ctx.ui.select(
-        [
-          `Bash command contains blocked substring: ${substring}`,
-          "",
-          formatCommand(command),
-          "",
-          "What should pi do?",
-        ].join("\n"),
-        [
-          decisionLabels["allow-once"],
-          decisionLabels.block,
-          `${decisionLabels["allow-substring"]}: ${substring}`,
-          decisionLabels["allow-all"],
-        ],
-      );
+    const label = permissionLabel(matches);
+    reportHerdrBlocked(pi, true, label);
+    ctx.ui.setStatus("bash-command-guard", "waiting for bash permission");
+    ctx.ui.setWorkingMessage("Waiting for bash permission...");
 
-      if (choice === decisionLabels["allow-once"]) {
-        return undefined;
+    try {
+      while (matches.length > 0) {
+        const substring = matches[0];
+        const choice = await ctx.ui.select(
+          [
+            `Bash command contains blocked substring: ${substring}`,
+            "",
+            formatCommand(command),
+            "",
+            "What should pi do?",
+          ].join("\n"),
+          [
+            decisionLabels["allow-once"],
+            decisionLabels.block,
+            `${decisionLabels["allow-substring"]}: ${substring}`,
+            decisionLabels["allow-all"],
+          ],
+        );
+
+        if (choice === decisionLabels["allow-once"]) {
+          return undefined;
+        }
+
+        if (choice === `${decisionLabels["allow-substring"]}: ${substring}`) {
+          allowedSubstrings.add(substring.toLowerCase());
+          matches = findBlockedSubstrings(command, allowedSubstrings);
+          continue;
+        }
+
+        if (choice === decisionLabels["allow-all"]) {
+          allowAllBlockedCommands = true;
+          return undefined;
+        }
+
+        return {
+          block: true,
+          reason: `Blocked bash command containing: ${substring}`,
+        };
       }
 
-      if (choice === `${decisionLabels["allow-substring"]}: ${substring}`) {
-        allowedSubstrings.add(substring.toLowerCase());
-        matches = findBlockedSubstrings(command, allowedSubstrings);
-        continue;
-      }
-
-      if (choice === decisionLabels["allow-all"]) {
-        allowAllBlockedCommands = true;
-        return undefined;
-      }
-
-      return {
-        block: true,
-        reason: `Blocked bash command containing: ${substring}`,
-      };
+      return undefined;
+    } finally {
+      ctx.ui.setStatus("bash-command-guard", undefined);
+      ctx.ui.setWorkingMessage();
+      reportHerdrBlocked(pi, false, label);
     }
-
-    return undefined;
   });
 }
