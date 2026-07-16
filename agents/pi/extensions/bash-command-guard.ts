@@ -1,6 +1,6 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
-const blockedSubstrings = ["aws", "heroku"];
+const blockedSubstrings = ["aws", "heroku", "ssh"];
 
 type BashToolInput = {
   command?: unknown;
