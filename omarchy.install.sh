@@ -71,6 +71,9 @@ yes | omarchy-voxtype-install
 mkdir -p ~/.config/voxtype
 mv ~/.config/voxtype/config.toml ~/.config/voxtype/config.toml.backup 2>/dev/null
 ln -s "$PWD/voxtype.toml" ~/.config/voxtype/config.toml
+voxtype setup onnx --enable
+voxtype setup --download --model parakeet-tdt-0.6b-v3
+systemctl --user restart voxtype
 
 # Chrome
 omarchy-install-chromium-google-account

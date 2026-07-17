@@ -8,6 +8,8 @@
 # a custom path, or "disabled" to turn off. The daemon writes state
 # ("idle", "recording", "transcribing") to this file whenever it changes.
 # Required for `voxtype record toggle` and `voxtype status` commands.
+engine = "parakeet"
+
 state_file = "auto"
 
 [hotkey]
@@ -98,3 +100,6 @@ on_transcription = false
 #
 # Custom word replacements (case-insensitive)
 # replacements = { "hyperwhisper" = "hyprwhspr" }
+
+[parakeet]
+model = "parakeet-tdt-0.6b-v3"
