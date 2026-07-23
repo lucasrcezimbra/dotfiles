@@ -11,6 +11,7 @@ I added some comments in the PR. Use gh (GitHub CLI) to read the unresolved ones
 - Do NOT resolve GitHub threads. Act on the comments; do not mark them resolved.
 - Process one comment at a time. Commit each required code change before replying to that comment's thread.
 - When replying to a comment for which you made a change, include its commit hash in the reply.
+- Do not wrap commit hashes in backticks; GitHub only links plain commit hashes.
 - Ignore comments that don't start with one of the emojis below.
 
 
