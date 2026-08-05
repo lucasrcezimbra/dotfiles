@@ -1,1 +1,2 @@
 preferred_shell=fish
+fallback_shell=bash
