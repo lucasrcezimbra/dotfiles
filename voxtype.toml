@@ -78,9 +78,10 @@ type_delay_ms = 1
 # Useful for LLM-based text cleanup, grammar correction, filler word removal.
 # On any failure (timeout, error), falls back to original transcription.
 #
-# [output.post_process]
-# command = "ollama run llama3.2:1b 'Clean up this dictation. Fix grammar, remove filler words. Output only the cleaned text:'"
-# timeout_ms = 30000  # 30 second timeout (generous for LLM)
+[output.post_process]
+# Logs each transcript, then returns it unchanged for normal output.
+command = "sh -c 'text=$(cat); mkdir -p \"$HOME/.local/state/voxtype\"; printf \"%s: %s\\n\" \"$(date -Is)\" \"$text\" >> \"$HOME/.local/state/voxtype/transcripts.log\"; printf \"%s\" \"$text\"'"
+timeout_ms = 30000
 
 [output.notification]
 # Show notification when recording starts (hotkey pressed)
