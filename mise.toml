@@ -29,6 +29,7 @@ terragrunt = "1.0.8"
 terraform = "1.14"
 heroku = "11.8.1"
 "github:ogulcancelik/herdr" = "0.7.1"
+"http:git-gtr" = { version = "2.10.0", url = "https://github.com/coderabbitai/git-worktree-runner/archive/refs/tags/v{{ version }}.tar.gz", strip_components = 1, version_list_url = "https://api.github.com/repos/coderabbitai/git-worktree-runner/tags?per_page=100", version_json_path = ".[].name" }
 tflint = "latest"
 gitleaks = "latest"
 bun = "latest"
