@@ -3,10 +3,12 @@
 - If the user asks about Ariad, or if the project uses Ariad, read the Ariad docs at `/home/lucas/Work/3rd/ariad` to understand it before answering or changing code.
   - Assume the user is learning Ariad. When suggesting an Ariad-related approach, make the source explicit: say whether it is Ariad's default method or the agent's own recommendation.
   - If the approach comes from Ariad, include a short quote from the Ariad docs that supports it.
+  - Ariad explorations must be reproducible: other developers must be able to run them on their own machines. Save every evidence-generating script inside the exploration, along with the evidence it produces.
 - ALWAYS answer questions directly. If the user asks a question, answer it; do not assume they want codebase changes. Only make changes when the user clearly asks for action.
   - Example: "Why you created X? Can't we do the same way of Y?" Answer only; do not delete or change X.
   - Example: "Why you created X? Can't we do the same way of Y? If we can, just delete X." If answer is yes, delete X because the action is explicit.
   - Example: User asks "Why you created X? Can't we do the same way of Y?"; you delete X; user says "I didn't ask you to delete X. Can't we do the same way of Y?" Answer the question only; do not assume they want X restored.
+- Never use subagents unless the user or skill explicitly asks for them.
 
 
 ## Philosophy
