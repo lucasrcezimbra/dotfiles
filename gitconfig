@@ -17,9 +17,11 @@
 [diff]
 	algorithm = histogram
 	colorMoved = default
-	external = difft --display side-by-side-show-both
 	mnemonicPrefix = true
 	noprefix = true
+
+[diff "difft"]
+	command = difft --display side-by-side-show-both
 
 [gtr "ai"]
 	default = opencode

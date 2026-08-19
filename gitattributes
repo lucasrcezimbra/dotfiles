@@ -1,1 +1,5 @@
 * merge=mergiraf
+
+# Use difft by default, but leave Markdown to Git's built-in diff (rendered by Delta).
+* diff=difft
+*.md diff
