@@ -81,7 +81,7 @@ type_delay_ms = 1
 [output.post_process]
 # Logs each transcript, then returns it unchanged for normal output.
 command = "sh -c 'text=$(cat); mkdir -p \"$HOME/.local/state/voxtype\"; printf \"%s: %s\\n\" \"$(date -Is)\" \"$text\" >> \"$HOME/.local/state/voxtype/transcripts.log\"; printf \"%s\" \"$text\"'"
-timeout_ms = 30000
+timeout_ms = 120000
 
 [output.notification]
 # Show notification when recording starts (hotkey pressed)
