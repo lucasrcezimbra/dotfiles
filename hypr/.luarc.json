@@ -1,0 +1,14 @@
+{
+  "diagnostics": {
+    "globals": [
+      "hl",
+      "o"
+    ]
+  },
+  "workspace": {
+    "checkThirdParty": false,
+    "library": [
+      "/usr/share/hypr/stubs"
+    ]
+  }
+}
