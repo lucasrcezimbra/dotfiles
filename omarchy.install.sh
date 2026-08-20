@@ -26,6 +26,7 @@ ln -sd "$PWD/nvim/plugins/" ~/.config/nvim/lua/
 # hyprland
 mv ~/.config/hypr/ ~/.config/hypr_backup/ 2>/dev/null
 ln -s "$PWD/hypr/" ~/.config/
+omarchy toggle idle stay-awake
 
 # Enable GTK primary selection paste with middle click, matching X11/XFCE behavior.
 gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
