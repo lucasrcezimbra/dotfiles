@@ -68,6 +68,7 @@ sudo pacman -Sy --noconfirm bitwarden bitwarden-cli
 omarchy-install-tailscale
 
 # Dictation (Voxtype)
+omarchy pkg add playerctl
 yes | omarchy-voxtype-install
 mkdir -p ~/.config/voxtype
 mv ~/.config/voxtype/config.toml ~/.config/voxtype/config.toml.backup 2>/dev/null
