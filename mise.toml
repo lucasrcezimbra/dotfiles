@@ -37,7 +37,7 @@ bun = "latest"
 "github:codersauce/red" = "0.6.0"
 
 [settings]
-idiomatic_version_file_enable_tools = ["node"]
+idiomatic_version_file_enable_tools = ["node", "terraform", "terragrunt"]
 install_before = "7d"
 
 [tasks]
