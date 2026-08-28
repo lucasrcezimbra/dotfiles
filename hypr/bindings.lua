@@ -36,15 +36,3 @@ o.bind(
     "Todoist",
     [[omarchy-launch-or-focus-webapp Todoist "https://app.todoist.com/app/" --profile-directory=Default]]
 )
-
--- Herdr sessions.
-o.bind(
-    "SUPER + SHIFT + R",
-    "Robot session",
-    [[omarchy-launch-or-focus org.omarchy.herdr-robot "uwsm-app -- xdg-terminal-exec --app-id=org.omarchy.herdr-robot -e herdr session attach robot"]]
-)
-o.bind(
-    "SUPER + SHIFT + H",
-    "Focus session",
-    [[omarchy-launch-or-focus org.omarchy.herdr-focus "uwsm-app -- xdg-terminal-exec --app-id=org.omarchy.herdr-focus -e herdr session attach focus"]]
-)
