@@ -1,11 +1,11 @@
 [tools]
-"npm:agent-browser" = "latest"
+"npm:agent-browser" = "0.35.0"
 ast-grep = "0.45.2"
 aws-cli = { version = "2.36.36", symlink_bins = "true" }
 bun = "latest"
 "cargo:caligula" = "0.4.8"
-claude = "latest"
-"npm:@openai/codex" = "0.149.1"
+claude = "2.1.252"
+codex = "0.152.0"
 delta = "0.19.2"
 difftastic = { version = "0.70.0", exe = "difft" }
 "cargo:diskonaut" = "0.11.0"
@@ -25,7 +25,7 @@ heroku = "11.10.0"
 "cargo:mergiraf" = "0.18.0"
 "npm:napkin-ai" = "0.8.3"
 node = "24.11.1"
-pi = "latest"
+pi = "0.84.3"
 "pipx:posting" = "2.9.2"
 pre-commit = "4.6.2"
 python = "3.13"
