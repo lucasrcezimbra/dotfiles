@@ -4,7 +4,7 @@ ast-grep = "0.45.2"
 aws-cli = { version = "2.36.36", symlink_bins = "true" }
 bun = "latest"
 "cargo:caligula" = "0.4.8"
-claude = "2.1.252"
+claude = "2.1.258"
 codex = "0.152.0"
 delta = "0.19.2"
 difftastic = { version = "0.70.0", exe = "difft" }
