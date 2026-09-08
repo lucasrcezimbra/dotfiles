@@ -13,6 +13,32 @@ cd .dotfiles
 ./install.sh
 ```
 
+## Omarchy wallpaper automation
+
+The first Ansible-managed workstation feature installs a Peapix wallpaper downloader and enables wallpaper rotation every 30 minutes.
+
+Install Ansible and apply the local playbook from the repository root:
+
+```bash
+omarchy pkg add ansible
+ansible-playbook ansible/playbook.yml
+```
+
+Download and immediately set a new wallpaper:
+
+```bash
+,wallpaper-download
+```
+
+Inspect or trigger rotation manually:
+
+```bash
+systemctl --user status wallpaper-rotate.timer
+omarchy theme bg next
+```
+
+The playbook manages user files and services. Do not run it with `sudo`. Running it again should report `changed=0` when the desired state is already present.
+
 ## Tools
 - [ast-grep](https://github.com/ast-grep/ast-grep) - abstract syntax tree grep
 - [aws-vault](https://github.com/99designs/aws-vault) to manage AWS credentials
