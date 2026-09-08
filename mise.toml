@@ -39,6 +39,7 @@ terragrunt = "1.1.3"
 tflint = "latest"
 uv = "0.12.7"
 mutagen = "latest"
+pnpm = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "terraform", "terragrunt"]

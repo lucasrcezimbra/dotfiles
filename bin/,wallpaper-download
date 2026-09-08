@@ -1,7 +1,57 @@
-#!/bin/bash
-set -e
-set -u
+#!/usr/bin/env bash
+set -euo pipefail
 
-NUMBER=$(python -c 'import random; print(random.randint(1, 52410))')
-IMG_URL=$(curl -s "https://peapix.com/bing/$NUMBER" | pup 'div.gallery-item attr{data-src}')
-curl "$IMG_URL" -o "$HOME/Pictures/wallpapers/$NUMBER.jpg"
+readonly OMARCHY_STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/omarchy/current"
+readonly OMARCHY_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/omarchy"
+readonly THEME_FILE="$OMARCHY_STATE_DIR/theme.name"
+
+if [[ ! -r "$THEME_FILE" ]]; then
+  echo "Could not determine the current Omarchy theme: $THEME_FILE is not readable" >&2
+  exit 1
+fi
+
+THEME=$(<"$THEME_FILE")
+WALLPAPER_DIR="$OMARCHY_CONFIG_DIR/backgrounds/$THEME"
+mkdir -p "$WALLPAPER_DIR"
+
+WALLPAPER_ID=$(
+  curl -fsSL --retry 3 https://peapix.com |
+    python3 -c '
+import random
+import re
+import sys
+
+wallpaper_ids = set(re.findall(r"href=\"/bing/(\d+)\"", sys.stdin.read()))
+if not wallpaper_ids:
+    raise SystemExit("Peapix returned no wallpapers")
+print(random.choice(tuple(wallpaper_ids)))
+'
+)
+
+IMAGE_URL=$(
+  curl -fsSL --retry 3 "https://peapix.com/bing/$WALLPAPER_ID" |
+    python3 -c '
+import html
+import re
+import sys
+
+match = re.search(
+    r"<div class=\"gallery-item\" data-src=\"([^\"]+)\"",
+    sys.stdin.read(),
+)
+if not match:
+    raise SystemExit("Peapix returned no UHD image")
+print(html.unescape(match.group(1)))
+'
+)
+
+WALLPAPER="$WALLPAPER_DIR/$WALLPAPER_ID.jpg"
+TEMPORARY_WALLPAPER=$(mktemp "$WALLPAPER_DIR/.$WALLPAPER_ID.XXXXXX")
+trap 'rm -f "$TEMPORARY_WALLPAPER"' EXIT
+
+curl -fsSL --retry 3 "$IMAGE_URL" -o "$TEMPORARY_WALLPAPER"
+mv "$TEMPORARY_WALLPAPER" "$WALLPAPER"
+trap - EXIT
+
+omarchy theme bg set "$WALLPAPER"
+printf 'Downloaded and set wallpaper: %s\n' "$WALLPAPER"

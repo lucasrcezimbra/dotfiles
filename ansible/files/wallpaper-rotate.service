@@ -1,0 +1,6 @@
+[Unit]
+Description=Rotate the current Omarchy wallpaper
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/omarchy theme bg next

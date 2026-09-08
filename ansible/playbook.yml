@@ -1,0 +1,57 @@
+---
+- name: Configure Omarchy wallpaper automation
+  hosts: workstation
+  gather_facts: false
+
+  vars:
+    user_home: "{{ lookup('ansible.builtin.env', 'HOME') }}"
+    wallpaper_enable_timer: true
+
+  tasks:
+    - name: Create wallpaper directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: "0755"
+      loop:
+        - "{{ user_home }}/.local/bin"
+        - "{{ user_home }}/.config/omarchy/backgrounds"
+        - "{{ user_home }}/.config/systemd/user"
+
+    - name: Install wallpaper downloader
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/../bin/,wallpaper-download"
+        dest: "{{ user_home }}/.local/bin/,wallpaper-download"
+        mode: "0755"
+
+    - name: Install wallpaper rotation service
+      ansible.builtin.copy:
+        src: files/wallpaper-rotate.service
+        dest: "{{ user_home }}/.config/systemd/user/wallpaper-rotate.service"
+        mode: "0644"
+      notify: Reload user systemd
+
+    - name: Install wallpaper rotation timer
+      ansible.builtin.copy:
+        src: files/wallpaper-rotate.timer
+        dest: "{{ user_home }}/.config/systemd/user/wallpaper-rotate.timer"
+        mode: "0644"
+      notify: Reload user systemd
+
+    - name: Apply updated user units before enabling the timer
+      ansible.builtin.meta: flush_handlers
+
+    - name: Enable wallpaper rotation
+      ansible.builtin.systemd_service:
+        name: wallpaper-rotate.timer
+        scope: user
+        enabled: true
+        state: started
+      when: wallpaper_enable_timer | bool
+
+  handlers:
+    - name: Reload user systemd
+      ansible.builtin.systemd_service:
+        scope: user
+        daemon_reload: true
+      when: wallpaper_enable_timer | bool
