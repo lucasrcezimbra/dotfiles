@@ -14,19 +14,59 @@ THEME=$(<"$THEME_FILE")
 WALLPAPER_DIR="$OMARCHY_CONFIG_DIR/backgrounds/$THEME"
 mkdir -p "$WALLPAPER_DIR"
 
-WALLPAPER_ID=$(
-  curl -fsSL --retry 3 https://peapix.com |
+GALLERY_URL=https://peapix.com/bing
+FIRST_GALLERY_PAGE=$(curl -fsSL --retry 3 "$GALLERY_URL")
+LAST_GALLERY_PAGE=$(
+  printf '%s' "$FIRST_GALLERY_PAGE" |
     python3 -c '
+import re
+import sys
+
+pages = [1, *map(int, re.findall(r"href=\"/bing\?page=(\d+)\"", sys.stdin.read()))]
+print(max(pages))
+'
+)
+
+WALLPAPER_ID=""
+while read -r PAGE; do
+  if (( PAGE == 1 )); then
+    GALLERY_PAGE=$FIRST_GALLERY_PAGE
+  else
+    GALLERY_PAGE=$(curl -fsSL --retry 3 "$GALLERY_URL?page=$PAGE")
+  fi
+
+  while read -r CANDIDATE_ID; do
+    if [[ ! -e "$WALLPAPER_DIR/$CANDIDATE_ID.jpg" ]]; then
+      WALLPAPER_ID=$CANDIDATE_ID
+      break 2
+    fi
+  done < <(
+    printf '%s' "$GALLERY_PAGE" |
+      python3 -c '
 import random
 import re
 import sys
 
-wallpaper_ids = set(re.findall(r"href=\"/bing/(\d+)\"", sys.stdin.read()))
-if not wallpaper_ids:
-    raise SystemExit("Peapix returned no wallpapers")
-print(random.choice(tuple(wallpaper_ids)))
+wallpaper_ids = sorted(set(re.findall(r"href=\"/bing/(\d+)\"", sys.stdin.read())))
+random.shuffle(wallpaper_ids)
+print(*wallpaper_ids, sep="\n")
 '
+  )
+done < <(
+  python3 -c '
+import random
+import sys
+
+pages = list(range(1, int(sys.argv[1]) + 1))
+random.shuffle(pages)
+print(*pages, sep="\n")
+' "$LAST_GALLERY_PAGE"
 )
+
+if [[ -z "$WALLPAPER_ID" ]]; then
+  echo "All Peapix gallery wallpapers have already been downloaded" >&2
+  exit 1
+fi
 
 IMAGE_URL=$(
   curl -fsSL --retry 3 "https://peapix.com/bing/$WALLPAPER_ID" |
