@@ -8,6 +8,9 @@ hl.unbind("SUPER + SHIFT + A") -- ChatGPT without the explicit browser profile
 hl.unbind("SUPER + SHIFT + Y") -- YouTube without the explicit browser profile
 hl.unbind("SUPER + SHIFT + CTRL + G") -- Google Messages
 
+-- Disable accidental desktop zoom.
+hl.unbind("SUPER + CTRL + Z") -- Zoom in
+
 -- Personal application bindings.
 o.bind(
     "SUPER + SHIFT + G",
