@@ -28,6 +28,12 @@ mv ~/.config/hypr/ ~/.config/hypr_backup/ 2>/dev/null
 ln -s "$PWD/hypr/" ~/.config/
 omarchy toggle idle stay-awake
 
+# omarchy menu
+mkdir -p ~/.config/omarchy/extensions
+mv ~/.config/omarchy/extensions/omarchy-menu.jsonc ~/.config/omarchy/extensions/omarchy-menu.jsonc.backup 2>/dev/null
+ln -s "$PWD/omarchy/extensions/omarchy-menu.jsonc" ~/.config/omarchy/extensions/omarchy-menu.jsonc
+omarchy menu refresh
+
 # Enable GTK primary selection paste with middle click, matching X11/XFCE behavior.
 gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
 

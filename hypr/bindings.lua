@@ -7,11 +7,13 @@ hl.unbind("SUPER + SHIFT + SLASH") -- 1Password
 hl.unbind("SUPER + SHIFT + A") -- ChatGPT without the explicit browser profile
 hl.unbind("SUPER + SHIFT + Y") -- YouTube without the explicit browser profile
 hl.unbind("SUPER + SHIFT + CTRL + G") -- Google Messages
+hl.unbind("SUPER + comma") -- Dismiss last notification
 
 -- Disable accidental desktop zoom.
 hl.unbind("SUPER + CTRL + Z") -- Zoom in
 
 -- Personal application bindings.
+o.bind("SUPER + comma", "Comma workflows", "omarchy-menu toggle comma")
 o.bind(
     "SUPER + SHIFT + G",
     "WhatsApp",
