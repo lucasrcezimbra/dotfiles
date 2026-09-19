@@ -23,9 +23,6 @@
 [diff "difft"]
 	command = difft --display side-by-side-show-both
 
-[gtr "ai"]
-	default = opencode
-
 [gtr "editor"]
 	default = nvim
 
