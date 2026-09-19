@@ -17,8 +17,6 @@
 [diff]
 	algorithm = histogram
 	colorMoved = default
-	mnemonicPrefix = true
-	noprefix = true
 
 [diff "difft"]
 	command = difft --display side-by-side-show-both
