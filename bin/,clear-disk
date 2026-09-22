@@ -24,6 +24,7 @@ confirm_and_run() {
 }
 
 confirm_and_run "Prune Docker system and images" "docker system prune && docker image prune"
-confirm_and_run "Delete Poetry cache" "rm -rf /home/finetune/.cache/pypoetry"
+confirm_and_run "Delete Poetry cache" "rm -rf \"$HOME/.cache/pypoetry\""
+confirm_and_run "Prune uv cache" "uv cache prune"
 confirm_and_run "Prune mise" "mise prune --yes"
 confirm_and_run "Clean unused cached pre-commit repos." "pre-commit gc"
