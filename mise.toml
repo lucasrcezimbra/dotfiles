@@ -32,6 +32,7 @@ tflint = "latest"
 uv = "0.12.15"
 mutagen = "latest"
 pnpm = "latest"
+"github:akitaonrails/ai-memory" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "terraform", "terragrunt"]
